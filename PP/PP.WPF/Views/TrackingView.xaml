@@ -1,0 +1,146 @@
+﻿<UserControl
+    x:Class="PP.WPF.Views.TrackingView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:PP.WPF.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+    xmlns:dxschv="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/visual"
+    xmlns:local="clr-namespace:PP.WPF.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loaded="TrackingView_OnLoaded"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:BooleanToIntegerConverter x:Key="BoolToIntConverter" />
+        <Style x:Key="LegendLabels" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Height" Value="10" />
+            <Setter Property="Margin" Value="0,0,20,0" />
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <WrapPanel Margin="10" HorizontalAlignment="Center">
+                <TextBlock Text="Prototipo " />
+                <Label Background="#32CD32" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Campionario " />
+                <Label Background="#FFFF33" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Preproduzione " />
+                <Label Background="#D3A0DD" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Svillupo Taglie " />
+                <Label Background="#00BFFF" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Schede Tehnice " />
+                <Label Background="#87CEFA" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Riparazione/Ass.Rep. " />
+                <Label Background="#FF3333" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Prove tecniche " />
+                <Label Background="#CD5C5C" Style="{StaticResource LegendLabels}" />
+
+            </WrapPanel>
+        </Grid>
+        <dxsch:SchedulerControl
+            Name="ProgrammersTimelineControl"
+            Grid.Row="1"
+            AllowAppointmentConflicts="False"
+            AllowAppointmentCopy="False"
+            AllowAppointmentCreate="False"
+            AllowAppointmentDelete="False"
+            AllowAppointmentDrag="False"
+            AllowAppointmentDragBetweenResources="False"
+            AllowAppointmentEdit="False"
+            AllowAppointmentMultiSelect="False"
+            AllowAppointmentResize="False"
+            AllowInplaceEditor="False"
+            AllowReminders="False"
+            FirstDayOfWeek="Monday"
+            GroupType="Resource"
+            ShowBorder="True"
+            WorkTime="08:00:00-18:00:00">
+
+            <dxsch:SchedulerControl.OptionsWindows>
+                <dxsch:OptionsWindows AppointmentWindowType="{x:Type local:EditTaskFormView}" />
+            </dxsch:SchedulerControl.OptionsWindows>
+            <dxsch:SchedulerControl.ResourceColors>
+                <Color>#e0e0e0</Color>
+
+            </dxsch:SchedulerControl.ResourceColors>
+            <dxsch:SchedulerControl.OptionsContextMenu>
+                <dxsch:OptionsContextMenu>
+                    <dxsch:OptionsContextMenu.TimeRulerContextMenu>
+                        <dxb:PopupMenu />
+                    </dxsch:OptionsContextMenu.TimeRulerContextMenu>
+                    <dxsch:OptionsContextMenu.CellContextMenu>
+                        <dxb:PopupMenu />
+                    </dxsch:OptionsContextMenu.CellContextMenu>
+                    <dxsch:OptionsContextMenu.AppointmentContextMenu>
+                        <dxb:PopupMenu />
+                    </dxsch:OptionsContextMenu.AppointmentContextMenu>
+                </dxsch:OptionsContextMenu>
+            </dxsch:SchedulerControl.OptionsContextMenu>
+
+            <dxsch:TimelineView x:Name="TimelineView" MoreButtonsVisibility="Never">
+                <dxsch:TimelineView.TimeScales>
+                    <dxsch:TimeScaleWorkHour x:Name="ScaleWorkHour" IsEnabled="True" />
+                </dxsch:TimelineView.TimeScales>
+                <dxsch:TimelineView.ResourceHeaderStyle>
+                    <Style TargetType="dxschv:ResourceHeaderControl">
+                        <Setter Property="ContentOrientation" Value="Horizontal" />
+                        <Setter Property="Background" Value="#323232" />
+                        <Setter Property="BorderBrush" Value="LightGray" />
+                        <Setter Property="BorderThickness" Value="4" />
+                        <Setter Property="Foreground" Value="#e0e0e0" />
+
+                    </Style>
+                </dxsch:TimelineView.ResourceHeaderStyle>
+
+            </dxsch:TimelineView>
+
+            <dxsch:SchedulerControl.DataSource>
+                <dxsch:DataSource
+                    AppointmentLabelsSource="{Binding Labels}"
+                    AppointmentStatusesSource="{Binding Statuses}"
+                    AppointmentsSource="{Binding ProgrammerProgresses}"
+                    ResourcesSource="{Binding KnittingProgrammers}">
+                    <dxsch:DataSource.AppointmentLabelMappings>
+                        <dxsch:AppointmentLabelMappings
+                            Caption="JobTypeName"
+                            Id="JobTypeID"
+                            Color="Color" />
+                    </dxsch:DataSource.AppointmentLabelMappings>
+                    <dxsch:DataSource.AppointmentStatusMappings>
+                        <dxsch:AppointmentStatusMappings
+                            Brush="StatusBrush"
+                            Caption="Caption"
+                            Id="Id" />
+                    </dxsch:DataSource.AppointmentStatusMappings>
+                    <dxsch:DataSource.AppointmentMappings>
+                        <dxsch:AppointmentMappings
+                            End="EndWork"
+                            Id="ProgrammerProgressID"
+                            LabelId="Progress.JobTypeID"
+                            ResourceId="Progress.ProgrammerID"
+                            Start="StartWork"
+                            StatusId="WorkLocationID"
+                            Subject="ArticleTitle">
+                            <dxsch:CustomFieldMapping Name="ArticleID" Mapping="Progress.ArticleID" />
+                        </dxsch:AppointmentMappings>
+                    </dxsch:DataSource.AppointmentMappings>
+                    <dxsch:DataSource.ResourceMappings>
+                        <dxsch:ResourceMappings Caption="Angajat" Id="Id" />
+                    </dxsch:DataSource.ResourceMappings>
+                </dxsch:DataSource>
+            </dxsch:SchedulerControl.DataSource>
+        </dxsch:SchedulerControl>
+    </Grid>
+</UserControl>

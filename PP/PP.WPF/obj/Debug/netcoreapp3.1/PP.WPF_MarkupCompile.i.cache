@@ -1,0 +1,20 @@
+﻿PP.WPF
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.WPF\obj\Debug\netcoreapp3.1\
+PP.WPF
+none
+false
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.WPF\App.xaml
+9-1521254522
+
+352051880877
+255755941754
+Controls\LoadingControl.xaml;Controls\NavigationBar.xaml;MainWindow.xaml;Styles\Common.xaml;Styles\NavigationBar.xaml;Views\EditTaskFormView.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\TrackingView.xaml;
+
+False
+

@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\OY.ico</ApplicationIcon>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="State\Navigators\**" />
+    <Compile Remove="Style\**" />
+    <EmbeddedResource Remove="State\Navigators\**" />
+    <EmbeddedResource Remove="Style\**" />
+    <None Remove="State\Navigators\**" />
+    <None Remove="Style\**" />
+    <Page Remove="State\Navigators\**" />
+    <Page Remove="Style\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Onlyou.png" />
+    <None Remove="Resources\OY.png" />
+    <None Remove="Views\down-arrow_icon-icons.com_73351.png" />
+    <None Remove="Views\up-arrow_icon-icons.com_73351.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Common.UI.WPF\Core.Common.UI.WPF.csproj" />
+    <ProjectReference Include="..\PP.Domain\PP.Domain.csproj" />
+    <ProjectReference Include="..\PP.EntityFramework\PP.EntityFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Mvvm" Version="20.2.3" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid" Version="20.2.3" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid.Core" Version="20.2.3" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Scheduling" Version="20.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Onlyou.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\OY.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

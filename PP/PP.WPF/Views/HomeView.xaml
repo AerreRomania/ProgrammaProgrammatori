@@ -1,0 +1,736 @@
+﻿<UserControl
+    x:Class="PP.WPF.Views.HomeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviours="clr-namespace:PP.WPF.Behaviors"
+    xmlns:converters="clr-namespace:PP.WPF.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:dxscht="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/themekeys"
+    xmlns:dxschv="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/visual"
+    xmlns:editGridForm="clr-namespace:PP.WPF.Views.EditGridForm"
+    xmlns:local="clr-namespace:PP.WPF.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:scheduling="http://schemas.devexpress.com/winfx/2008/xaml/scheduling"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Style x:Key="LegendLabels" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Height" Value="10" />
+            <Setter Property="Margin" Value="0,0,20,0" />
+        </Style>
+
+        <Style x:Key="ColumnHeaderStyle" TargetType="ContentControl">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+        </Style>
+
+        <Style x:Key="BaseHeaderStyle" TargetType="dxg:BaseGridHeader">
+            <Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />
+            <Setter Property="Background" Value="#323232" />
+        </Style>
+
+        <converters:BooleanToIntegerConverter x:Key="BoolToIntConverter" />
+
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <WrapPanel Margin="4" HorizontalAlignment="Center">
+                <TextBlock Text="Prototipo " />
+                <Label Background="#32CD32" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Campionario " />
+                <Label Background="#FFFF33" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Preproduzione " />
+                <Label Background="#D3A0DD" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Svillupo Taglie " />
+                <Label Background="#00BFFF" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Schede Tehnice " />
+                <Label Background="#87CEFA" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Riparazione/Ass.Rep. " />
+                <Label Background="#FF3333" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Prove tecniche " />
+                <Label Background="#CD5C5C" Style="{StaticResource LegendLabels}" />
+                <TextBlock Text="Vacanza " />
+                <Label Background="#A9A9A9" Style="{StaticResource LegendLabels}" />
+            </WrapPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+            </Grid.ColumnDefinitions>
+            <scheduling:SchedulerControl
+                Name="programmersTimelineControl"
+                Grid.Row="1"
+                Grid.Column="1"
+                AllowAppointmentConflicts="False"
+                AllowAppointmentCopy="False"
+                AllowInplaceEditor="False"
+                AppointmentEdited="ProgrammersTimelineControl_OnAppointmentEdited"
+                AppointmentRemoved="ProgrammersTimelineControl_OnAppointmentRemoved"
+                DropAppointment="ProgrammersTimelineControl_OnDropAppointment"
+                FirstDayOfWeek="Monday"
+                GroupType="Resource"
+                ResizeAppointmentOver="ProgrammersTimelineControl_OnResizeAppointmentOver"
+                ShowBorder="True"
+                StartAppointmentDragFromOutside="programmersTimelineControl_StartAppointmentDragFromOutside"
+                WorkDays="Monday,Tuesday,Wednesday,Thursday,Friday,Saturday"
+                WorkTime="08:00:00-18:00:00">
+
+                <scheduling:SchedulerControl.OptionsWindows>
+                    <scheduling:OptionsWindows AppointmentWindowType="{x:Type local:EditTaskFormView}" />
+                </scheduling:SchedulerControl.OptionsWindows>
+                <scheduling:SchedulerControl.ResourceColors>
+                    <Color>#e0e0e0</Color>
+
+                </scheduling:SchedulerControl.ResourceColors>
+
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand Command="{Binding SaveTaskCommand}" EventName="AppointmentAdded" />
+                    <dxmvvm:EventToCommand Command="{Binding ChangeTaskCommand}" EventName="AppointmentEdited" />
+                    <dxmvvm:EventToCommand Command="{Binding DeleteTaskCommand}" EventName="AppointmentRemoved" />
+                </dxmvvm:Interaction.Behaviors>
+
+                <scheduling:SchedulerControl.OptionsContextMenu>
+                    <scheduling:OptionsContextMenu>
+                        <scheduling:OptionsContextMenu.TimeRulerContextMenu>
+                            <dxb:PopupMenu />
+                        </scheduling:OptionsContextMenu.TimeRulerContextMenu>
+                        <scheduling:OptionsContextMenu.CellContextMenu>
+                            <dxb:PopupMenu>
+                                <!--<dxb:BarButtonItem
+                                    x:Name="Cell_NewAppointment"
+                                    Content="Create New Task"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Appointment_NewAppointment}}" />-->
+                                <dxb:BarItemLinkSeparator />
+                                <dxb:BarButtonItem x:Name="Cell_GotoToday" Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Navigate_GotoToday}}" />
+                                <dxb:BarButtonItem x:Name="Cell_GotoDate" Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Home_Navigate_GotoDate}}" />
+                                <dxb:BarItemLinkSeparator />
+                            </dxb:PopupMenu>
+                        </scheduling:OptionsContextMenu.CellContextMenu>
+                        <scheduling:OptionsContextMenu.AppointmentContextMenu>
+                            <dxb:PopupMenu>
+                                <dxb:BarButtonItem
+                                    x:Name="Appointment_Open"
+                                    Content="Edit Task"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Open}}" />
+                                <dxb:BarSubItem
+                                    x:Name="Appointment_ShowTimeAs"
+                                    Content="Task Status"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Options_ShowTimeAs}}" />
+
+                                <dxb:BarSubItem
+                                    x:Name="Appointment_LabelAs"
+                                    Content="Set Job Type"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Options_LabelAs}}" />
+                                <dxb:BarItemLinkSeparator />
+                                <dxb:BarButtonItem
+                                    x:Name="Appointment_Delete"
+                                    Content="Delete Task"
+                                    Style="{DynamicResource {dxscht:SchedulerCommandBarThemeKey ResourceKey=Items_Appointment_Actions_Delete}}" />
+                            </dxb:PopupMenu>
+                        </scheduling:OptionsContextMenu.AppointmentContextMenu>
+                    </scheduling:OptionsContextMenu>
+                </scheduling:SchedulerControl.OptionsContextMenu>
+
+                <scheduling:TimelineView x:Name="TimelineView" MoreButtonsVisibility="Never">
+
+                    <scheduling:TimelineView.TimeScales>
+                        <scheduling:TimeScaleWorkDay x:Name="scaleWorkDay" IsEnabled="True" />
+                        <!--<scheduling:TimeScaleWorkHour x:Name="scaleWorkHour" IsEnabled="True" />-->
+                    </scheduling:TimelineView.TimeScales>
+
+                    <scheduling:TimelineView.ResourceHeaderStyle>
+                        <Style TargetType="dxschv:ResourceHeaderControl">
+                            <Setter Property="ContentOrientation" Value="Horizontal" />
+                            <Setter Property="Background" Value="#323232" />
+                            <Setter Property="BorderBrush" Value="LightGray" />
+                            <Setter Property="BorderThickness" Value="4" />
+
+                            <Setter Property="Foreground" Value="#e0e0e0" />
+                            <Setter Property="Height" Value="41" />
+                        </Style>
+                    </scheduling:TimelineView.ResourceHeaderStyle>
+
+                </scheduling:TimelineView>
+
+                <scheduling:SchedulerControl.DataSource>
+                    <scheduling:DataSource
+                        AppointmentLabelsSource="{Binding Labels}"
+                        AppointmentStatusesSource="{Binding Statuses}"
+                        AppointmentsSource="{Binding ProgrammerTasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        ResourcesSource="{Binding KnittingProgrammers}">
+                        <scheduling:DataSource.AppointmentLabelMappings>
+                            <scheduling:AppointmentLabelMappings
+                                Caption="JobTypeName"
+                                Id="JobTypeID"
+                                Color="Color" />
+                        </scheduling:DataSource.AppointmentLabelMappings>
+                        <scheduling:DataSource.AppointmentStatusMappings>
+                            <scheduling:AppointmentStatusMappings
+                                Brush="StatusBrush"
+                                Caption="Caption"
+                                Id="Id" />
+                        </scheduling:DataSource.AppointmentStatusMappings>
+                        <scheduling:DataSource.AppointmentMappings>
+                            <scheduling:AppointmentMappings
+                                Description="Note"
+                                End="EndTask"
+                                Id="ProgrammerTaskID"
+                                LabelId="JobTypeID"
+                                ResourceId="ProgrammerID"
+                                Start="StartTask"
+                                StatusId="{scheduling:Mapping FieldName=TaskCompleted,
+                                                              ConversionBehavior=BetweenFieldAndMapping,
+                                                              Converter={StaticResource BoolToIntConverter}}"
+                                Subject="ArticleTitle">
+                                <scheduling:CustomFieldMapping Name="ArticleID" Mapping="ArticleID" />
+                            </scheduling:AppointmentMappings>
+                        </scheduling:DataSource.AppointmentMappings>
+                        <scheduling:DataSource.ResourceMappings>
+                            <scheduling:ResourceMappings Caption="Angajat" Id="Id" />
+                        </scheduling:DataSource.ResourceMappings>
+                    </scheduling:DataSource>
+                </scheduling:SchedulerControl.DataSource>
+            </scheduling:SchedulerControl>
+        </Grid>
+
+        <GridSplitter
+            Grid.Row="2"
+            Height="5"
+            HorizontalAlignment="Stretch" />
+
+        <DockPanel Grid.Row="3">
+
+
+            <StackPanel>
+                <Label
+                    Padding="5"
+                    Content="Filtro di colona"
+                    FontWeight="Black" />
+                <Button
+                    Name="ButtonTutti"
+                    Click="ButtonTutti_OnClick"
+                    Content="Tutti" />
+                <Button
+                    Name="ButtonPrincipale"
+                    Click="ButtonPrincipale_OnClick"
+                    Content="Principale" />
+                <Button
+                    Name="ButtonPrCa"
+                    Click="ButtonPrCa_OnClick"
+                    Content="PR/CA" />
+                <Button
+                    Name="ButtonScTec"
+                    Click="ButtonScTec_OnClick"
+                    Content="Sc. Tec." />
+                <Button
+                    Name="ButtonPP"
+                    Click="ButtonPP_OnClick"
+                    Content="PP" />
+                <Button
+                    Name="ButtonSviluppo"
+                    Click="ButtonSviluppo_OnClick"
+                    Content="Sviluppo" />
+                <Label
+                    Padding="5"
+                    HorizontalContentAlignment="Center"
+                    Content="Visualizzare"
+                    FontWeight="Black" />
+                <Button Content="In lavoro" />
+                <Button Content="Da fare" />
+                <Button Content="Finiti" />
+                <Button Content="Tutti" />
+            </StackPanel>
+
+
+
+            <dxg:GridControl
+                x:Name="GridArticles"
+                ItemsSource="{Binding PpArticles, Mode=TwoWay}"
+                SelectionMode="Row"
+                ShowBorder="True">
+
+                <dxg:GridControl.View>
+                    <editGridForm:GridTableView
+                        x:Name="TableArticles"
+                        AllowDragDrop="True"
+                        AllowEditing="True"
+                        AllowGrouping="False"
+                        AllowHorizontalScrollingVirtualization="True"
+                        AllowPerPixelScrolling="True"
+                        AllowSorting="False"
+                        AlternateRowBackground="#e0e0e0 "
+                        AlternationCount="2"
+                        AutoWidth="False"
+                        CompleteRecordDragDrop="TableArticles_OnCompleteRecordDragDrop"
+                        DragRecordOver="TableArticles_OnDragRecordOver"
+                        EditFormPostMode="Immediate"
+                        EditFormShowMode="Dialog"
+                        FadeSelectionOnLostFocus="False"
+                        HorizontalScrollbarVisibility="Visible"
+                        ShowGroupPanel="False"
+                        ShowIndicator="False"
+                        ShowingEditor="TableArticles_OnShowingEditor"
+                        StartRecordDrag="TableArticles_OnStartRecordDrag">
+                        <editGridForm:GridTableView.RowStyle>
+                            <Style TargetType="dxg:RowControl">
+                                <Style.Triggers>
+                                    <Trigger Property="SelectionState" Value="Focused">
+                                        <Setter Property="Background" Value="DarkGray" />
+                                        <!--<Setter Property="Foreground" Value="White" />-->
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </editGridForm:GridTableView.RowStyle>
+                    </editGridForm:GridTableView>
+
+                </dxg:GridControl.View>
+                <dxmvvm:Interaction.Behaviors>
+                    <behaviours:BestFitBehavior />
+                </dxmvvm:Interaction.Behaviors>
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn
+                        Width="50"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="Num"
+                        Fixed="Left"
+                        Header="NUM"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}"
+                        ReadOnly="True" />
+
+                    <dxg:GridColumn
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="Articolo"
+                        Fixed="Left"
+                        Header="ARTICOLO"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}"
+                        ReadOnly="True" />
+
+                    <dxg:GridColumn
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="Cliente"
+                        Fixed="Left"
+                        Header="CLIENTE"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnModel"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Model"
+                        Header="MODEL"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnFin"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="Fin"
+                        Header="FIN"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}"
+                        ReadOnly="True" />
+
+                    <!--<dxg:GridColumn FieldName="Descriere" Header="TIPO" />-->
+
+                    <dxg:GridColumn
+                        Name="ColumnProgrammerPR"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="ProgrammerPR"
+                        Header="NOME PROGRAMMER PR."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnDataArrivoSchedePr"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataArrivoSchedePr"
+                        Header="DATA ARRIVO SCHEDE PR."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnStartPr"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="StartPr"
+                        GroupInterval="DateRange"
+                        Header="DATA INIZIO PROTO"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnEndPr"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="EndPr"
+                        GroupInterval="DateRange"
+                        Header="DATA FINE PROTO"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnProgrammerCa"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="ProgrammerCa"
+                        Header="NOME PROGRAMMER CA. "
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnStartCa"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="StartCa"
+                        GroupInterval="DateRange"
+                        Header="DATA INIZIO CAMPIO"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnEndCa"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="EndCa"
+                        GroupInterval="DateRange"
+                        Header="DATA FINE CAMPIO"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnConfCamp"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="ConfCamp"
+                        GroupInterval="DateRange"
+                        Header="CONF. CAMP."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnDataArrivoFilo"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataArrivoFilo"
+                        GroupInterval="DateRange"
+                        Header="DATA ARRIVO FILO"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+
+                    <dxg:GridColumn
+                        Name="ColumnCapiPrevisti"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="CapiPrevisti"
+                        Header="CAPI PREVISTI"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnNrMach"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="NrMach"
+                        Header="NR. MACH."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnDataEntrataInProd"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataEntrataInProd"
+                        GroupInterval="DateRange"
+                        Header="DATA ENTRATA IN PROD. OLIMPIAS"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnDataArrivoSchema"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataArrivoSchema"
+                        GroupInterval="DateRange"
+                        Header="DATA ARRIVO TG.BASE/SCHEMA"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnDataInizioSvilTgBase"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataInizioSvilTgBase"
+                        GroupInterval="DateRange"
+                        Header="DATA INIZIO SVIL. TG. BASE"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnDataFineSvilTgBase"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataFineSvilTgBase"
+                        GroupInterval="DateRange"
+                        Header="DATA FINE SVIL. TG. BASE"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnGg1"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Gg1"
+                        GroupInterval="DateRange"
+                        Header="GG1"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnDataArrivoSchede"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataArrivoSchede"
+                        GroupInterval="DateRange"
+                        Header="DATA ARRIVO SCHEDE"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnDataArrivoDisco"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataArrivoDisco"
+                        GroupInterval="DateRange"
+                        Header="DATA ARRIVO DISCO"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnProgrammerPP"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="ProgrammerPP"
+                        Header="NOME PROGR. PP."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnStartPP"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="StartPP"
+                        GroupInterval="DateRange"
+                        Header="DATA INIZIO PP. PROGR."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnEndPP"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="EndPP"
+                        GroupInterval="DateRange"
+                        Header="DATA FINE SVIL. TG. PROGR."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+
+                    <dxg:GridColumn
+                        Name="ColumnGg2"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Gg2"
+                        GroupInterval="DateRange"
+                        Header="GG2"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+
+                    <dxg:GridColumn
+                        Name="ColumnOk"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Ok"
+                        GroupInterval="DateRange"
+                        Header="OK"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnGg3"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Gg3"
+                        GroupInterval="DateRange"
+                        Header="GG3"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnProgrammerSv"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="ProgrammerSv"
+                        Header="NOME PROGR. SV."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnStartSv"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="StartSv"
+                        GroupInterval="DateRange"
+                        Header="DATA INIZIO SVIL. TG. PROGR. "
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnEndSv"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
+                        FieldName="EndSv"
+                        GroupInterval="DateRange"
+                        Header="DATA FINE SVIL. TG. PROGR."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnDataInizioProd"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="DataInizioProd"
+                        GroupInterval="DateRange"
+                        Header="DATA INIZIO PROD."
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnGg4"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Gg4"
+                        GroupInterval="DateRange"
+                        Header="GG4"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:DateEditSettings DisplayFormat="d" />
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+
+                    <dxg:GridColumn
+                        Name="ColumnFinish"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Finish"
+                        Header="FINE"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnWeights"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Weights"
+                        Header="PESI X ITA"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnTime"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Time"
+                        Header="TEMP"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnConfPp"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="ConfPp"
+                        Header="CONF. PP"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnFinished"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Finished"
+                        Header="FINITO"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+
+                    <dxg:GridColumn
+                        Name="ColumnNote"
+                        Width="300"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        FieldName="Note"
+                        Header="NOTE"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
+                </dxg:GridControl.Columns>
+            </dxg:GridControl>
+        </DockPanel>
+    </Grid>
+</UserControl>

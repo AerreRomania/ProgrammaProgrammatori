@@ -1,0 +1,30 @@
+﻿<Application
+    x:Class="PP.WPF.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="clr-namespace:PP.WPF.ViewModels"
+    xmlns:views="clr-namespace:PP.WPF.Views">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Core.Common.UI.WPF;component/Themes/Core.Common.UI.WPF.xaml" />
+                <ResourceDictionary Source="/Styles/Common.xaml" />
+                <ResourceDictionary Source="/Styles/NavigationBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+                <views:HomeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:TrackingViewModel}">
+                <views:TrackingView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+                <views:LoginView LoginCommand="{Binding LoginCommand}" />
+            </DataTemplate>
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>

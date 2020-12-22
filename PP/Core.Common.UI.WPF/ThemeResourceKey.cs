@@ -1,0 +1,33 @@
+﻿namespace Core.Common.UI.WPF
+{
+    public enum ThemeResourceKey
+    {
+        ControlDisabledOpacity,
+        ControlDefaultBorder,
+        ControlMouseOverBorder,
+        ControlFocusBorder,
+        ListMouseOverBackground,
+        ListMouseOverBorder,
+        ListSelectedBackground,
+        ListSelectedBorder,
+        ListSelectedForeground,
+        WindowBorder,
+        WindowActiveBorder,
+        WindowControlMouseOverBackground,
+        WindowHeaderBackground,
+        WindowHeaderForeground,
+        ContentBackground,
+        ContentForeground,
+        ControlForeground,
+        ControlBackground,
+        ControlBorder,
+        ControlContentBackground,
+        ControlHighlightBackground,
+        ControlMouseOverBackground,
+        ControlPressedBackground,
+        ControlPressedBorder,
+        GlyphForeground,
+        GroupBoxHeaderBorder,
+        GroupBoxHeaderForeground
+    }
+}

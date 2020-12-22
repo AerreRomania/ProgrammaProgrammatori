@@ -1,0 +1,9 @@
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\bin\Debug\netcoreapp3.1\PP.Domain.deps.json
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\bin\Debug\netcoreapp3.1\PP.Domain.dll
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\bin\Debug\netcoreapp3.1\PP.Domain.pdb
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\obj\Debug\netcoreapp3.1\PP.Domain.csprojAssemblyReference.cache
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\obj\Debug\netcoreapp3.1\PP.Domain.AssemblyInfoInputs.cache
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\obj\Debug\netcoreapp3.1\PP.Domain.AssemblyInfo.cs
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\obj\Debug\netcoreapp3.1\PP.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\obj\Debug\netcoreapp3.1\PP.Domain.dll
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Domain\obj\Debug\netcoreapp3.1\PP.Domain.pdb

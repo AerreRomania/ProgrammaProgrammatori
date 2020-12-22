@@ -1,0 +1,31 @@
+﻿<Application
+    x:Class="PP.Chronometer.WPF.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:viewModels="clr-namespace:PP.Chronometer.WPF.ViewModels"
+    xmlns:views="clr-namespace:PP.Chronometer.WPF.Views"
+    ShutdownMode="OnMainWindowClose">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Core.Common.UI.WPF;component/Themes/Core.Common.UI.WPF.xaml" />
+                <ResourceDictionary Source="/Styles/Common.xaml" />
+                <ResourceDictionary Source="/Styles/NavigationBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModels:ChronometerViewModel}">
+                <views:ChronometerView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:AssignedTasksViewModel}">
+                <views:AssignedTasksView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:AssistanceTasksViewModel}">
+                <views:AssistanceTasksView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
+                <views:LoginView LoginCommand="{Binding LoginCommand}" />
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

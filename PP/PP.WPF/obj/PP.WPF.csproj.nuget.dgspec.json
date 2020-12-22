@@ -1,0 +1,252 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.WPF\\PP.WPF.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj",
+        "projectName": "Core.Common.UI.WPF",
+        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj",
+        "projectName": "PP.Domain",
+        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj",
+        "packagesPath": "C:\\Users\\Aleksandar Vuckovic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Aleksandar Vuckovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj",
+        "projectName": "PP.EntityFramework",
+        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj",
+        "packagesPath": "C:\\Users\\Aleksandar Vuckovic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Aleksandar Vuckovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj": {
+                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.1.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.WPF\\PP.WPF.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.WPF\\PP.WPF.csproj",
+        "projectName": "PP.WPF",
+        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.WPF\\PP.WPF.csproj",
+        "packagesPath": "C:\\Users\\Aleksandar Vuckovic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.WPF\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Aleksandar Vuckovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj": {
+                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj"
+              },
+              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj": {
+                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj"
+              },
+              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj": {
+                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "DevExpress.WindowsDesktop.Mvvm": {
+              "target": "Package",
+              "version": "[20.2.3, )"
+            },
+            "DevExpress.WindowsDesktop.Wpf.Grid": {
+              "target": "Package",
+              "version": "[20.2.3, )"
+            },
+            "DevExpress.WindowsDesktop.Wpf.Grid.Core": {
+              "target": "Package",
+              "version": "[20.2.3, )"
+            },
+            "DevExpress.WindowsDesktop.Wpf.Scheduling": {
+              "target": "Package",
+              "version": "[20.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+﻿PP.Chronometer.WPF
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Chronometer.WPF\obj\Debug\netcoreapp3.1\
+PP.Chronometer.WPF
+none
+false
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Chronometer.WPF\App.xaml
+92139674157
+
+35487886701
+252793205085
+Controls\LoadingControl.xaml;Controls\NavigationBar.xaml;MainWindow.xaml;Styles\Common.xaml;Styles\NavigationBar.xaml;Views\AssignedTasksView.xaml;Views\AssistanceTasksView.xaml;Views\ChronometerView.xaml;Views\LoginView.xaml;
+
+False
+

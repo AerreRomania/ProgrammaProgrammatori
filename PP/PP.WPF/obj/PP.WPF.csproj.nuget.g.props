@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Aleksandar Vuckovic\.nuget\packages\;C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.7.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="$([MSBuild]::EnsureTrailingSlash($(NuGetPackageFolders)))" />
+  </ItemGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\10.0.1</PkgNewtonsoft_Json>
+    <PkgDevExpress_WindowsDesktop_Wpf_Core Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Core)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.core\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Core>
+    <PkgDevExpress_WindowsDesktop_Wpf_Ribbon Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Ribbon)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.ribbon\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Ribbon>
+    <PkgDevExpress_WindowsDesktop_Wpf_LayoutControl Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_LayoutControl)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.layoutcontrol\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_LayoutControl>
+    <PkgDevExpress_WindowsDesktop_Wpf_Layout_Core Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Layout_Core)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.layout.core\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Layout_Core>
+    <PkgDevExpress_WindowsDesktop_Wpf_Grid_Core Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Grid_Core)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.grid.core\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Grid_Core>
+    <PkgDevExpress_WindowsDesktop_Wpf_DocumentViewer_Core Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_DocumentViewer_Core)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.documentviewer.core\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_DocumentViewer_Core>
+    <PkgDevExpress_WindowsDesktop_Wpf_Docking Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Docking)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.docking\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Docking>
+    <PkgDevExpress_WindowsDesktop_Wpf_Printing Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Printing)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.printing\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Printing>
+    <PkgDevExpress_WindowsDesktop_Wpf_Scheduling Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Scheduling)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.scheduling\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Scheduling>
+    <PkgDevExpress_WindowsDesktop_Wpf_RichEdit Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_RichEdit)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.richedit\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_RichEdit>
+    <PkgDevExpress_WindowsDesktop_Wpf_Grid_Printing Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Grid_Printing)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.grid.printing\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Grid_Printing>
+    <PkgDevExpress_WindowsDesktop_Wpf_ExpressionEditor Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_ExpressionEditor)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.expressioneditor\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_ExpressionEditor>
+    <PkgDevExpress_WindowsDesktop_Wpf_Grid Condition=" '$(PkgDevExpress_WindowsDesktop_Wpf_Grid)' == '' ">C:\Program Files (x86)\DevExpress 20.2\.NET Core Desktop Libraries\Offline Packages\devexpress.windowsdesktop.wpf.grid\20.2.3</PkgDevExpress_WindowsDesktop_Wpf_Grid>
+  </PropertyGroup>
+</Project>

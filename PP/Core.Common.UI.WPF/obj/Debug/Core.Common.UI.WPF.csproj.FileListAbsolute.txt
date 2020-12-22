@@ -1,0 +1,121 @@
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.dll
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.pdb
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csprojAssemblyReference.cache
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Core.Common.UI.WPF.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ButtonStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\System.Windows.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.cache
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.g.resources
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.Properties.Resources.resources
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csproj.GenerateResource.cache
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.dll
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.pdb
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Styles\CheckBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ComboBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Styles\GroupBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Styles\TextBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.lref
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.dll
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.pdb
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csprojAssemblyReference.cache
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Core.Common.UI.WPF.baml
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ButtonStyles.baml
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\CheckBoxStyles.baml
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ComboBoxStyles.baml
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\GroupBoxStyles.baml
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\TextBoxStyles.baml
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.baml
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.cache
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.lref
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\System.Windows.baml
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.g.resources
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.Properties.Resources.resources
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csproj.GenerateResource.cache
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.dll
+C:\Users\ukte\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.pdb
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.dll
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.pdb
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csprojAssemblyReference.cache
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Core.Common.UI.WPF.baml
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ButtonStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\CheckBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ComboBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\GroupBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\TextBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.cache
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.lref
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\System.Windows.baml
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.g.resources
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.Properties.Resources.resources
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csproj.GenerateResource.cache
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.dll
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.pdb
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.g.cs
+C:\Users\Aleksandar Vuckovic\Desktop\Ok2\Core.Common.UI.WPF\obj\Debug\Themes\Icons.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.g.cs
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Icons.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK\Core.Common.UI.WPF\obj\Debug\Themes\Production.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.dll
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.pdb
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csprojAssemblyReference.cache
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Core.Common.UI.WPF.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.g.cs
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.cache
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.lref
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ButtonStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Styles\CheckBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ComboBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Styles\GroupBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Icons.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Confezione.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Departments.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Production.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Styles\TextBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\System.Windows.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Stiro.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Tessitura.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.g.resources
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.Properties.Resources.resources
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csproj.GenerateResource.cache
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.dll
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.pdb
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ToggleButtonStyle.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\RisorseUmane.baml
+C:\Users\Aleksandar Vuckovic\Desktop\OK 2.0\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\ControlloGestione.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.dll
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\bin\Debug\Core.Common.UI.WPF.pdb
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csprojAssemblyReference.cache
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Core.Common.UI.WPF.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ToggleButtonStyle.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.g.cs
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.cache
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF_MarkupCompile.lref
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ButtonStyles.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Styles\CheckBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Styles\ComboBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Styles\GroupBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Icons.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Confezione.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\ControlloGestione.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Departments.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Production.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Styles\TextBoxStyles.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Styles\WindowStyles.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\System.Windows.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\RisorseUmane.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Stiro.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Themes\Tiles\Tessitura.baml
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.g.resources
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.Properties.Resources.resources
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csproj.GenerateResource.cache
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.csproj.CoreCompileInputs.cache
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.dll
+C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\Core.Common.UI.WPF\obj\Debug\Core.Common.UI.WPF.pdb

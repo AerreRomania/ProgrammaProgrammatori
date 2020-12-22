@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\OY.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Onlyou.png" />
+    <None Remove="Resources\OY.ico" />
+    <None Remove="Resources\OY.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Mvvm" Version="20.2.3" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid" Version="20.2.3" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid.Core" Version="20.2.3" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\Core.Common.UI.WPF\Core.Common.UI.WPF.csproj" />
+	  <ProjectReference Include="..\PP.Domain\PP.Domain.csproj" />
+    <ProjectReference Include="..\PP.EntityFramework\PP.EntityFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Onlyou.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\OY.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\OY.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+</Project>
