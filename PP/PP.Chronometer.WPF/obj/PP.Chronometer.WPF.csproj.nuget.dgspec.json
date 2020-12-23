@@ -1,27 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Chronometer.WPF\\PP.Chronometer.WPF.csproj": {}
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Chronometer.WPF\\PP.Chronometer.WPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj": {
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj",
+        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj",
         "projectName": "Core.Common.UI.WPF",
-        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj"
+        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj",
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
       },
       "frameworks": {
         "net48": {}
       }
     },
-    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Chronometer.WPF\\PP.Chronometer.WPF.csproj": {
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Chronometer.WPF\\PP.Chronometer.WPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Chronometer.WPF\\PP.Chronometer.WPF.csproj",
+        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Chronometer.WPF\\PP.Chronometer.WPF.csproj",
         "projectName": "PP.Chronometer.WPF",
-        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Chronometer.WPF\\PP.Chronometer.WPF.csproj",
+        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Chronometer.WPF\\PP.Chronometer.WPF.csproj",
         "packagesPath": "C:\\Users\\Aleksandar Vuckovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Chronometer.WPF\\obj\\",
+        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Chronometer.WPF\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
@@ -42,15 +47,16 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj": {
-                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj"
+              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj": {
+                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\Core.Common.UI.WPF\\Core.Common.UI.WPF.csproj"
               },
-              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj": {
-                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj"
+              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Domain\\PP.Domain.csproj": {
+                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Domain\\PP.Domain.csproj"
               },
-              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj": {
-                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj"
+              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj": {
+                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj"
               }
             }
           }
@@ -63,6 +69,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "DevExpress.WindowsDesktop.Mvvm": {
               "target": "Package",
@@ -95,18 +102,18 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj": {
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Domain\\PP.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Domain\\PP.Domain.csproj",
         "projectName": "PP.Domain",
-        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj",
+        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Domain\\PP.Domain.csproj",
         "packagesPath": "C:\\Users\\Aleksandar Vuckovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
@@ -127,6 +134,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -138,6 +146,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -153,18 +162,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj": {
+    "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj",
+        "projectUniqueName": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj",
         "projectName": "PP.EntityFramework",
-        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj",
+        "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.EntityFramework\\PP.EntityFramework.csproj",
         "packagesPath": "C:\\Users\\Aleksandar Vuckovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.EntityFramework\\obj\\",
+        "outputPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.EntityFramework\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
@@ -185,9 +194,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj": {
-                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\aleksandarvuck\\Programa-Programatori\\PP\\PP.Domain\\PP.Domain.csproj"
+              "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Domain\\PP.Domain.csproj": {
+                "projectPath": "C:\\Users\\Aleksandar Vuckovic\\source\\repos\\ProgrammaProgrammatori\\PP\\PP.Domain\\PP.Domain.csproj"
               }
             }
           }
@@ -200,6 +210,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -235,7 +246,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

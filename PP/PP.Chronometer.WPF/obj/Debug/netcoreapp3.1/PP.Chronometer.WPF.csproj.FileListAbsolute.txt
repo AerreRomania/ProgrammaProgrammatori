@@ -102,3 +102,4 @@ C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\P
 C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Chronometer.WPF\obj\Debug\netcoreapp3.1\PP.Chronometer.WPF.dll
 C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Chronometer.WPF\obj\Debug\netcoreapp3.1\PP.Chronometer.WPF.pdb
 C:\Users\Aleksandar Vuckovic\source\repos\aleksandarvuck\Programa-Programatori\PP\PP.Chronometer.WPF\obj\Debug\netcoreapp3.1\PP.Chronometer.WPF.genruntimeconfig.cache
+C:\Users\Aleksandar Vuckovic\Source\Repos\ProgrammaProgrammatori\PP\PP.Chronometer.WPF\bin\Debug\netcoreapp3.1\DevExpress.RichEdit.v20.2.Core.dll

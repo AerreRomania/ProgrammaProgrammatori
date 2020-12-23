@@ -75,7 +75,7 @@ namespace PP.EntityFramework.Services
                            where a.Id == articleId
                            select new ArticleGridColumns
                            {
-                               PPArticleID = articleDetails.FirstOrDefault(id => id.ArticleID == a.Id).Id,
+                               PPArticleID = articleDetails.FirstOrDefault(id => id.ArticleID == a.Id)?.Id,
                                Num = a.Id,
                                Articolo = a.Articol,
                                Model = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.MODEL,
