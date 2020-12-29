@@ -20,7 +20,6 @@
             <Setter Property="Height" Value="10" />
             <Setter Property="Margin" Value="0,0,20,0" />
         </Style>
-
     </UserControl.Resources>
 
     <Grid>
@@ -28,7 +27,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <WrapPanel Margin="10" HorizontalAlignment="Center">
@@ -46,7 +44,6 @@
                 <Label Background="#FF3333" Style="{StaticResource LegendLabels}" />
                 <TextBlock Text="Prove tecniche " />
                 <Label Background="#CD5C5C" Style="{StaticResource LegendLabels}" />
-
             </WrapPanel>
         </Grid>
         <dxsch:SchedulerControl
@@ -73,7 +70,6 @@
             </dxsch:SchedulerControl.OptionsWindows>
             <dxsch:SchedulerControl.ResourceColors>
                 <Color>#e0e0e0</Color>
-
             </dxsch:SchedulerControl.ResourceColors>
             <dxsch:SchedulerControl.OptionsContextMenu>
                 <dxsch:OptionsContextMenu>
@@ -100,10 +96,8 @@
                         <Setter Property="BorderBrush" Value="LightGray" />
                         <Setter Property="BorderThickness" Value="4" />
                         <Setter Property="Foreground" Value="#e0e0e0" />
-
                     </Style>
                 </dxsch:TimelineView.ResourceHeaderStyle>
-
             </dxsch:TimelineView>
 
             <dxsch:SchedulerControl.DataSource>

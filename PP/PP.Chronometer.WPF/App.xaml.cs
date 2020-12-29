@@ -1,15 +1,14 @@
-﻿using System;
-using System.Windows;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using PP.Chronometer.WPF.State.Authenticators;
 using PP.Chronometer.WPF.State.Navigator;
 using PP.Chronometer.WPF.ViewModels;
 using PP.Chronometer.WPF.ViewModels.Factories;
 using PP.Domain.Services;
 using PP.Domain.Services.AuthenticationServices;
-using PP.Domain.Services.TransactionServices;
 using PP.EntityFramework;
 using PP.EntityFramework.Services;
+using System;
+using System.Windows;
 
 namespace PP.Chronometer.WPF
 {
@@ -27,7 +26,6 @@ namespace PP.Chronometer.WPF
             base.OnStartup(e);
         }
 
-
         private static IServiceProvider CreateServiceProvider()
         {
             IServiceCollection services = new ServiceCollection();
@@ -40,15 +38,13 @@ namespace PP.Chronometer.WPF
             services.AddSingleton<IArticleService, ArticleDataService>();
             services.AddSingleton<ITaskService, TaskDataService>();
             services.AddSingleton<IJobTypeService, JobTypeDataService>();
-            services.AddSingleton<IPPArticleService, PPArticleDataService>();
             services.AddSingleton<IProgrammerJobService, ProgrammerJobDataService>();
-
 
             services.AddSingleton<IChronoViewModelFactory, ChronoViewModelFactory>();
             services.AddSingleton<AssistanceTasksViewModel>();
             services.AddSingleton<AssignedTasksViewModel>();
-            services.AddSingleton(serviceProvider=> new ChronometerViewModel(serviceProvider.GetRequiredService<IProgrammerJobService>()));
-        
+            services.AddSingleton(serviceProvider => new ChronometerViewModel(serviceProvider.GetRequiredService<IProgrammerJobService>()));
+
             services.AddSingleton<LoginViewModel>();
 
             services.AddSingleton<CreateViewModel<ChronometerViewModel>>(serviceProvider => serviceProvider.GetRequiredService<ChronometerViewModel>);
@@ -65,17 +61,13 @@ namespace PP.Chronometer.WPF
                     serviceProvider.GetRequiredService<ViewModelDelegateRenavigator<AssignedTasksViewModel>>());
             });
 
-
-
             services.AddScoped<INavigator, Navigator>();
             services.AddScoped<IAuthenticator, Authenticator>();
 
             services.AddScoped<MainViewModel>();
             services.AddScoped(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
-
             return services.BuildServiceProvider();
         }
-
     }
 }

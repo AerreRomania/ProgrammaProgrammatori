@@ -64,7 +64,6 @@
                             Style="{DynamicResource WindowButtonStyle}">
                             <controls:XamlImage Template="{DynamicResource Icon_Theme}" />
                         </Button>-->
-
                     </DockPanel>
                 </Grid>
                 <Grid Grid.Row="1">

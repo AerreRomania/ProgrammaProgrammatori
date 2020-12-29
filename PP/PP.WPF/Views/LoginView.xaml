@@ -26,7 +26,6 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-
             </Grid.RowDefinitions>
             <Image
                 Grid.Row="0"
@@ -45,8 +44,6 @@
                 FontSize="19"
                 FontWeight="Thin"
                 Text="Programa Programatori" />
-
-
 
             <Grid
                 Grid.Row="2"
@@ -89,8 +86,6 @@
                         x:Name="pbPassword"
                         Grid.Column="1"
                         Margin="20,0,0,0" />
-
-
                 </Grid>
                 <TextBlock
                     Name="ErrorMessage"
@@ -116,7 +111,6 @@
                     FontSize="17"
                     FontWeight="Thin"
                     IsDefault="True" />
-
             </Grid>
             <Border
                 Grid.Row="2"

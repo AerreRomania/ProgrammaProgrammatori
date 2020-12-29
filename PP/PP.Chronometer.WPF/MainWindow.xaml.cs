@@ -12,6 +12,5 @@ namespace PP.Chronometer.WPF
             InitializeComponent();
             DataContext = dataContext;
         }
-
     }
 }

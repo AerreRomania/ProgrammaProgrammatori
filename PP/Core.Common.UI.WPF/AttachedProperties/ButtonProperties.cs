@@ -5,6 +5,7 @@ namespace Core.Common.UI.WPF.AttachedProperties
     public static class ButtonProperties
     {
         #region CornerRadius (Attached Property)
+
         /// <summary>
         /// Identifies the CornerRadius property.
         /// </summary>
@@ -30,6 +31,7 @@ namespace Core.Common.UI.WPF.AttachedProperties
         {
             obj.SetValue(CornerRadiusProperty, value);
         }
-        #endregion
+
+        #endregion CornerRadius (Attached Property)
     }
 }

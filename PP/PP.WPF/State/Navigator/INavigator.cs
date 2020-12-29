@@ -1,5 +1,5 @@
-﻿using System;
-using PP.WPF.ViewModels;
+﻿using PP.WPF.ViewModels;
+using System;
 
 namespace PP.WPF.State.Navigator
 {
@@ -8,11 +8,12 @@ namespace PP.WPF.State.Navigator
         Login,
         Home,
         Tracking
-   
     }
+
     public interface INavigator
     {
         ViewModelBase CurrentViewModel { get; set; }
+
         event Action StateChanged;
     }
 }

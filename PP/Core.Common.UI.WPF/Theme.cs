@@ -23,6 +23,7 @@ namespace Core.Common.UI.WPF
                 return _resourceDictionary;
             }
         }
+
         public static ThemeType ThemeType { get; set; } = ThemeType.Light;
 
         public static void LoadThemeType(ThemeType type)
@@ -94,7 +95,6 @@ namespace Core.Common.UI.WPF
                     {
                         new GradientStop { Offset = 0, Color = ColorFromHex("#0B0D17")},
                         new GradientStop { Offset = 1, Color = ColorFromHex("#0B0D17") }
-                     
                     }
             };
         }

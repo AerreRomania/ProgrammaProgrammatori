@@ -1,7 +1,6 @@
 ﻿using PP.Domain.Columns;
 using PP.Domain.Models;
 using PP.Domain.Services;
-using PP.Domain.Services.TransactionServices;
 using PP.WPF.Commands;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +23,7 @@ namespace PP.WPF.ViewModels
         private readonly IArticleService _articleService;
         private readonly IEmployeeService _employeeService;
         private readonly ITaskService _taskService;
-        private readonly IPPArticleService _ppArticleService;
+        private readonly IArticleDetailsService _articleDetailsService;
 
         public ObservableCollection<JobType> Labels { get; set; }
         public ObservableCollection<TaskStatus> Statuses { get; set; }
@@ -39,6 +38,7 @@ namespace PP.WPF.ViewModels
             "Schede Tehnice",
             "Riparazione/Ass.Rep.",
             "Prove tecniche",
+            "Controcampione",
             "Vacanza"
         };
 
@@ -52,28 +52,32 @@ namespace PP.WPF.ViewModels
             Color.FromRgb(135, 206, 250),
             Color.FromRgb(255, 51, 51),
             Color.FromRgb(205,92,92),
+            Color.FromRgb(173, 216, 230),
             Color.FromRgb(169,169,169),
-
         };
 
         public static string[] States = { "In Progress", "Finished" };
         public static Brush[] BrushStates = { new LinearGradientBrush(Colors.Green, Colors.Yellow, 45.0), new SolidColorBrush(Colors.Red) };
 
-
-
         public HomeViewModel(IArticleService articleService,
                              IEmployeeService employeeService,
                              ITaskService taskService,
-                             IPPArticleService ppArticleService)
+                              IArticleDetailsService articleDetailsService)
         {
             _articleService = articleService;
             _employeeService = employeeService;
             _taskService = taskService;
-            _ppArticleService = ppArticleService;
+            _articleDetailsService = articleDetailsService;
+         
 
             SaveTaskCommand = new SaveTaskCommand(this, taskService);
             ChangeTaskCommand = new ChangeTaskCommand(this, _taskService);
             DeleteTaskCommand = new DeleteTaskCommand(this, _taskService);
+            InProgressCommand = new InProgressCommand(this, _articleService, _articleDetailsService, _taskService);
+            ToDoCommand = new ToDoCommand(this, _articleService, _articleDetailsService, _taskService);
+            FinishedCommand = new FinishedCommand(this, _articleService, _articleDetailsService, _taskService);
+            AllCommand = new AllCommand(this, _articleService, _articleDetailsService, _taskService);
+
             Labels = CreateLabels();
             Statuses = CreateStates();
             GetEmployees();
@@ -103,47 +107,49 @@ namespace PP.WPF.ViewModels
 
         private ArticleGridColumns AddArticleDetails(ArticleGridColumns articleDetails)
         {
-            ProgrammaProgramatoriArticle article;
+            ArticleDetails article;
 
-            var articleDetailId = articleDetails.PPArticleID ?? 0;
+            var articleDetailId = articleDetails.ArticleDeatilsID ?? 0;
 
-            article = new ProgrammaProgramatoriArticle
+            article = new ArticleDetails
             {
                 Id = articleDetailId,
-                MODEL = articleDetails.Model,
-                DATA_ARRIVO_SCHEDE_PR = articleDetails.DataArrivoSchedePr,
-                CONF_CAMP = articleDetails.ConfCamp,
-                NR_MACH = articleDetails.NrMach,
-                DATA_ENTRATA_IN_PROD = articleDetails.DataEntrataInProd,
-                DATA_ARRIVO_SCHEMA = articleDetails.DataArrivoSchema,
-                DATA_INIZIO_SVIL_TG_BASE = articleDetails.DataInizioSvilTgBase,
-                DATA_FINE_SVIL_TG_BASE = articleDetails.DataFineSvilTgBase,
-                GG1 = articleDetails.Gg1,
-                DATA_ARRIVO_SCHEDE = articleDetails.DataArrivoSchede,
-                DATA_ARRIVO_DISCO = articleDetails.DataArrivoDisco,
-                GG2 = articleDetails.Gg2,
-                GG3 = articleDetails.Gg3,
-                DATA_INIZIO_PROD = articleDetails.DataInizioProd,
-                GG4 = articleDetails.Gg4,
-                TOT_GG = articleDetails.TotGg,
-                INIZ_FINE = articleDetails.Finish,
-                PESI_X_ITA = articleDetails.Weights,
-                TEMP = articleDetails.Time,
-                CONF_PP = articleDetails.ConfPp,
-                ArticleID = articleDetails.Num,
-                Finished = articleDetails.Finished
+                MachineNumber = articleDetails.MachineNumber,
+                CapiPrevisti = articleDetails.CapiPrevisti,
+                DataInizioProd = articleDetails.DataInizioProd,
+                Notes = articleDetails.Notes,
+                DataArrSchedePr = articleDetails.DataArrivoSchedePr,
+                DataConsegnaPr = articleDetails.DataConsegnaProt,
+                DataArrSchedeCa = articleDetails.DataArrSchedaCa,
+                DataConsegnaCa = articleDetails.DataConsegnaCa,
+                DataArrTagliaBase = articleDetails.DataArrivoTagliaBase,
+                DataArrInzioTagliaBase = articleDetails.DataArrivoInzioTagliaBase,
+                DataArrFineTagliaBase = articleDetails.DataArrivoFineTagliaBase,
+                DataArrSchedeCo = articleDetails.DataArrivoSchedaCo,
+                DataConsegnaCo = articleDetails.DataConsegnaCo,
+                DataArrSchedaDisco = articleDetails.DataArrivoSchedaDisco,
+                DiffGGProdData = articleDetails.DiffGGProdData,
+                DiffGGProgData = articleDetails.DiffGGProgData,
+                DataConsegnaPP = articleDetails.DataConsegnaPP,
+                GG1 = articleDetails.GG1,
+                Ok = articleDetails.Ok,
+                DataFineSvilTgBase = articleDetails.DataFineSvilTgBase,
+                DataInizioSvilTgBase = articleDetails.DataInizioSvilTgBase,
+                GG2 = articleDetails.GG2,
+                Finish = articleDetails.Finish,
+                ArticleID = articleDetails.Num
             };
 
             Task.Run(async () =>
                 {
                     if (article.Id == 0)
                     {
-                        article = await _ppArticleService.Create(article);
-                        articleDetails.PPArticleID = article.Id;
+                        article = await _articleDetailsService.Create(article);
+                        articleDetails.ArticleDeatilsID = article.Id;
                     }
                     else
                     {
-                        article = await _ppArticleService.Update(article.Id, article);
+                        article = await _articleDetailsService.Update(article.Id, article);
                     }
                 });
 
@@ -187,6 +193,7 @@ namespace PP.WPF.ViewModels
         }
 
         private ProgrammerTask _programmerTask;
+
         public ProgrammerTask ProgrammerTask
         {
             get => _programmerTask;
@@ -194,7 +201,6 @@ namespace PP.WPF.ViewModels
             {
                 _programmerTask = value;
                 OnPropertyChanged(nameof(ProgrammerTask));
-
             }
         }
 
@@ -204,7 +210,7 @@ namespace PP.WPF.ViewModels
 
             if (gridRow?.Num != null)
             {
-                var articleRow = Task.Run(() => GetArticleRow((int) gridRow.Num)).Result;
+                var articleRow = Task.Run(() => GetArticleRow((int)gridRow.Num)).Result;
 
                 if (articleRow != null)
                 {
@@ -223,6 +229,7 @@ namespace PP.WPF.ViewModels
         }
 
         private ObservableCollection<ProgrammerTask> _programmerTasks;
+
         public ObservableCollection<ProgrammerTask> ProgrammerTasks
         {
             get => _programmerTasks;
@@ -234,6 +241,7 @@ namespace PP.WPF.ViewModels
         }
 
         private IEnumerable<Angajati> _knittingProgrammers;
+
         public IEnumerable<Angajati> KnittingProgrammers
         {
             get => _knittingProgrammers;
@@ -245,12 +253,12 @@ namespace PP.WPF.ViewModels
         }
 
         private ObservableCollection<Articole> _articles;
+
         public ObservableCollection<Articole> Articles
         {
             get => _articles;
             set
             {
-
                 _articles = value;
                 OnPropertyChanged(nameof(Articles));
             }
@@ -271,7 +279,6 @@ namespace PP.WPF.ViewModels
         public ICommand SaveTaskCommand { get; set; }
         public ICommand ChangeTaskCommand { get; set; }
         public ICommand DeleteTaskCommand { get; set; }
-
 
         public bool GetTasks()
         {
@@ -306,6 +313,13 @@ namespace PP.WPF.ViewModels
 
             return false;
         }
+
+        public ICommand InProgressCommand { get; set; }
+        public ICommand ToDoCommand { get; set; }
+        public ICommand FinishedCommand { get; set; }
+        public ICommand AllCommand { get; set; }
+
+
         public void GetArticles()
 
         {
@@ -316,66 +330,62 @@ namespace PP.WPF.ViewModels
 
                 IEnumerable<Articole> articles = await _articleService.GetAll();
                 IEnumerable<ProgrammerTask> programerTasks = await _taskService.GetAll();
-                IEnumerable<ProgrammaProgramatoriArticle> ppArticles = await _ppArticleService.GetAll();
+                IEnumerable<ArticleDetails> ppArticles = await _articleDetailsService.GetAll();
 
-                var programmerTasks = programerTasks as ProgrammerTask[] ?? programerTasks.ToArray();
-                var ppValues = ppArticles as ProgrammaProgramatoriArticle[] ?? ppArticles.ToArray();
+                var tasks = programerTasks as ProgrammerTask[] ?? programerTasks.ToArray();
+                var articleDetails = ppArticles as ArticleDetails[] ?? ppArticles.ToArray();
                 var articoles = articles as Articole[] ?? articles.ToArray();
 
                 var mergedData =
                     from a in articoles
                     select new ArticleGridColumns
                     {
-                        PPArticleID = ppValues.FirstOrDefault(id => id.ArticleID == a.Id)?.Id,
+                        ArticleDeatilsID = articleDetails.FirstOrDefault(id => id.ArticleID == a.Id)?.Id,
                         Num = a.Id,
                         Articolo = a.Articol,
-                        Model = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.MODEL,
-                        Fin = a.Finete,
+                        Finezza = a.Finete,
+                        MachineNumber = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.MachineNumber,
+                        CapiPrevisti = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.CapiPrevisti,
+                        DataInizioProd = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataInizioProd,
+                        Notes = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Notes,
 
-                        ProgrammerPR = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.Programmer.Angajat,
-                        DataArrivoSchedePr = ppValues.FirstOrDefault(id => id.ArticleID == a.Id)?.DATA_ARRIVO_SCHEDE_PR,
-                        StartPr = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.StartTask,
-                        EndPr = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.EndTask,
+                        DataArrivoSchedePr = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedePr,
+                        ProgrammerPR = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.Programmer.Angajat,
+                        StartPr = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.StartTask,
+                        EndPr = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.EndTask,
+                        DataConsegnaProt = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaPr,
 
-                        ProgrammerCa = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.Programmer.Angajat,
-                        StartCa = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.StartTask,
-                        EndCa = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.EndTask,
+                        DataArrSchedaCa = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedeCa,
+                        ProgrammerCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.Programmer.Angajat,
+                        StartCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.StartTask,
+                        EndCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.EndTask,
+                        DataConsegnaCa = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaCa,
 
-                        ConfCamp = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.CONF_CAMP,
-                        DataArrivoFilo = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ARRIVO_FILO,
-                        CapiPrevisti = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.CAPI_PREVISTI,
-                        NrMach = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.NR_MACH,
-                        DataEntrataInProd = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ENTRATA_IN_PROD,
-                        DataArrivoSchema = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ARRIVO_SCHEMA,
-                        DataInizioSvilTgBase = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_INIZIO_SVIL_TG_BASE,
-                        DataFineSvilTgBase = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_FINE_SVIL_TG_BASE,
-                        Gg1 = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.GG1,
-                        DataArrivoSchede = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ARRIVO_SCHEDE,
-                        DataArrivoDisco = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ARRIVO_DISCO,
+                        DataArrivoTagliaBase = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrTagliaBase,
+                        DataArrivoInzioTagliaBase = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrInzioTagliaBase,
+                        DataArrivoFineTagliaBase = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrFineTagliaBase,
 
-                        ProgrammerPP = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.Programmer.Angajat,
-                        StartPP = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.StartTask,
-                        EndPP = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.EndTask,
+                        DataArrivoSchedaCo = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedeCo,
+                        ProgrammerCo = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 8)?.Programmer.Angajat,
+                        StartCo = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 8)?.StartTask,
+                        EndCo = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 8)?.EndTask,
+                        DataConsegnaCo = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaCo,
 
-                        Gg2 = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.GG2,
-                        Ok = "OK",
-                        Gg3 = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.GG3,
+                        DataArrivoSchedaDisco = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedaDisco,
+                        ProgrammerPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.Programmer.Angajat,
+                        DiffGGProdData = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DiffGGProdData,
+                        DiffGGProgData = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DiffGGProgData,
+                        StartPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.StartTask,
+                        EndPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.EndTask,
 
-                        ProgrammerSv = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.Programmer.Angajat,
-                        StartSv = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.StartTask,
-                        EndSv = programmerTasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.EndTask,
-
-                        DataInizioProd = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_INIZIO_PROD,
-                        Gg4 = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.GG4,
-                        TotGg = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.TOT_GG,
-                        Finish = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.INIZ_FINE,
-                        Weights = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.PESI_X_ITA,
-                        Time = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.TEMP,
-                        ConfPp = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.CONF_PP,
-                        Note = a.Note,
-                        Finished = ppValues.FirstOrDefault(i => i.ArticleID == a.Id)?.Finished
+                        DataConsegnaPP = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaPP,
+                        GG1 = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.GG1,
+                        Ok = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Ok,
+                        ProgrammerSvTg = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.Programmer.Angajat,
+                        DataInizioSvilTgBase = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.StartTask,
+                        DataFineSvilTgBase = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.EndTask,
+                        Finish = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Finish,
                     };
-
 
                 foreach (var article in mergedData)
                 {
@@ -388,6 +398,7 @@ namespace PP.WPF.ViewModels
                 }
             });
         }
+
         private void GetEmployees()
         {
             Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers(); });

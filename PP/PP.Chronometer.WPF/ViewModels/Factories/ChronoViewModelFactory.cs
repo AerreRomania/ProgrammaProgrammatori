@@ -1,5 +1,5 @@
-﻿using System;
-using PP.Chronometer.WPF.State.Navigator;
+﻿using PP.Chronometer.WPF.State.Navigator;
+using System;
 
 namespace PP.Chronometer.WPF.ViewModels.Factories
 {
@@ -10,11 +10,10 @@ namespace PP.Chronometer.WPF.ViewModels.Factories
         private readonly CreateViewModel<AssistanceTasksViewModel> _createAssistanceTasksViewModel;
         private readonly CreateViewModel<AssignedTasksViewModel> _createAssignedTasksViewModel;
 
-
         public ChronoViewModelFactory(
-            CreateViewModel<ChronometerViewModel> createChronometerViewModel, 
-            CreateViewModel<LoginViewModel> createLoginViewModel, 
-            CreateViewModel<AssistanceTasksViewModel> createAssistanceTasksViewModel, 
+            CreateViewModel<ChronometerViewModel> createChronometerViewModel,
+            CreateViewModel<LoginViewModel> createLoginViewModel,
+            CreateViewModel<AssistanceTasksViewModel> createAssistanceTasksViewModel,
             CreateViewModel<AssignedTasksViewModel> createAssignedTasksViewModel)
         {
             _createChronometerViewModel = createChronometerViewModel;
@@ -32,8 +31,10 @@ namespace PP.Chronometer.WPF.ViewModels.Factories
 
                 case ViewType.Chronometer:
                     return _createChronometerViewModel();
+
                 case ViewType.Assigned:
                     return _createAssignedTasksViewModel();
+
                 case ViewType.Assistance:
                     return _createAssistanceTasksViewModel();
 

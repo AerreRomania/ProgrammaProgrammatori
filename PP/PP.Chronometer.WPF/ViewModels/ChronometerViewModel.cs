@@ -1,8 +1,8 @@
-﻿using System.Windows.Input;
-using PP.Chronometer.WPF.Commands;
+﻿using PP.Chronometer.WPF.Commands;
 using PP.Domain.Columns;
 using PP.Domain.Models;
 using PP.Domain.Services;
+using System.Windows.Input;
 
 namespace PP.Chronometer.WPF.ViewModels
 {
@@ -25,6 +25,7 @@ namespace PP.Chronometer.WPF.ViewModels
         public bool ButtonMachine { get; set; }
 
         private bool _buttonStart = true;
+
         public bool ButtonStart
         {
             get => _buttonStart;
@@ -36,22 +37,25 @@ namespace PP.Chronometer.WPF.ViewModels
         }
 
         public MessageViewModel StatusMessageViewModel { get; }
+
         public string StatusMessage
         {
             set => StatusMessageViewModel.Message = value;
         }
+
         public MessageViewModel ErrorMessageViewModel { get; }
+
         public string ErrorMessage
         {
             set => ErrorMessageViewModel.Message = value;
         }
-
 
         public ICommand StartJobCommand
         {
             get;
             set;
         }
+
         public ICommand StopJobCommand
         {
             get;

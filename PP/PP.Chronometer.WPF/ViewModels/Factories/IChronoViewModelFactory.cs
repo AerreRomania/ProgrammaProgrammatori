@@ -1,5 +1,4 @@
-﻿
-using PP.Chronometer.WPF.State.Navigator;
+﻿using PP.Chronometer.WPF.State.Navigator;
 
 namespace PP.Chronometer.WPF.ViewModels.Factories
 {

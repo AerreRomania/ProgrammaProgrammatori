@@ -353,5 +353,4 @@
         </Style.Triggers>
     </Style>
     <Style BasedOn="{StaticResource ComboBoxStyle}" TargetType="{x:Type ComboBox}" />
-
 </ResourceDictionary>

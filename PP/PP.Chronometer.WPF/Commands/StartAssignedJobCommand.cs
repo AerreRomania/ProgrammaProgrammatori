@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using PP.Chronometer.WPF.ViewModels;
+﻿using PP.Chronometer.WPF.ViewModels;
 using PP.Domain.Models;
 using PP.Domain.Services;
+using System;
+using System.Threading.Tasks;
 
 namespace PP.Chronometer.WPF.Commands
 {
@@ -54,13 +54,11 @@ namespace PP.Chronometer.WPF.Commands
                         _viewModel.StartedJob = await _programmerJobService.Create(programerJob);
                         _viewModel.ButtonStart = false;
                         _viewModel.StatusMessage = $"Task {_viewModel.SelectedRow.ArticleHeader} started successfully";
-                  
                     }
                 }
                 else if (_viewModel.StartedJob.ProgrammerProgressID != 0 && _viewModel.StartedJob.EndWork == null)
                 {
                     _viewModel.ErrorMessage = "Finish current job";
-             
                 }
             }
             catch (Exception exception)
@@ -69,7 +67,5 @@ namespace PP.Chronometer.WPF.Commands
                 throw;
             }
         }
-
-
     }
 }

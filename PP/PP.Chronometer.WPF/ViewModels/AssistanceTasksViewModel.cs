@@ -1,10 +1,10 @@
-﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using PP.Chronometer.WPF.Commands;
+﻿using PP.Chronometer.WPF.Commands;
 using PP.Chronometer.WPF.State.Authenticators;
 using PP.Domain.Columns;
 using PP.Domain.Services;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PP.Chronometer.WPF.ViewModels
 {
@@ -22,6 +22,7 @@ namespace PP.Chronometer.WPF.ViewModels
         }
 
         private ObservableCollection<ProgrammerGridColumns> _programmerTasks;
+
         public ObservableCollection<ProgrammerGridColumns> ProgrammerTasks
         {
             get => _programmerTasks;
@@ -31,7 +32,9 @@ namespace PP.Chronometer.WPF.ViewModels
                 OnPropertyChanged(nameof(ProgrammerTasks));
             }
         }
+
         private ObservableCollection<ProgrammerGridColumns> _finishedProgrammerTasks;
+
         public ObservableCollection<ProgrammerGridColumns> FinishedProgrammerTasks
         {
             get => _finishedProgrammerTasks;
@@ -41,6 +44,7 @@ namespace PP.Chronometer.WPF.ViewModels
                 OnPropertyChanged(nameof(FinishedProgrammerTasks));
             }
         }
+
         public ProgrammerGridColumns SelectedRow { get; set; }
 
         public ICommand OpenChronometerCommand
@@ -61,14 +65,10 @@ namespace PP.Chronometer.WPF.ViewModels
                 {
                     _programmerTasks.Add(task);
                 }
-
-              
             });
             Task.Run(async () =>
             {
-             
-
-                var finishedTasks = await _taskService.GetAllAssigned(_authenticator.CurrentUser.Id,true);
+                var finishedTasks = await _taskService.GetAllAssigned(_authenticator.CurrentUser.Id, true);
                 foreach (var finishedTask in finishedTasks)
                 {
                     _finishedProgrammerTasks.Add(finishedTask);

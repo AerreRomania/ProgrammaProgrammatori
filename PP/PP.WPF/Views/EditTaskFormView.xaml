@@ -39,7 +39,11 @@
                                 Width="150"
                                 DockPanel.Dock="Left"
                                 Style="{DynamicResource {dxscht:AppointmentWindowThemeKey ResourceKey=Editor_StartDate}}" />
-
+                            <dxe:TextEdit
+                                x:Name="editorStartTime"
+                                Margin="4,0,0,0"
+                                DockPanel.Dock="Left"
+                                Style="{DynamicResource {dxscht:AppointmentWindowThemeKey ResourceKey=Editor_StartTime}}" />
                         </DockPanel>
                     </dxlc:LayoutItem>
                     <!--  End  -->
@@ -50,11 +54,13 @@
                                 Width="150"
                                 DockPanel.Dock="Left"
                                 Style="{DynamicResource {dxscht:AppointmentWindowThemeKey ResourceKey=Editor_EndDate}}" />
-
+                            <dxe:TextEdit
+                                x:Name="editorEndTime"
+                                Margin="4,0,0,0"
+                                DockPanel.Dock="Left"
+                                Style="{DynamicResource {dxscht:AppointmentWindowThemeKey ResourceKey=Editor_EndTime}}" />
                         </DockPanel>
                     </dxlc:LayoutItem>
-
-
 
                     <dxlc:LayoutItem Label="Programmer:">
                         <dxsch:AppointmentResourceEdit
@@ -80,17 +86,6 @@
                                 <dxmvvm:FocusBehavior />
                             </dxmvvm:Interaction.Behaviors>
                         </dxsch:AppointmentStatusEdit>
-                    </dxlc:LayoutItem>
-                    <!--  Notes (custom field)  -->
-                    <dxlc:LayoutItem Label="Notes:">
-                        <dxe:TextEdit
-                            MinHeight="50"
-                            HorizontalContentAlignment="Left"
-                            VerticalContentAlignment="Top"
-                            AcceptsReturn="True"
-                            EditValue="{Binding Description, Mode=TwoWay}"
-                            TextWrapping="Wrap"
-                            VerticalScrollBarVisibility="Visible" />
                     </dxlc:LayoutItem>
 
                 </dxlc:LayoutGroup>

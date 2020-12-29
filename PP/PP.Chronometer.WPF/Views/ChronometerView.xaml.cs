@@ -12,15 +12,16 @@ namespace PP.Chronometer.WPF.Views
         {
             InitializeComponent();
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             base.OnClosing(e);
         }
+
         private void ButtonStop_OnClick(object sender, RoutedEventArgs e)
         {
             Hide();
         }
-
     }
 }

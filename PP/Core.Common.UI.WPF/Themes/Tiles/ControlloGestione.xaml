@@ -62,7 +62,5 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
-
 </ResourceDictionary>

@@ -21,7 +21,6 @@ namespace PP.WPF.Views
             scales.Clear();
 
             scales.Add(new TimeScaleHour());
-
         }
     }
 }

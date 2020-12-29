@@ -30,20 +30,18 @@ namespace PP.EntityFramework.Services
 
         public async Task<T> Get(int id)
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                T entity = await context.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
-                return entity;
-            };
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            T entity = await context.Set<T>().FirstOrDefaultAsync((e) => e.Id == id);
+            return entity;
+            ;
         }
 
         public async Task<IEnumerable<T>> GetAll()
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                IEnumerable<T> entities = await context.Set<T>().ToListAsync();
-                return entities;
-            };
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            IEnumerable<T> entities = await context.Set<T>().ToListAsync();
+            return entities;
+            ;
         }
 
         public async Task<T> Update(int id, T entity)

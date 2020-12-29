@@ -1,8 +1,8 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using DevExpress.Xpf.Grid;
+﻿using DevExpress.Xpf.Grid;
 using PP.Chronometer.WPF.ViewModels;
 using PP.Domain.Columns;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace PP.Chronometer.WPF.Views
 {
@@ -16,7 +16,6 @@ namespace PP.Chronometer.WPF.Views
             InitializeComponent();
         }
 
-
         private void InProgressTaskTable_OnRowDoubleClick(object sender, RowDoubleClickEventArgs e)
         {
             if (e.HitInfo.InRow)
@@ -24,7 +23,7 @@ namespace PP.Chronometer.WPF.Views
                 var row = InProgressGrid.GetRow(e.HitInfo.RowHandle);
                 if (row is ProgrammerGridColumns columns)
                 {
-                    ((AssignedTasksViewModel) DataContext).SelectedRow = columns;
+                    ((AssignedTasksViewModel)DataContext).SelectedRow = columns;
                     Application.Current.MainWindow?.Hide();
                 }
             }

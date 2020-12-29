@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using PP.Domain.Models;
+﻿using PP.Domain.Models;
+using System.Threading.Tasks;
 
 namespace PP.WPF.State.Authenticators
 {
@@ -7,7 +7,9 @@ namespace PP.WPF.State.Authenticators
     {
         Angajati CurrentUser { get; }
         bool IsLoggedIn { get; }
+
         Task Login(string username, string password);
+
         void Logout();
     }
 }

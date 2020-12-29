@@ -13,6 +13,7 @@ namespace PP.WPF.Controls
         {
             InitializeComponent();
         }
+
         #region Diameter
 
         ///-------------------------------------------------------------------------------------------------
@@ -31,6 +32,7 @@ namespace PP.WPF.Controls
                 SetValue(DiameterProperty, value);
             }
         }
+
         public static readonly DependencyProperty DiameterProperty =    ///< The diameter property
             DependencyProperty.Register("Diameter", typeof(int), typeof(LoadingControl), new PropertyMetadata(20, OnDiameterPropertyChanged));
 
@@ -51,7 +53,7 @@ namespace PP.WPF.Controls
             d.CoerceValue(InnerRadiusProperty);
         }
 
-        #endregion
+        #endregion Diameter
 
         #region Radius
 
@@ -66,6 +68,7 @@ namespace PP.WPF.Controls
             get { return (int)GetValue(RadiusProperty); }
             set { SetValue(RadiusProperty, value); }
         }
+
         public static readonly DependencyProperty RadiusProperty =  ///< The radius property
             DependencyProperty.Register("Radius", typeof(int), typeof(LoadingControl), new PropertyMetadata(15, null, OnCoerceRadius));
 
@@ -87,7 +90,7 @@ namespace PP.WPF.Controls
             return newRadius;
         }
 
-        #endregion
+        #endregion Radius
 
         #region InnerRadius
 
@@ -102,6 +105,7 @@ namespace PP.WPF.Controls
             get { return (int)GetValue(InnerRadiusProperty); }
             set { SetValue(InnerRadiusProperty, value); }
         }
+
         public static readonly DependencyProperty InnerRadiusProperty = ///< The inner radius property
             DependencyProperty.Register("InnerRadius", typeof(int), typeof(LoadingControl), new PropertyMetadata(2, null, OnCoerceInnerRadius));
 
@@ -123,7 +127,7 @@ namespace PP.WPF.Controls
             return newInnerRadius;
         }
 
-        #endregion
+        #endregion InnerRadius
 
         #region Center
 
@@ -138,6 +142,7 @@ namespace PP.WPF.Controls
             get { return (Point)GetValue(CenterProperty); }
             set { SetValue(CenterProperty, value); }
         }
+
         public static readonly DependencyProperty CenterProperty =  ///< The center property
             DependencyProperty.Register("Center", typeof(Point), typeof(LoadingControl), new PropertyMetadata(new Point(15, 15), null, OnCoerceCenter));
 
@@ -159,7 +164,7 @@ namespace PP.WPF.Controls
             return new Point(newCenter, newCenter);
         }
 
-        #endregion
+        #endregion Center
 
         #region Color1
 
@@ -174,10 +179,11 @@ namespace PP.WPF.Controls
             get { return (Color)GetValue(Color1Property); }
             set { SetValue(Color1Property, value); }
         }
+
         public static readonly DependencyProperty Color1Property =  ///< The color 1 property
             DependencyProperty.Register("Color1", typeof(Color), typeof(LoadingControl), new PropertyMetadata(Colors.Green));
 
-        #endregion
+        #endregion Color1
 
         #region Color2
 
@@ -192,9 +198,10 @@ namespace PP.WPF.Controls
             get { return (Color)GetValue(Color2Property); }
             set { SetValue(Color2Property, value); }
         }
+
         public static readonly DependencyProperty Color2Property =  ///< The color 2 property
             DependencyProperty.Register("Color2", typeof(Color), typeof(LoadingControl), new PropertyMetadata(Colors.Transparent));
 
-        #endregion
+        #endregion Color2
     }
 }

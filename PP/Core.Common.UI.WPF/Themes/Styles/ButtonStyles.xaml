@@ -51,7 +51,6 @@
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Opacity" Value="{theme:ThemeResource ResourceKey=ControlDisabledOpacity}" />
             </Trigger>
-
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
@@ -110,5 +109,4 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template" Value="{StaticResource WindowButtonTemplate}" />
     </Style>
-
 </ResourceDictionary>

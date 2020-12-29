@@ -1,7 +1,7 @@
-﻿using System;
-using System.Windows.Threading;
-using DevExpress.Mvvm.UI.Interactivity;
+﻿using DevExpress.Mvvm.UI.Interactivity;
 using DevExpress.Xpf.Grid;
+using System;
+using System.Windows.Threading;
 
 namespace PP.Chronometer.WPF.Behaviors
 {
@@ -13,12 +13,14 @@ namespace PP.Chronometer.WPF.Behaviors
             AssociatedObject.Loaded += AssociatedObject_Loaded;
             base.OnAttached();
         }
+
         protected override void OnDetaching()
         {
             AssociatedObject.Loaded -= AssociatedObject_Loaded;
             AssociatedObject.ItemsSourceChanged -= Grid_ItemsSourceChanged;
             base.OnDetaching();
         }
+
         //Initial Best Fit
         private void AssociatedObject_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {

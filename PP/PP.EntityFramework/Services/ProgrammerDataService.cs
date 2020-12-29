@@ -10,7 +10,6 @@ namespace PP.EntityFramework.Services
 {
     public class ProgrammerDataService : IEmployeeService
     {
-
         private readonly PPDbContextFactory _contextFactory;
         private readonly NonQueryDataService<Angajati> _nonQueryDataService;
 
@@ -32,54 +31,47 @@ namespace PP.EntityFramework.Services
 
         public async Task<Angajati> Get(int id)
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                Angajati entity = await context.Angajati.Include(a => a.ProgrammerTask).FirstOrDefaultAsync((e) => e.Id == id);
-                return entity;
-            };
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            Angajati entity = await context.Angajati.Include(a => a.ProgrammerTask).FirstOrDefaultAsync((e) => e.Id == id);
+            return entity;
+            ;
         }
 
         public async Task<IEnumerable<Angajati>> GetAll()
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                IEnumerable<Angajati> entities = await context.Angajati.Where(e => e.Mansione.Contains("MANAGER")).ToListAsync();
-                return entities;
-            };
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            IEnumerable<Angajati> entities = await context.Angajati.Where(e => e.Mansione.Contains("MANAGER")).ToListAsync();
+            return entities;
+            ;
         }
 
         public async Task<Angajati> GetEmployeeByName(string employeeName)
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                Angajati entity = await context.Angajati.Include(a => a.ProgrammerTask).FirstOrDefaultAsync((e) => e.Angajat == employeeName);
-                return entity;
-            };
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            Angajati entity = await context.Angajati.Include(a => a.ProgrammerTask).FirstOrDefaultAsync((e) => e.Angajat == employeeName);
+            return entity;
+            ;
         }
 
         public async Task<IEnumerable<Angajati>> GetManagers()
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                IEnumerable<Angajati> entities = await context.Angajati.Where(e => e.Mansione.Contains("MANAGER")).ToListAsync();
-                return entities;
-            };
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            IEnumerable<Angajati> entities = await context.Angajati.Where(e => e.Mansione.Contains("MANAGER")).ToListAsync();
+            return entities;
+            ;
         }
 
-        public async  Task<IEnumerable<Angajati>> GetProgrammers()
+        public async Task<IEnumerable<Angajati>> GetProgrammers()
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                IEnumerable<Angajati> entities = await context.Angajati.Where(e => e.Mansione.Contains("PROGRAMMER")).ToListAsync();
-                return entities;
-            };
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            IEnumerable<Angajati> entities = await context.Angajati.Where(e => e.Mansione.Contains("PROGRAMMER")).ToListAsync();
+            return entities;
+            ;
         }
 
         public async Task<Angajati> Update(int id, Angajati entity)
         {
             return await _nonQueryDataService.Update(id, entity);
         }
-
-
     }
 }

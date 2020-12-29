@@ -1,8 +1,8 @@
-﻿using System.Windows.Input;
-using PP.Chronometer.WPF.Commands;
+﻿using PP.Chronometer.WPF.Commands;
 using PP.Chronometer.WPF.State.Authenticators;
 using PP.Chronometer.WPF.State.Navigator;
 using PP.Chronometer.WPF.ViewModels.Factories;
+using System.Windows.Input;
 
 namespace PP.Chronometer.WPF.ViewModels
 {

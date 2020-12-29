@@ -3,8 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:gui="clr-namespace:Core.Common.UI.WPF.Controls">
 
-
-
     <ControlTemplate x:Key="StiroDB" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
             <Canvas
@@ -110,7 +108,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
 
     <ControlTemplate x:Key="StiroDP" TargetType="{x:Type gui:XamlImage}">
@@ -218,7 +215,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
 
     <ControlTemplate x:Key="StiroLayout" TargetType="{x:Type gui:XamlImage}">
@@ -280,6 +276,5 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
 </ResourceDictionary>

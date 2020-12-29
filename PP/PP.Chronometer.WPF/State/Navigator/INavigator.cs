@@ -1,5 +1,5 @@
-﻿using System;
-using PP.Chronometer.WPF.ViewModels;
+﻿using PP.Chronometer.WPF.ViewModels;
+using System;
 
 namespace PP.Chronometer.WPF.State.Navigator
 {
@@ -9,11 +9,12 @@ namespace PP.Chronometer.WPF.State.Navigator
         Chronometer,
         Assistance,
         Assigned
-   
     }
+
     public interface INavigator
     {
         ViewModelBase CurrentViewModel { get; set; }
+
         event Action StateChanged;
     }
 }

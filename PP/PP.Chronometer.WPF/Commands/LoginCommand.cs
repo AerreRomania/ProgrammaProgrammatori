@@ -1,9 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using PP.Chronometer.WPF.State.Authenticators;
+﻿using PP.Chronometer.WPF.State.Authenticators;
 using PP.Chronometer.WPF.State.Navigator;
 using PP.Chronometer.WPF.ViewModels;
 using PP.Domain.Exceptions;
+using System;
+using System.Threading.Tasks;
 
 namespace PP.Chronometer.WPF.Commands
 {
@@ -13,7 +13,7 @@ namespace PP.Chronometer.WPF.Commands
         private readonly IAuthenticator _authenticator;
         private readonly IRenavigator _renavigator;
 
-        public LoginCommand(LoginViewModel loginViewModel,IAuthenticator authenticator,  IRenavigator renavigator)
+        public LoginCommand(LoginViewModel loginViewModel, IAuthenticator authenticator, IRenavigator renavigator)
         {
             _authenticator = authenticator;
             _renavigator = renavigator;
@@ -41,7 +41,5 @@ namespace PP.Chronometer.WPF.Commands
                 _loginViewModel.ErrorMessage = "Login failed.";
             }
         }
-
-
     }
 }

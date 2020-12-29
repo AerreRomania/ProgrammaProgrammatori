@@ -1,20 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using PP.Domain.Models;
+using PP.Domain.Services;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Media;
-using PP.Domain.Models;
-using PP.Domain.Services;
 
 namespace PP.WPF.ViewModels
 {
     public class TrackingViewModel : ViewModelBase
     {
-
         private readonly IArticleService _articleService;
         private readonly IEmployeeService _employeeService;
         private readonly IProgrammerJobService _programmerJobService;
-        
+
         public TrackingViewModel(IArticleService articleService, IEmployeeService employeeService, IProgrammerJobService programmerJobService)
         {
             _articleService = articleService;
@@ -40,6 +39,7 @@ namespace PP.WPF.ViewModels
             "Prove tecniche",
             "Vacanza"
         };
+
         public static Color[] JobsColorTypes =
         {
             Color.FromRgb(225, 225, 220),
@@ -51,11 +51,10 @@ namespace PP.WPF.ViewModels
             Color.FromRgb(255, 51, 51),
             Color.FromRgb(205,92,92),
             Color.FromRgb(169,169,169),
-
         };
 
         public static string[] States = { "Computer", "Computer/Machine", "Machine" };
-        public static Brush[] BrushStates = { new LinearGradientBrush(Colors.MediumSpringGreen, Colors.Yellow, 45.0), new LinearGradientBrush(Colors.MediumBlue, Colors.Yellow, 45.0) , new LinearGradientBrush(Colors.MediumPurple, Colors.Yellow, 45.0) };
+        public static Brush[] BrushStates = { new LinearGradientBrush(Colors.MediumSpringGreen, Colors.Yellow, 45.0), new LinearGradientBrush(Colors.MediumBlue, Colors.Yellow, 45.0), new LinearGradientBrush(Colors.MediumPurple, Colors.Yellow, 45.0) };
 
         private static ObservableCollection<JobType> CreateLabels()
         {
@@ -74,6 +73,7 @@ namespace PP.WPF.ViewModels
             }
             return result;
         }
+
         private static ObservableCollection<TaskStatus> CreateStates()
         {
             ObservableCollection<TaskStatus> result = new ObservableCollection<TaskStatus>();
@@ -93,6 +93,7 @@ namespace PP.WPF.ViewModels
         }
 
         private ProgrammerProgress _programmerProgress;
+
         public ProgrammerProgress ProgrammerProgress
         {
             get => _programmerProgress;
@@ -102,7 +103,9 @@ namespace PP.WPF.ViewModels
                 OnPropertyChanged(nameof(ProgrammerProgress));
             }
         }
+
         private ObservableCollection<ProgrammerProgress> _programmerProgresses;
+
         public ObservableCollection<ProgrammerProgress> ProgrammerProgresses
         {
             get => _programmerProgresses;
@@ -112,7 +115,9 @@ namespace PP.WPF.ViewModels
                 OnPropertyChanged(nameof(ProgrammerProgresses));
             }
         }
+
         private IEnumerable<Angajati> _knittingProgrammers;
+
         public IEnumerable<Angajati> KnittingProgrammers
         {
             get => _knittingProgrammers;
@@ -122,7 +127,9 @@ namespace PP.WPF.ViewModels
                 OnPropertyChanged(nameof(KnittingProgrammers));
             }
         }
+
         private ObservableCollection<Articole> _articles;
+
         public ObservableCollection<Articole> Articles
         {
             get => _articles;
@@ -133,14 +140,13 @@ namespace PP.WPF.ViewModels
             }
         }
 
- 
         private void GetData()
         {
             Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers(); });
 
             Task.Run(async () =>
             {
-                _programmerProgresses= new ObservableCollection<ProgrammerProgress>();
+                _programmerProgresses = new ObservableCollection<ProgrammerProgress>();
                 var programmerProgresses = await _programmerJobService.GetAll();
                 var articles = await _articleService.GetAll();
                 foreach (var programmerProgress in programmerProgresses)

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using PP.Chronometer.WPF.Commands;
+﻿using PP.Chronometer.WPF.Commands;
 using PP.Chronometer.WPF.State.Authenticators;
 using PP.Chronometer.WPF.State.Navigator;
 using PP.Domain.Services;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PP.Chronometer.WPF.ViewModels
 {
@@ -13,6 +13,7 @@ namespace PP.Chronometer.WPF.ViewModels
     {
         private readonly IEmployeeService _employeeService;
         private string _username;
+
         public string Username
         {
             get
@@ -25,7 +26,9 @@ namespace PP.Chronometer.WPF.ViewModels
                 OnPropertyChanged(nameof(Username));
             }
         }
+
         private bool _isLoading;
+
         public bool IsLoading
         {
             get => _isLoading;
@@ -35,7 +38,9 @@ namespace PP.Chronometer.WPF.ViewModels
                 OnPropertyChanged(nameof(IsLoading));
             }
         }
+
         private string _password;
+
         public string Password
         {
             get => _password;
@@ -47,12 +52,14 @@ namespace PP.Chronometer.WPF.ViewModels
         }
 
         public MessageViewModel ErrorMessageViewModel { get; }
+
         public string ErrorMessage
         {
             set => ErrorMessageViewModel.Message = value;
         }
 
         private IEnumerable<string> _usernames;
+
         public IEnumerable<string> Usernames
         {
             get => _usernames;
@@ -69,7 +76,7 @@ namespace PP.Chronometer.WPF.ViewModels
         {
             _employeeService = employeeService;
             ErrorMessageViewModel = new MessageViewModel();
-            LoginCommand = new LoginCommand(this, authenticator,renavigator);
+            LoginCommand = new LoginCommand(this, authenticator, renavigator);
             GetEmployees();
         }
 

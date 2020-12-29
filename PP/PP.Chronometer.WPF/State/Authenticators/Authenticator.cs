@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
+﻿using PP.Domain.Models;
+using PP.Domain.Services.AuthenticationServices;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using PP.Domain.Models;
-using PP.Domain.Services.AuthenticationServices;
 
 namespace PP.Chronometer.WPF.State.Authenticators
 {
@@ -16,6 +16,7 @@ namespace PP.Chronometer.WPF.State.Authenticators
         }
 
         private Angajati _currentUser;
+
         public Angajati CurrentUser
         {
             get => _currentUser;
@@ -26,14 +27,12 @@ namespace PP.Chronometer.WPF.State.Authenticators
                 OnPropertyChanged(nameof(CurrentUser));
             }
         }
-  
+
         public bool IsLoggedIn => CurrentUser != null;
 
-        public async  Task Login(string username, string password)
+        public async Task Login(string username, string password)
         {
-            
-                CurrentUser = await _authenticationService.Login(username, password);
-        
+            CurrentUser = await _authenticationService.Login(username, password);
         }
 
         public void Logout()
@@ -42,7 +41,6 @@ namespace PP.Chronometer.WPF.State.Authenticators
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

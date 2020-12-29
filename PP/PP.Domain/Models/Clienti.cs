@@ -8,6 +8,5 @@ namespace PP.Domain.Models
 
         public string Client { get; set; }
         public ICollection<Comenzi> Comenzi { get; set; }
-
     }
 }

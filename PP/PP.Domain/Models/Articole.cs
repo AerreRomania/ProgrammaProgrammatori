@@ -20,9 +20,11 @@ namespace PP.Domain.Models
         public int? IdTaglie { get; set; }
 
         public ICollection<ProgrammerTask> ProgrammerTask { get; set; } = new List<ProgrammerTask>();
-        public ICollection<ProgrammaProgramatoriArticle> ProgrammaProgramatoriArticle { get; set; } = new List<ProgrammaProgramatoriArticle>();
+        public ICollection<ArticleDetails> ArticleDetails { get; set; } = new List<ArticleDetails>();
+
         [ForeignKey("Sector")]
         public int IdSector { get; set; }
+
         public virtual Sector Sector { get; set; }
     }
 }

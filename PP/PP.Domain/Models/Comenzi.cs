@@ -10,6 +10,7 @@ namespace PP.Domain.Models
 
         [ForeignKey("Clienti")]
         public int IdClient { get; set; }
+
         public Clienti Clienti { get; set; }
     }
 }

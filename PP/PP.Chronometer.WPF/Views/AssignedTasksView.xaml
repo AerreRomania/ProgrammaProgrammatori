@@ -48,7 +48,6 @@
             <Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />
             <Setter Property="Background" Value="#323232" />
         </Style>
-
     </UserControl.Resources>
     <Grid>
         <TabControl>
@@ -58,7 +57,6 @@
                     ItemsSource="{Binding ProgrammerTasks, Mode=TwoWay}"
                     SelectionMode="Row"
                     ShowBorder="True">
-
 
                     <dxg:GridControl.View>
                         <dxg:TableView
@@ -226,6 +224,5 @@
                 </dxg:GridControl>
             </TabItem>
         </TabControl>
-
     </Grid>
 </UserControl>

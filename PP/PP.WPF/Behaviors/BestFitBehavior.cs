@@ -13,18 +13,19 @@ namespace PP.WPF.Behaviors
             AssociatedObject.Loaded += AssociatedObject_Loaded;
             base.OnAttached();
         }
+
         protected override void OnDetaching()
         {
             AssociatedObject.Loaded -= AssociatedObject_Loaded;
             AssociatedObject.ItemsSourceChanged -= Grid_ItemsSourceChanged;
             base.OnDetaching();
         }
+
         //Initial Best Fit
         private void AssociatedObject_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             ((TableView)AssociatedObject.View).BestFitColumns();
             //  ((TableView) AssociatedObject.View).VerticalScrollbarVisibility = ScrollBarVisibility.Visible;
-
         }
 
         //When a new source is assigned

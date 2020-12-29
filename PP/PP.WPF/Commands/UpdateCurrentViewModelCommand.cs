@@ -1,7 +1,7 @@
-﻿using PP.WPF.ViewModels.Factories;
+﻿using PP.WPF.State.Navigator;
+using PP.WPF.ViewModels.Factories;
 using System;
 using System.Windows.Input;
-using PP.WPF.State.Navigator;
 
 namespace PP.WPF.Commands
 {

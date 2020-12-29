@@ -1,8 +1,8 @@
-﻿using System;
+﻿using PP.Chronometer.WPF.ViewModels;
+using PP.Domain.Services;
+using System;
 using System.Threading.Tasks;
 using System.Windows;
-using PP.Chronometer.WPF.ViewModels;
-using PP.Domain.Services;
 
 namespace PP.Chronometer.WPF.Commands
 {

@@ -122,7 +122,6 @@
         </Viewbox>
     </ControlTemplate>
 
-
     <ControlTemplate x:Key="Produzione" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
             <Canvas Width="308" Height="300">
@@ -275,8 +274,6 @@
         </Viewbox>
     </ControlTemplate>
 
-
-
     <ControlTemplate x:Key="RisorsoUmane" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
             <Canvas Width="308" Height="300">
@@ -389,7 +386,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
 
     <ControlTemplate x:Key="SmartFactory" TargetType="{x:Type gui:XamlImage}">
@@ -504,7 +500,5 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
-
 </ResourceDictionary>

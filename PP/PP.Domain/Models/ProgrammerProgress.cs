@@ -13,8 +13,10 @@ namespace PP.Domain.Models
         public bool Assistance { get; set; }
         public string ArticleTitle { get; set; }
         public int WorkLocationID { get; set; }
+
         [ForeignKey("Progress")]
         public int ProgrammerTaskID { get; set; }
+
         public ProgrammerTask Progress { get; set; }
     }
 }

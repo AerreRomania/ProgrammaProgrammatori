@@ -1,5 +1,5 @@
-﻿using System;
-using PP.Domain.Models;
+﻿using PP.Domain.Models;
+using System;
 
 namespace PP.Domain.Columns
 {
@@ -13,6 +13,7 @@ namespace PP.Domain.Columns
         public string ProgrammerName { get; set; }
         public DateTime? EnterInProduction { get; set; }
         private int _jobTypeId;
+
         public int JobTypeID
         {
             get => _jobTypeId;
@@ -29,16 +30,18 @@ namespace PP.Domain.Columns
                     5 => "Schede Tehnice",
                     6 => "Riparazione/Ass.Rep.",
                     7 => "Prove tecniche",
-                    8 => "Vacanza",
+                    8 => "Contracampione",
+                    9 => "Vacanza",
                     _ => JobTypeName
                 };
             }
         }
+
         public string JobTypeName { get; set; }
         public string Finezza { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public bool Repair { get; set; }
-        public bool  Assistance { get; set; }
+        public bool Assistance { get; set; }
     }
 }

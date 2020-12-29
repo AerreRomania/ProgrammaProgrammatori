@@ -51,8 +51,6 @@
                 FontWeight="Thin"
                 Text="Chronometer" />
 
-
-
             <Grid
                 Grid.Row="3"
                 Margin="0,20"
@@ -141,6 +139,5 @@
                 </StackPanel>
             </Border>
         </Grid>
-
     </Border>
 </UserControl>

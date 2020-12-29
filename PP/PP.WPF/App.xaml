@@ -24,7 +24,5 @@
                 <views:LoginView LoginCommand="{Binding LoginCommand}" />
             </DataTemplate>
         </ResourceDictionary>
-
     </Application.Resources>
-
 </Application>

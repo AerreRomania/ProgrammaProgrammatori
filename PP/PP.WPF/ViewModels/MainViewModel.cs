@@ -1,8 +1,8 @@
 ﻿using PP.WPF.Commands;
-using PP.WPF.ViewModels.Factories;
-using System.Windows.Input;
 using PP.WPF.State.Authenticators;
 using PP.WPF.State.Navigator;
+using PP.WPF.ViewModels.Factories;
+using System.Windows.Input;
 
 namespace PP.WPF.ViewModels
 {

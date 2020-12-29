@@ -7,6 +7,7 @@ namespace PP.WPF.Commands
     public abstract class AsyncCommandBase : ICommand
     {
         private bool _isExecuting;
+
         public bool IsExecuting
         {
             get

@@ -1,11 +1,12 @@
-﻿using System;
-using PP.WPF.ViewModels;
+﻿using PP.WPF.ViewModels;
+using System;
 
 namespace PP.WPF.State.Navigator
 {
     public class Navigator : INavigator
     {
         private ViewModelBase _currentViewModel;
+
         public ViewModelBase CurrentViewModel
         {
             get
@@ -20,6 +21,5 @@ namespace PP.WPF.State.Navigator
         }
 
         public event Action StateChanged;
-
     }
 }

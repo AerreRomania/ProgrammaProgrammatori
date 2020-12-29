@@ -3,8 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:gui="clr-namespace:Core.Common.UI.WPF.Controls">
 
-
-
     <ControlTemplate x:Key="Timbrature" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
             <Canvas
@@ -143,7 +141,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="Reportistica" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -357,7 +354,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="RepGenerale" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -428,7 +424,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="RepTessitura" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -610,7 +605,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="RepConfB" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1016,7 +1010,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="OrganigrammaGenerale" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1231,7 +1224,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="OrganigrammaConfezioniB" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1326,7 +1318,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="OrganigrammaStiro" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1654,7 +1645,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="AssenteismoTessitura" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1773,7 +1763,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="PresenzeTessitura" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1932,7 +1921,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
 
     <ControlTemplate x:Key="AssenteismoStiro" TargetType="{x:Type gui:XamlImage}">
@@ -1994,7 +1982,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="StraordinariStiro" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -2055,7 +2042,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="PresenzeStiro" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -2276,7 +2262,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="StraordinariStruttura" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -2335,7 +2320,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
 
     <ControlTemplate x:Key="AssenteismoConfezioniA" TargetType="{x:Type gui:XamlImage}">
@@ -2398,7 +2382,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="StraordinariConfezioniA" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -2459,7 +2442,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="PresenzeConfezioniA" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -2673,7 +2655,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="StraordinariConfezioniB" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -2735,7 +2716,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="PresenzeConfezioniB" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -2795,7 +2775,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="EfficenzaPersonaleConfezioniB" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -2947,6 +2926,4 @@
             </Canvas>
         </Viewbox>
     </ControlTemplate>
-
-
 </ResourceDictionary>

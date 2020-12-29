@@ -722,7 +722,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="Stagione" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -788,7 +787,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="PdfCliente" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1036,7 +1034,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="EfficenzaMensile" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1167,7 +1164,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="Intervalli" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1307,7 +1303,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="StatisticheDiProduzione" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1394,7 +1389,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="GuntProduzione" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1449,7 +1443,6 @@
                 </Canvas>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
     <ControlTemplate x:Key="Exacta" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -1515,7 +1508,5 @@
         </Viewbox>
     </ControlTemplate>
     <!--<ControlTemplate x:Key="Tessitura" TargetType="{x:Type gui:XamlImage}">
-
     </ControlTemplate>-->
-
 </ResourceDictionary>

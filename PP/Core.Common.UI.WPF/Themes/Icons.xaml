@@ -144,7 +144,6 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
 
     <ControlTemplate x:Key="Icon_Theme" TargetType="{x:Type gui:XamlImage}">
@@ -158,7 +157,6 @@
             </Canvas>
         </Viewbox>
     </ControlTemplate>
-
 
     <ControlTemplate x:Key="Factory_Icon" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
@@ -422,9 +420,7 @@
                 </Path>
             </Canvas>
         </Viewbox>
-
     </ControlTemplate>
-
 
     <ControlTemplate x:Key="PlusSign" TargetType="{x:Type gui:XamlImage}">
 
@@ -444,7 +440,6 @@
         </Viewbox>
     </ControlTemplate>
 
-
     <ControlTemplate x:Key="Edit_Icon" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>
             <Canvas
@@ -463,7 +458,6 @@
             </Canvas>
         </Viewbox>
     </ControlTemplate>
-
 
     <ControlTemplate x:Key="Delete_Icon" TargetType="{x:Type gui:XamlImage}">
         <Viewbox>

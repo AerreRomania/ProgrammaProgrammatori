@@ -1,5 +1,4 @@
-﻿
-using PP.WPF.State.Navigator;
+﻿using PP.WPF.State.Navigator;
 
 namespace PP.WPF.ViewModels.Factories
 {

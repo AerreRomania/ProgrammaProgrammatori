@@ -20,21 +20,16 @@ namespace PP.EntityFramework.Services
 
         public async Task<IEnumerable<JobType>> GetAll()
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                IEnumerable<JobType> jobTypes = await context.JobType.ToListAsync();
-                return jobTypes;
-
-            }
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            IEnumerable<JobType> jobTypes = await context.JobType.ToListAsync();
+            return jobTypes;
         }
 
         public async Task<JobType> Get(int id)
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                JobType jobType = await context.JobType.FirstOrDefaultAsync(e => e.Id == id);
-                return jobType;
-            }
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            JobType jobType = await context.JobType.FirstOrDefaultAsync(e => e.Id == id);
+            return jobType;
         }
 
         public async Task<JobType> Create(JobType entity)

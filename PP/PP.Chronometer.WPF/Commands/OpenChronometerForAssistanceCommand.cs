@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using PP.Chronometer.WPF.ViewModels;
+﻿using PP.Chronometer.WPF.ViewModels;
 using PP.Chronometer.WPF.Views;
 using PP.Domain.Services;
+using System.Threading.Tasks;
 
 namespace PP.Chronometer.WPF.Commands
 {
@@ -24,7 +24,7 @@ namespace PP.Chronometer.WPF.Commands
             };
 
             ((ChronometerViewModel)chronometer.DataContext).SelectedRow = _viewModel.SelectedRow;
-            
+
             chronometer.Show();
         }
     }

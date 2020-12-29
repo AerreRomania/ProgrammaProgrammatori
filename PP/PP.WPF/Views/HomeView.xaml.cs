@@ -11,12 +11,10 @@ using System.Windows;
 
 namespace PP.WPF.Views
 {
-
     public partial class HomeView
     {
         public HomeView()
         {
-
             InitializeComponent();
         }
 
@@ -39,7 +37,7 @@ namespace PP.WPF.Views
 
         private void programmersTimelineControl_StartAppointmentDragFromOutside(object sender, StartAppointmentDragFromOutsideEventArgs e)
         {
-            if (!e.Data.GetDataPresent(typeof(IEnumerable<ArticleGridColumns>)) || 
+            if (!e.Data.GetDataPresent(typeof(IEnumerable<ArticleGridColumns>)) ||
                 !(e.Data.GetData(typeof(IEnumerable<ArticleGridColumns>)) is IEnumerable<ArticleGridColumns> articles)) return;
 
             var article = articles.FirstOrDefault() ?? throw new ArgumentNullException(nameof(sender));
@@ -50,7 +48,7 @@ namespace PP.WPF.Views
                 Subject = article.Articolo,
                 Start = programmersTimelineControl.SelectedInterval.Start,
                 End = programmersTimelineControl.SelectedInterval.End,
-                ResourceId = (int) programmersTimelineControl.SelectedResource.Id,
+                ResourceId = (int)programmersTimelineControl.SelectedResource.Id,
                 LabelId = 0,
                 Description = article.Num.ToString()
             };
@@ -67,17 +65,17 @@ namespace PP.WPF.Views
                     var viewModel = (HomeViewModel)DataContext;
                     viewModel.ProgrammerTask = new ProgrammerTask
                     {
-                        ArticleTitle = e.DragAppointments[i].Subject, 
+                        ArticleTitle = e.DragAppointments[i].Subject,
                         StartTask = e.DragAppointments[i].Start,
                         EndTask = e.DragAppointments[i].End,
                         JobTypeID = 0,
                         ProgrammerID = (int)e.DragAppointments[i].ResourceId,
-                        ArticleID = Convert.ToInt32(e.DragAppointments[i].Description),
+                        ArticleID = string.IsNullOrEmpty(e.DragAppointments[i].Description) ?
+                            (int) e.DragAppointments[i].CustomFields["ArticleID"] :  Convert.ToInt32(e.DragAppointments[i].Description),
                         TaskCompleted = false
                     };
                 }
             }
-
         }
 
         private void TableArticles_OnDragRecordOver(object? sender, DragRecordOverEventArgs e)
@@ -86,7 +84,6 @@ namespace PP.WPF.Views
             e.Effects = DragDropEffects.Move;
             e.Handled = true;
         }
-
 
         private void TableArticles_OnStartRecordDrag(object? sender, StartRecordDragEventArgs e)
         {
@@ -108,17 +105,17 @@ namespace PP.WPF.Views
 
                 Articole first = viewModel.Articles.FirstOrDefault(id => id.Articol == task.Subject)!;
 
-                        viewModel.ProgrammerTask = new ProgrammerTask
-                        {
-                            ArticleTitle = task.Subject,
-                            StartTask = task.Start,
-                            EndTask = task.End,
-                            JobTypeID = (int) task.LabelId,
-                            ProgrammerID = (int) task.ResourceId,
-                            ArticleID = (int) task.CustomFields["ArticleID"] == 0 ? first.Id : (int) task.CustomFields["ArticleID"],
-                            ProgrammerTaskID = (int) task.Id == 0 ? programmerTask.ProgrammerTaskID : (int)task.Id,
-                            TaskCompleted = Convert.ToBoolean(task.StatusId)
-                        };
+                viewModel.ProgrammerTask = new ProgrammerTask
+                {
+                    ArticleTitle = task.Subject,
+                    StartTask = task.Start,
+                    EndTask = task.End,
+                    JobTypeID = (int)task.LabelId,
+                    ProgrammerID = (int)task.ResourceId,
+                    ArticleID = (int)task.CustomFields["ArticleID"] == 0 ? first.Id : (int)task.CustomFields["ArticleID"],
+                    ProgrammerTaskID = (int)task.Id == 0 ? programmerTask.ProgrammerTaskID : (int)task.Id,
+                    TaskCompleted = Convert.ToBoolean(task.StatusId)
+                };
             }
         }
 
@@ -151,47 +148,44 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente")
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
 
                 switch (column.Name)
                 {
-                    case "ColumnModel":
-                    case "ColumnFin":
-                    case "ColumnProgrammerPR":
                     case "ColumnDataArrivoSchedePr":
+                    case "ColumnProgrammerPr":
                     case "ColumnStartPr":
                     case "ColumnEndPr":
+                    case "ColumnDataConsegnaProt":
+                    case "ColumnDataArrSchedaCa":
                     case "ColumnProgrammerCa":
                     case "ColumnStartCa":
                     case "ColumnEndCa":
-                    case "ColumnConfCamp":
-                    case "ColumnDataArrivoFilo":
-                    case "ColumnCapiPrevisti":
-                    case "ColumnNrMach":
-                    case "ColumnDataEntrataInProd":
-                    case "ColumnDataArrivoSchema":
-                    case "ColumnDataInizioSvilTgBase":
-                    case "ColumnDataFineSvilTgBase":
-                    case "ColumnGg1":
-                    case "ColumnDataArrivoSchede":
-                    case "ColumnDataArrivoDisco":
+                    case "ColumnDataConsegnaCa":
+                    case "ColumnDataArrivoTagliaBase":
+                    case "ColumnDataArrivoInzioTagliaBase":
+                    case "ColumnDataArrivoFineTagliaBase":
+                    case "ColumnDataArrivoSchedaCo":
+                    case "ColumnProgrammerCo":
+                    case "ColumnStartCo":
+                    case "ColumnEndCo":
+                    case "ColumnDataConsegnaCo":
+                    case "ColumnDataArrivoSchedaDisco":
                     case "ColumnProgrammerPP":
+                    case "ColumnDiffGGProdData":
+                    case "ColumnDiffGGProgData":
                     case "ColumnStartPP":
                     case "ColumnEndPP":
-                    case "ColumnGg2":
-                    case "ColumnOk":
-                    case "ColumnGg3":
+                    case "ColumnDataConsegnaPP":
+                    case "GgColumn":
+                    case "DataOkColumn":
                     case "ColumnProgrammerSv":
                     case "ColumnStartSv":
                     case "ColumnEndSv":
-                    case "ColumnDataInizioProd":
-                    case "ColumnGg4":
+                    case "ColumnGG2":
                     case "ColumnFinish":
-                    case "ColumnWeights":
-                    case "ColumnTime":
-                    case "ColumnConfPp":
-                    case "ColumnNote":
+        
                         column.Visible = true;
                         break;
                 }
@@ -204,50 +198,44 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue;
 
                 column.Visible = false;
             }
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue;
                 switch (column.Name)
                 {
-
-                    case "ColumnFin":
-                    case "ColumnProgrammerPR":
                     case "ColumnDataArrivoSchedePr":
+                    case "ColumnProgrammerPr":
                     case "ColumnStartPr":
                     case "ColumnEndPr":
+                    case "ColumnDataConsegnaProt":
+                    case "ColumnDataArrSchedaCa":
                     case "ColumnProgrammerCa":
                     case "ColumnStartCa":
                     case "ColumnEndCa":
-                    case "ColumnConfCamp":
-                    case "ColumnDataArrivoFilo":
-                    case "ColumnDataEntrataInProd":
-                    case "ColumnDataArrivoSchema":
-                    case "ColumnDataInizioSvilTgBase":
-                    case "ColumnDataFineSvilTgBase":
-                    case "ColumnGg1":
-                    case "ColumnDataArrivoSchede":
-                    case "ColumnDataArrivoDisco":
+                    case "ColumnDataConsegnaCa":
+                    case "ColumnDataArrivoSchedaCo":
+                    case "ColumnProgrammerCo":
+                    case "ColumnStartCo":
+                    case "ColumnEndCo":
+                    case "ColumnDataConsegnaCo":
                     case "ColumnProgrammerPP":
                     case "ColumnStartPP":
                     case "ColumnEndPP":
-                    case "ColumnOk":
-                    case "ColumnGg3":
+                    case "ColumnDataConsegnaPP":
                     case "ColumnProgrammerSv":
                     case "ColumnStartSv":
                     case "ColumnEndSv":
-                    case "ColumnDataInizioProd":
-                    case "ColumnGg4":
                     case "ColumnFinish":
-                    case "ColumnNote":
                         column.Visible = true;
                         break;
                 }
-
             }
 
             GridArticles.RefreshData();
@@ -255,29 +243,30 @@ namespace PP.WPF.Views
 
         private void ButtonPrCa_OnClick(object sender, RoutedEventArgs e)
         {
-            foreach (GridColumn column in TableArticles.Grid.Columns) { if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue; column.Visible = false; }
+            foreach (GridColumn column in TableArticles.Grid.Columns)
+            {
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue; column.Visible = false; }
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
                 if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
                 switch (column.Name)
                 {
-                    case "ColumnModel":
-                    case "ColumnFin":
-                    case "ColumnProgrammerPR":
                     case "ColumnDataArrivoSchedePr":
+                    case "ColumnProgrammerPr":
                     case "ColumnStartPr":
                     case "ColumnEndPr":
+                    case "ColumnDataConsegnaProt":
+                    case "ColumnDataArrSchedaCa":
                     case "ColumnProgrammerCa":
                     case "ColumnStartCa":
                     case "ColumnEndCa":
-                    case "ColumnConfCamp":
-                    case "ColumnDataArrivoFilo":
-                    case "ColumnNote":
+                    case "ColumnDataConsegnaCa":
+
                         column.Visible = true;
                         break;
                 }
-
             }
 
             GridArticles.RefreshData();
@@ -287,30 +276,31 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue;
 
                 column.Visible = false;
             }
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue;
                 switch (column.Name)
                 {
-
-                    case "ColumnModel":
-                    case "ColumnFin":
-                    case "ColumnCapiPrevisti":
-                    case "ColumnNrMach":
-                    case "ColumnDataEntrataInProd":
-                    case "ColumnDataArrivoSchema":
-                    case "ColumnDataInizioSvilTgBase":
-                    case "ColumnDataFineSvilTgBase":
-                    case "ColumnNote":
+                    case "ColumnDataArrivoTagliaBase":
+                    case "ColumnDataArrivoInzioTagliaBase":
+                    case "ColumnDataArrivoFineTagliaBase":
+                    case "ColumnDataArrivoSchedaCo":
+                    case "ColumnProgrammerCo":
+                    case "ColumnStartCo":
+                    case "ColumnEndCo":
+                    case "ColumnDataConsegnaCo":
+                    case "ColumnGG2":
+                    case "ColumnFinish":
                         column.Visible = true;
                         break;
                 }
-
             }
 
             GridArticles.RefreshData();
@@ -320,33 +310,33 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue;
 
                 column.Visible = false;
             }
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue;
                 switch (column.Name)
                 {
-
-                    case "ColumnModel":
-                    case "ColumnFin":
-                    case "ColumnDataEntrataInProd":
-                    case "ColumnDataArrivoSchede":
-                    case "ColumnDataArrivoDisco":
+                
+                    case "ColumnDataArrivoSchedaDisco":
                     case "ColumnProgrammerPP":
+                    case "ColumnDiffGGProdData":
+                    case "ColumnDiffGGProgData":
                     case "ColumnStartPP":
                     case "ColumnEndPP":
-                    case "ColumnGg2":
-                    case "ColumnOk":
-                    case "ColumnGg3":
-                    case "ColumnNote":
+                    case "ColumnDataConsegnaPP":
+                    case "GgColumn":
+                    case "DataOkColumn":
+                    case "ColumnGG2":
+                    case "ColumnFinish":
                         column.Visible = true;
                         break;
                 }
-
             }
 
             GridArticles.RefreshData();
@@ -356,14 +346,16 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue;
 
                 column.Visible = false;
             }
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                    continue;
                 switch (column.Name)
                 {
                     case "ColumnOk":
@@ -371,22 +363,14 @@ namespace PP.WPF.Views
                     case "ColumnStartSv":
                     case "ColumnEndSv":
                     case "ColumnDataInizioProd":
-                    case "ColumnGg4":
                     case "ColumnFinish":
-                    case "ColumnWeights":
-                    case "ColumnTime":
-                    case "ColumnConfPp":
-                    case "ColumnNote":
+
                         column.Visible = true;
                         break;
                 }
-
             }
 
             GridArticles.RefreshData();
         }
-
-
     }
-
 }

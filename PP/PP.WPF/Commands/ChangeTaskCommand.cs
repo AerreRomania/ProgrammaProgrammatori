@@ -8,6 +8,7 @@ namespace PP.WPF.Commands
     {
         private HomeViewModel _viewModel;
         private ITaskService _taskService;
+
         public ChangeTaskCommand(HomeViewModel viewModel, ITaskService taskService)
         {
             this._viewModel = viewModel;

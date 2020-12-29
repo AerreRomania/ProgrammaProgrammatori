@@ -13,14 +13,16 @@ namespace PP.Domain.Models
         public string Note { get; set; }
         public bool TaskCompleted { get; set; }
         public Angajati Programmer { get; set; }
+
         [ForeignKey("Programmer")]
         public int ProgrammerID { get; set; }
+
         [ForeignKey("Article")]
         public int ArticleID { get; set; }
+
         public Articole Article { get; set; }
         public int JobTypeID { get; set; }
         public ICollection<ProgrammerProgress> ProgrammerProgress { get; set; } = new List<ProgrammerProgress>();
         public string ArticleTitle { get; set; }
-
     }
 }

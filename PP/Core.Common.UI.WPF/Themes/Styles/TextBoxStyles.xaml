@@ -46,5 +46,4 @@
         <Setter Property="Template" Value="{StaticResource TextBoxTemplate}" />
     </Style>
     <Style BasedOn="{StaticResource TextBoxStyle}" TargetType="{x:Type TextBox}" />
-
 </ResourceDictionary>

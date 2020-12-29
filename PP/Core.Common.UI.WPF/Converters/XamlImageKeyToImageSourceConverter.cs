@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Common.UI.WPF.Controls;
+using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,7 +7,6 @@ using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Core.Common.UI.WPF.Controls;
 
 namespace Core.Common.UI.WPF.Converters
 {
@@ -50,7 +50,7 @@ namespace Core.Common.UI.WPF.Converters
 
             element.Measure(new Size((int)element.Width, (int)element.Height));
             element.Arrange(new Rect(new Size((int)element.Width, (int)element.Height)));
-            
+
             var dpiScale = VisualTreeHelper.GetDpi(element);
 
             var rtb = new RenderTargetBitmap((int)element.ActualWidth, (int)element.ActualHeight, dpiScale.PixelsPerInchX, dpiScale.PixelsPerInchY, PixelFormats.Pbgra32);

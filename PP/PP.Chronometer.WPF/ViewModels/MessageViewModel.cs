@@ -3,6 +3,7 @@
     public class MessageViewModel : ViewModelBase
     {
         private string _message;
+
         public string Message
         {
             get

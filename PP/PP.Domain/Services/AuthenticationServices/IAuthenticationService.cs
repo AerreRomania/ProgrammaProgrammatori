@@ -1,12 +1,12 @@
-﻿using System.Threading.Tasks;
-using PP.Domain.Models;
+﻿using PP.Domain.Models;
+using System.Threading.Tasks;
 
 namespace PP.Domain.Services.AuthenticationServices
 {
-    public interface IAuthenticationService 
+    public interface IAuthenticationService
     {
         Task<Angajati> Login(string username, string password);
-        Task<bool> Register(string username, string password, string confirmPassword);
 
+        Task<bool> Register(string username, string password, string confirmPassword);
     }
 }

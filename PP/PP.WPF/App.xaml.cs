@@ -1,15 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PP.Domain.Services;
-using PP.Domain.Services.TransactionServices;
+using PP.Domain.Services.AuthenticationServices;
 using PP.EntityFramework;
 using PP.EntityFramework.Services;
+using PP.WPF.State.Authenticators;
+using PP.WPF.State.Navigator;
 using PP.WPF.ViewModels;
 using PP.WPF.ViewModels.Factories;
 using System;
 using System.Windows;
-using PP.Domain.Services.AuthenticationServices;
-using PP.WPF.State.Authenticators;
-using PP.WPF.State.Navigator;
 
 namespace PP.WPF
 {
@@ -34,25 +33,24 @@ namespace PP.WPF
             services.AddSingleton<PPDbContextFactory>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
 
+            services.AddSingleton<IArticleDetailsService, ArticleDetailsDataService>();
             services.AddSingleton<IEmployeeService, ProgrammerDataService>();
             services.AddSingleton<IArticleService, ArticleDataService>();
             services.AddSingleton<ITaskService, TaskDataService>();
             services.AddSingleton<IJobTypeService, JobTypeDataService>();
-            services.AddSingleton<IPPArticleService, PPArticleDataService>();
             services.AddSingleton<IProgrammerJobService, ProgrammerJobDataService>();
 
-
             services.AddSingleton<IPPViewModelFactory, PPViewModelFactory>();
-        
+
             services.AddSingleton<LoginViewModel>();
 
-            services.AddSingleton( serviceProvider=> new HomeViewModel(
-                serviceProvider.GetRequiredService<IArticleService>(),
-                serviceProvider.GetRequiredService<IEmployeeService>(),
-                serviceProvider.GetRequiredService<ITaskService>(),
-                serviceProvider.GetRequiredService<IPPArticleService>()));
+            services.AddSingleton(serviceProvider => new HomeViewModel(
+               serviceProvider.GetRequiredService<IArticleService>(),
+               serviceProvider.GetRequiredService<IEmployeeService>(),
+               serviceProvider.GetRequiredService<ITaskService>(),
+               serviceProvider.GetRequiredService<IArticleDetailsService>()));
 
-            services.AddSingleton(serviceProvider=> new TrackingViewModel(
+            services.AddSingleton(serviceProvider => new TrackingViewModel(
                 serviceProvider.GetRequiredService<IArticleService>(), serviceProvider.GetRequiredService<IEmployeeService>(), serviceProvider.GetRequiredService<IProgrammerJobService>()));
 
             services.AddSingleton<CreateViewModel<HomeViewModel>>(serviceProvider => serviceProvider.GetRequiredService<HomeViewModel>);
@@ -68,15 +66,12 @@ namespace PP.WPF
                     serviceProvider.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
             });
 
-
-
             services.AddScoped<INavigator, Navigator>();
             services.AddScoped<IAuthenticator, Authenticator>();
 
             services.AddScoped<MainViewModel>();
             services.AddScoped<LoginViewModel>();
             services.AddScoped(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
-
 
             return services.BuildServiceProvider();
         }

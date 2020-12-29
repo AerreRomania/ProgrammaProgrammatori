@@ -1,8 +1,8 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using DevExpress.Xpf.Grid;
+﻿using DevExpress.Xpf.Grid;
 using PP.Chronometer.WPF.ViewModels;
 using PP.Domain.Columns;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace PP.Chronometer.WPF.Views
 {
@@ -44,7 +44,5 @@ namespace PP.Chronometer.WPF.Views
                 }
             }
         }
-
-        
     }
 }

@@ -7,9 +7,8 @@ using System.Collections.Generic;
 
 namespace PP.WPF.Views.EditGridForm
 {
-    class GridTableView : TableView
+    internal class GridTableView : TableView
     {
-
         protected override IEditFormOwner CreateEditFormOwner()
         {
             var editFormOwner = new EditFormOwnerEx(this);
@@ -37,10 +36,11 @@ namespace PP.WPF.Views.EditGridForm
         }
     }
 
-
     public class EditFormOwnerEx : EditFormOwner, IEditFormOwner
     {
-        public EditFormOwnerEx(ITableView view) : base(view) { }
+        public EditFormOwnerEx(ITableView view) : base(view)
+        {
+        }
 
         public event EventHandler EditFormOpened;
 
@@ -58,6 +58,5 @@ namespace PP.WPF.Views.EditGridForm
 
             return base.CreateEditFormColumnSource();
         }
-
     }
 }

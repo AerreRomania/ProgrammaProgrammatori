@@ -1,5 +1,5 @@
-﻿using System;
-using PP.WPF.State.Navigator;
+﻿using PP.WPF.State.Navigator;
+using System;
 
 namespace PP.WPF.ViewModels.Factories
 {
@@ -8,7 +8,6 @@ namespace PP.WPF.ViewModels.Factories
         private readonly CreateViewModel<HomeViewModel> _createHomeViewModel;
         private readonly CreateViewModel<TrackingViewModel> _createTrackingViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
-
 
         public PPViewModelFactory(CreateViewModel<HomeViewModel> createHomeViewModel,
             CreateViewModel<LoginViewModel> createLoginViewModel, CreateViewModel<TrackingViewModel> createTrackingViewModel)

@@ -16,7 +16,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
-
         </Grid.RowDefinitions>
         <TextBlock
             Grid.Row="0"
@@ -56,7 +55,6 @@
                 Command="{Binding UpdateCurrentViewModelCommand}"
                 CommandParameter="{x:Static nav:ViewType.Assistance}"
                 Content="Assistance" />
-
         </Grid>
     </Grid>
 </UserControl>

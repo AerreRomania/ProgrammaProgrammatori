@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PP.Domain.Models;
 using PP.Domain.Services;
 using PP.EntityFramework.Services.Common;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PP.EntityFramework.Services
 {
@@ -20,21 +20,16 @@ namespace PP.EntityFramework.Services
 
         public async Task<IEnumerable<ProgrammerProgress>> GetAll()
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                
-                var progress = await context.ProgrammerProgress.Include(p=>p.Progress).ToListAsync();
-                return progress;
-            }
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            var progress = await context.ProgrammerProgress.Include(p => p.Progress).ToListAsync();
+            return progress;
         }
 
         public async Task<ProgrammerProgress> Get(int id)
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                var progress = await context.ProgrammerProgress.FirstOrDefaultAsync(a=>a.ProgrammerProgressID==id);
-                return progress;
-            }
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            var progress = await context.ProgrammerProgress.FirstOrDefaultAsync(a => a.ProgrammerProgressID == id);
+            return progress;
         }
 
         public async Task<ProgrammerProgress> Create(ProgrammerProgress entity)

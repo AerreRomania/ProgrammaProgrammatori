@@ -11,7 +11,7 @@ namespace PP.Domain.Exceptions
             Symbol = symbol;
         }
 
-        public InvalidSymbolException(string symbol ,string message) : base(message)
+        public InvalidSymbolException(string symbol, string message) : base(message)
         {
             Symbol = symbol;
         }

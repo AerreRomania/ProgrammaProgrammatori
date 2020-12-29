@@ -27,16 +27,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Common.UI.WPF\Core.Common.UI.WPF.csproj" />
-    <ProjectReference Include="..\PP.Domain\PP.Domain.csproj" />
-    <ProjectReference Include="..\PP.EntityFramework\PP.EntityFramework.csproj" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Mvvm" Version="20.2.4" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid" Version="20.2.4" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid.Core" Version="20.2.4" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Scheduling" Version="20.2.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DevExpress.WindowsDesktop.Mvvm" Version="20.2.3" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid" Version="20.2.3" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid.Core" Version="20.2.3" />
-    <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Scheduling" Version="20.2.3" />
+    <ProjectReference Include="..\Core.Common.UI.WPF\Core.Common.UI.WPF.csproj" />
+    <ProjectReference Include="..\PP.Domain\PP.Domain.csproj" />
+    <ProjectReference Include="..\PP.EntityFramework\PP.EntityFramework.csproj" />
   </ItemGroup>
 
   <ItemGroup>

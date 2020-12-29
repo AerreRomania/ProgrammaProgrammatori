@@ -32,98 +32,91 @@ namespace PP.EntityFramework.Services
 
         public async Task<Articole> Get(int id)
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                Articole article = await context.Articole.Include(e => e.ProgrammerTask).FirstOrDefaultAsync(i => i.Id == id);
-                return article;
-            }
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            Articole article = await context.Articole.Include(e => e.ProgrammerTask).FirstOrDefaultAsync(i => i.Id == id);
+            return article;
         }
 
         public async Task<IEnumerable<Articole>> GetAll()
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                IEnumerable<Articole> article = await context.Articole
-                    .Include(p => p.ProgrammerTask)
-                    .Include(pa => pa.ProgrammaProgramatoriArticle)
-                    .Where(i => i.IdSector == 7).ToListAsync();
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            IEnumerable<Articole> article = await context.Articole
+                .Include(p => p.ProgrammerTask)
+                .Include(pa => pa.ArticleDetails)
+                .Where(i => i.IdSector == 7).ToListAsync();
 
-                return article;
-            }
+            return article;
         }
 
         public async Task<Articole> GetByName(string articleName)
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                Articole article = await context.Articole.Include(e => e.ProgrammerTask).FirstOrDefaultAsync(i => i.Articol == articleName);
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            Articole article = await context.Articole.Include(e => e.ProgrammerTask).FirstOrDefaultAsync(i => i.Articol == articleName);
 
-                return article;
-            }
+            return article;
         }
 
         public async Task<ArticleGridColumns> GetArticleRow(int articleId)
         {
-            using (PPDbContext context = _contextFactory.CreateDbContext())
-            {
-                var articles = await context.Articole.Where(sId => sId.IdSector == 7).ToListAsync();
-                var tasks = await context.ProgrammerTask.Include(p => p.Programmer).ToListAsync();
-                var articleDetails = await context.ProgrammaProgramatoriArticle.ToListAsync();
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            var articles = await context.Articole.Where(sId => sId.IdSector == 7).ToListAsync();
+            var tasks = await context.ProgrammerTask.Include(p => p.Programmer).ToListAsync();
+            var articleDetails = await context.ArticleDetails.ToListAsync();
 
-                var row = 
-                    (from a in articles
-                           where a.Id == articleId
-                           select new ArticleGridColumns
-                           {
-                               PPArticleID = articleDetails.FirstOrDefault(id => id.ArticleID == a.Id)?.Id,
-                               Num = a.Id,
-                               Articolo = a.Articol,
-                               Model = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.MODEL,
-                               Fin = a.Finete,
-                               ProgrammerPR = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.Programmer.Angajat,
-                               DataArrivoSchedePr = articleDetails.FirstOrDefault(id => id.ArticleID == a.Id)
-                                   ?.DATA_ARRIVO_SCHEDE_PR,
-                               StartPr = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.StartTask,
-                               EndPr = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.EndTask,
-                               ProgrammerCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.Programmer.Angajat,
-                               StartCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.StartTask,
-                               EndCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.EndTask,
-                               ConfCamp = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.CONF_CAMP,
-                               DataArrivoFilo = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ARRIVO_FILO,
-                               CapiPrevisti = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.CAPI_PREVISTI,
-                               NrMach = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.NR_MACH,
-                               DataEntrataInProd = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)
-                                   ?.DATA_ENTRATA_IN_PROD,
-                               DataArrivoSchema = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ARRIVO_SCHEMA,
-                               DataInizioSvilTgBase = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)
-                                   ?.DATA_INIZIO_SVIL_TG_BASE,
-                               DataFineSvilTgBase = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)
-                                   ?.DATA_FINE_SVIL_TG_BASE,
-                               Gg1 = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.GG1,
-                               DataArrivoSchede = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ARRIVO_SCHEDE,
-                               DataArrivoDisco = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_ARRIVO_DISCO,
-                               ProgrammerPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.Programmer.Angajat,
-                               StartPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.StartTask,
-                               EndPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.EndTask,
-                               Gg2 = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.GG2,
-                               Ok = "OK",
-                               Gg3 = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.GG3,
-                               ProgrammerSv = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.Programmer.Angajat,
-                               StartSv = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.StartTask,
-                               EndSv = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.EndTask,
-                               DataInizioProd = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DATA_INIZIO_PROD,
-                               Gg4 = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.GG4,
-                               TotGg = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.TOT_GG,
-                               Finish = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.INIZ_FINE,
-                               Finished = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Finished,
-                               Weights = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.PESI_X_ITA,
-                               Time = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.TEMP,
-                               ConfPp = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.CONF_PP,
-                               Note = a.Note
-                           }).FirstOrDefault();
+            var row =
+                (from a in articles
+                    where a.Id == articleId
+                    select new ArticleGridColumns
+                    {
+                        ArticleDeatilsID = articleDetails.FirstOrDefault(id => id.ArticleID == a.Id)?.Id,
+                        Num = a.Id,
+                        Articolo = a.Articol,
+                        Finezza = a.Finete,
+                        MachineNumber = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.MachineNumber,
+                        CapiPrevisti = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.CapiPrevisti,
+                        DataInizioProd = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataInizioProd,
+                        Notes = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Notes,
+                        
+                        DataArrivoSchedePr = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedePr,
+                        ProgrammerPR = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.Programmer.Angajat,
+                        StartPr = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.StartTask,
+                        EndPr = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 1)?.EndTask,
+                        DataConsegnaProt = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaPr,
 
-                return row;
-            }
+                        DataArrSchedaCa = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedeCa,
+                        ProgrammerCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.Programmer.Angajat,
+                        StartCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.StartTask,
+                        EndCa = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 2)?.EndTask,
+                        DataConsegnaCa = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaCa,
+
+                      DataArrivoTagliaBase = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrTagliaBase,
+                      DataArrivoInzioTagliaBase = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrInzioTagliaBase,
+                      DataArrivoFineTagliaBase = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrFineTagliaBase,
+
+                      DataArrivoSchedaCo = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedeCo,
+                      ProgrammerCo = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 8)?.Programmer.Angajat,
+                      StartCo = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 8)?.StartTask,
+                      EndCo = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 8)?.EndTask,
+                      DataConsegnaCo = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaCo,
+
+                      DataArrivoSchedaDisco = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedaDisco,
+                      ProgrammerPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.Programmer.Angajat,
+                      DiffGGProdData =  articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DiffGGProdData,
+                      DiffGGProgData =  articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DiffGGProgData,
+                      StartPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.StartTask,
+                      EndPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.EndTask,
+
+                      DataConsegnaPP = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaPP,
+                      GG1 = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.GG1,
+                      Ok = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Ok,
+                      ProgrammerSvTg = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.Programmer.Angajat,
+                      DataInizioSvilTgBase = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.StartTask,
+                      DataFineSvilTgBase = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.EndTask,
+                        Finish = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Finish,
+
+                    }).FirstOrDefault();
+
+            return row;
         }
 
         public async Task<Articole> Update(int id, Articole entity)

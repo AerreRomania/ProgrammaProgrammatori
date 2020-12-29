@@ -1,6 +1,6 @@
-﻿using System.Linq;
-using PP.Domain.Services;
+﻿using PP.Domain.Services;
 using PP.WPF.ViewModels;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PP.WPF.Commands
@@ -24,7 +24,7 @@ namespace PP.WPF.Commands
             {
                 var createdTask = await _taskService.Create(task);
 
-                var programmerTask = _viewModel.ProgrammerTasks.FirstOrDefault(p => 
+                var programmerTask = _viewModel.ProgrammerTasks.FirstOrDefault(p =>
                                                                        p.ArticleTitle == task.ArticleTitle &&
                                                                        p.ProgrammerID == task.ProgrammerID &&
                                                                        p.StartTask == task.StartTask &&
