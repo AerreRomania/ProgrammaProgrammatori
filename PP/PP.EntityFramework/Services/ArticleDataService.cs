@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NLog;
 using PP.Domain.Columns;
 using PP.Domain.Models;
 using PP.Domain.Services;
@@ -13,7 +14,6 @@ namespace PP.EntityFramework.Services
     {
         private readonly PPDbContextFactory _contextFactory;
         private readonly NonQueryDataService<Articole> nonQueryDataService;
-
         public ArticleDataService(PPDbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;

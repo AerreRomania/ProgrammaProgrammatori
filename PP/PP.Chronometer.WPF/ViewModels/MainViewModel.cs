@@ -1,4 +1,5 @@
-﻿using PP.Chronometer.WPF.Commands;
+﻿
+using PP.Chronometer.WPF.Commands;
 using PP.Chronometer.WPF.State.Authenticators;
 using PP.Chronometer.WPF.State.Navigator;
 using PP.Chronometer.WPF.ViewModels.Factories;
@@ -8,6 +9,7 @@ namespace PP.Chronometer.WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+       
         public INavigator Navigator { get; set; }
 
         public IAuthenticator Authenticator { get; }

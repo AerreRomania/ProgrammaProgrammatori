@@ -1,7 +1,9 @@
-﻿using PP.Domain.Columns;
+﻿using NLog;
+using PP.Domain.Columns;
 using PP.Domain.Models;
 using PP.Domain.Services;
 using PP.WPF.Commands;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,6 +13,7 @@ using System.Windows.Media;
 
 namespace PP.WPF.ViewModels
 {
+    
     public class TaskStatus
     {
         public int Id { get; set; }
@@ -20,6 +23,7 @@ namespace PP.WPF.ViewModels
 
     public class HomeViewModel : ViewModelBase
     {
+        Logger log = LogManager.GetCurrentClassLogger();
         private readonly IArticleService _articleService;
         private readonly IEmployeeService _employeeService;
         private readonly ITaskService _taskService;
@@ -83,6 +87,7 @@ namespace PP.WPF.ViewModels
             GetEmployees();
             GetTasks();
             GetArticles();
+            log.Info("TIMELINE STARTED");
         }
 
         private ArticleGridColumns _selectedArticleRow;
@@ -107,53 +112,61 @@ namespace PP.WPF.ViewModels
 
         private ArticleGridColumns AddArticleDetails(ArticleGridColumns articleDetails)
         {
-            ArticleDetails article;
-
-            var articleDetailId = articleDetails.ArticleDeatilsID ?? 0;
-
-            article = new ArticleDetails
+            try
             {
-                Id = articleDetailId,
-                MachineNumber = articleDetails.MachineNumber,
-                CapiPrevisti = articleDetails.CapiPrevisti,
-                DataInizioProd = articleDetails.DataInizioProd,
-                Notes = articleDetails.Notes,
-                DataArrSchedePr = articleDetails.DataArrivoSchedePr,
-                DataConsegnaPr = articleDetails.DataConsegnaProt,
-                DataArrSchedeCa = articleDetails.DataArrSchedaCa,
-                DataConsegnaCa = articleDetails.DataConsegnaCa,
-                DataArrTagliaBase = articleDetails.DataArrivoTagliaBase,
-                DataArrInzioTagliaBase = articleDetails.DataArrivoInzioTagliaBase,
-                DataArrFineTagliaBase = articleDetails.DataArrivoFineTagliaBase,
-                DataArrSchedeCo = articleDetails.DataArrivoSchedaCo,
-                DataConsegnaCo = articleDetails.DataConsegnaCo,
-                DataArrSchedaDisco = articleDetails.DataArrivoSchedaDisco,
-                DiffGGProdData = articleDetails.DiffGGProdData,
-                DiffGGProgData = articleDetails.DiffGGProgData,
-                DataConsegnaPP = articleDetails.DataConsegnaPP,
-                GG1 = articleDetails.GG1,
-                Ok = articleDetails.Ok,
-                DataFineSvilTgBase = articleDetails.DataFineSvilTgBase,
-                DataInizioSvilTgBase = articleDetails.DataInizioSvilTgBase,
-                GG2 = articleDetails.GG2,
-                Finish = articleDetails.Finish,
-                ArticleID = articleDetails.Num
-            };
+                ArticleDetails article;
 
-            Task.Run(async () =>
+                var articleDetailId = articleDetails.ArticleDeatilsID ?? 0;
+
+                article = new ArticleDetails
                 {
-                    if (article.Id == 0)
-                    {
-                        article = await _articleDetailsService.Create(article);
-                        articleDetails.ArticleDeatilsID = article.Id;
-                    }
-                    else
-                    {
-                        article = await _articleDetailsService.Update(article.Id, article);
-                    }
-                });
+                    Id = articleDetailId,
+                    MachineNumber = articleDetails.MachineNumber,
+                    CapiPrevisti = articleDetails.CapiPrevisti,
+                    DataInizioProd = articleDetails.DataInizioProd,
+                    Notes = articleDetails.Notes,
+                    DataArrSchedePr = articleDetails.DataArrivoSchedePr,
+                    DataConsegnaPr = articleDetails.DataConsegnaProt,
+                    DataArrSchedeCa = articleDetails.DataArrSchedaCa,
+                    DataConsegnaCa = articleDetails.DataConsegnaCa,
+                    DataArrTagliaBase = articleDetails.DataArrivoTagliaBase,
+                    DataArrInzioTagliaBase = articleDetails.DataArrivoInzioTagliaBase,
+                    DataArrFineTagliaBase = articleDetails.DataArrivoFineTagliaBase,
+                    DataArrSchedeCo = articleDetails.DataArrivoSchedaCo,
+                    DataConsegnaCo = articleDetails.DataConsegnaCo,
+                    DataArrSchedaDisco = articleDetails.DataArrivoSchedaDisco,
+                    DiffGGProdData = articleDetails.DiffGGProdData,
+                    DiffGGProgData = articleDetails.DiffGGProgData,
+                    DataConsegnaPP = articleDetails.DataConsegnaPP,
+                    GG1 = articleDetails.GG1,
+                    Ok = articleDetails.Ok,
+                    DataFineSvilTgBase = articleDetails.DataFineSvilTgBase,
+                    DataInizioSvilTgBase = articleDetails.DataInizioSvilTgBase,
+                    GG2 = articleDetails.GG2,
+                    Finish = articleDetails.Finish,
+                    ArticleID = articleDetails.Num
+                };
 
-            return articleDetails;
+                Task.Run(async () =>
+                    {
+                        if (article.Id == 0)
+                        {
+                            article = await _articleDetailsService.Create(article);
+                            articleDetails.ArticleDeatilsID = article.Id;
+                        }
+                        else
+                        {
+                            article = await _articleDetailsService.Update(article.Id, article);
+                        }
+                    });
+
+                return articleDetails;
+            }
+            catch(Exception ex)
+            {
+                log.Error(ex);
+                return null;
+            }
         }
 
         private static ObservableCollection<JobType> CreateLabels()
@@ -206,6 +219,7 @@ namespace PP.WPF.ViewModels
 
         public void OnChangedTask(int articleId)
         {
+            try { 
             var gridRow = _ppArticles.FirstOrDefault(a => a.Num == articleId);
 
             if (gridRow?.Num != null)
@@ -221,11 +235,24 @@ namespace PP.WPF.ViewModels
                     OnPropertyChanged(nameof(ProgrammerTasks));
                 }
             }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+
+            }
         }
 
         private async Task<ArticleGridColumns> GetArticleRow(int id)
         {
+            try {
             return await _articleService.GetArticleRow(id);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                return null;
+            }
         }
 
         private ObservableCollection<ProgrammerTask> _programmerTasks;
@@ -282,6 +309,7 @@ namespace PP.WPF.ViewModels
 
         public bool GetTasks()
         {
+            try { 
             Task.Run(async () =>
             {
                 _programmerTasks = new ObservableCollection<ProgrammerTask>();
@@ -310,8 +338,13 @@ namespace PP.WPF.ViewModels
                 }
                 return true;
             });
-
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                return false;
+            }
         }
 
         public ICommand InProgressCommand { get; set; }
@@ -323,6 +356,7 @@ namespace PP.WPF.ViewModels
         public void GetArticles()
 
         {
+            try { 
             Task.Run(async () =>
             {
                 _articles = new ObservableCollection<Articole>();
@@ -397,11 +431,22 @@ namespace PP.WPF.ViewModels
                     _articles.Add(articole);
                 }
             });
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
         }
 
         private void GetEmployees()
         {
+            try { 
             Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers(); });
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
         }
     }
 }

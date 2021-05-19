@@ -1,5 +1,7 @@
-﻿using PP.Domain.Models;
+﻿using NLog;
+using PP.Domain.Models;
 using PP.Domain.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,6 +12,7 @@ namespace PP.WPF.ViewModels
 {
     public class TrackingViewModel : ViewModelBase
     {
+        Logger log = LogManager.GetCurrentClassLogger();
         private readonly IArticleService _articleService;
         private readonly IEmployeeService _employeeService;
         private readonly IProgrammerJobService _programmerJobService;
@@ -21,7 +24,9 @@ namespace PP.WPF.ViewModels
             _programmerJobService = programmerJobService;
             Labels = CreateLabels();
             Statuses = CreateStates();
+            
             GetData();
+            log.Info("TRACKING STARTED");
         }
 
         public ObservableCollection<JobType> Labels { get; set; }
@@ -37,6 +42,7 @@ namespace PP.WPF.ViewModels
             "Schede Tehnice",
             "Riparazione/Ass.Rep.",
             "Prove tecniche",
+            "Controcampione",
             "Vacanza"
         };
 
@@ -50,6 +56,7 @@ namespace PP.WPF.ViewModels
             Color.FromRgb(135, 206, 250),
             Color.FromRgb(255, 51, 51),
             Color.FromRgb(205,92,92),
+            Color.FromRgb(173, 216, 230),
             Color.FromRgb(169,169,169),
         };
 
@@ -140,12 +147,25 @@ namespace PP.WPF.ViewModels
             }
         }
 
-        private void GetData()
+        private async Task<IEnumerable<Angajati>> GetEmployees()
         {
-            Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers(); });
-
-            Task.Run(async () =>
+            try
             {
+                  return await _employeeService.GetProgrammers();
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+                return null;
+            }
+        }
+
+        private async void GetData()
+        {
+            try {
+                _knittingProgrammers = await GetEmployees();
+                //  Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers(); });
+
                 _programmerProgresses = new ObservableCollection<ProgrammerProgress>();
                 var programmerProgresses = await _programmerJobService.GetAll();
                 var articles = await _articleService.GetAll();
@@ -154,7 +174,11 @@ namespace PP.WPF.ViewModels
                     programmerProgress.ArticleTitle = articles.FirstOrDefault(id => id.Id == programmerProgress.Progress.ArticleID)?.Articol;
                     _programmerProgresses.Add(programmerProgress);
                 }
-            });
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
         }
     }
 }

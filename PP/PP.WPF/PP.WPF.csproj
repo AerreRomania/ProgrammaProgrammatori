@@ -31,6 +31,7 @@
     <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid" Version="20.2.4" />
     <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid.Core" Version="20.2.4" />
     <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Scheduling" Version="20.2.4" />
+    <PackageReference Include="NLog" Version="4.7.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +47,12 @@
     <Resource Include="Resources\OY.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

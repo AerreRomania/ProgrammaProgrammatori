@@ -1,7 +1,9 @@
-﻿using PP.Chronometer.WPF.Commands;
+﻿using NLog;
+using PP.Chronometer.WPF.Commands;
 using PP.Chronometer.WPF.State.Authenticators;
 using PP.Domain.Columns;
 using PP.Domain.Services;
+using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -10,6 +12,7 @@ namespace PP.Chronometer.WPF.ViewModels
 {
     public class AssistanceTasksViewModel : ViewModelBase
     {
+        Logger log = LogManager.GetCurrentClassLogger();
         private readonly IAuthenticator _authenticator;
         private readonly ITaskService _taskService;
 
@@ -55,25 +58,32 @@ namespace PP.Chronometer.WPF.ViewModels
 
         private void GetAssignedTasks()
         {
-            _programmerTasks = new ObservableCollection<ProgrammerGridColumns>();
-            _finishedProgrammerTasks = new ObservableCollection<ProgrammerGridColumns>();
+            try
+            {
+                _programmerTasks = new ObservableCollection<ProgrammerGridColumns>();
+                _finishedProgrammerTasks = new ObservableCollection<ProgrammerGridColumns>();
 
-            Task.Run(async () =>
-            {
-                var tasks = await _taskService.GetAllAssigned(_authenticator.CurrentUser.Id);
-                foreach (var task in tasks)
+                Task.Run(async () =>
                 {
-                    _programmerTasks.Add(task);
-                }
-            });
-            Task.Run(async () =>
-            {
-                var finishedTasks = await _taskService.GetAllAssigned(_authenticator.CurrentUser.Id, true);
-                foreach (var finishedTask in finishedTasks)
+                    var tasks = await _taskService.GetAllAssigned(_authenticator.CurrentUser.Id);
+                    foreach (var task in tasks)
+                    {
+                        _programmerTasks.Add(task);
+                    }
+                });
+                Task.Run(async () =>
                 {
-                    _finishedProgrammerTasks.Add(finishedTask);
-                }
-            });
+                    var finishedTasks = await _taskService.GetAllAssigned(_authenticator.CurrentUser.Id, true);
+                    foreach (var finishedTask in finishedTasks)
+                    {
+                        _finishedProgrammerTasks.Add(finishedTask);
+                    }
+                });
+            }
+            catch(Exception ex)
+            {
+                log.Error(ex);
+            }
         }
     }
 }

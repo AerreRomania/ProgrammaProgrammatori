@@ -1,4 +1,5 @@
-﻿using PP.WPF.Commands;
+﻿using NLog;
+using PP.WPF.Commands;
 using PP.WPF.State.Authenticators;
 using PP.WPF.State.Navigator;
 using PP.WPF.ViewModels.Factories;
@@ -8,6 +9,7 @@ namespace PP.WPF.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        Logger Log = LogManager.GetCurrentClassLogger();
         public INavigator Navigator { get; set; }
 
         public IAuthenticator Authenticator { get; }

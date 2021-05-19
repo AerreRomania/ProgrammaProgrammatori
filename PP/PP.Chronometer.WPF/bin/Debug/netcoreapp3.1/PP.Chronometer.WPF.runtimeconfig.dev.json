@@ -1,0 +1,9 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Dematec\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Dematec\\.nuget\\packages",
+      "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages"
+    ]
+  }
+}
