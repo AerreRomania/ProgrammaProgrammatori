@@ -24,7 +24,7 @@ namespace PP.WPF.ViewModels
             _programmerJobService = programmerJobService;
             Labels = CreateLabels();
             Statuses = CreateStates();
-            
+            //GetProgrammers();
             GetData();
             log.Info("TRACKING STARTED");
         }
@@ -159,22 +159,43 @@ namespace PP.WPF.ViewModels
                 return null;
             }
         }
-
-        private async void GetData()
+        private void GetProgrammers()
         {
-            try {
-                _knittingProgrammers = await GetEmployees();
-                //  Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers(); });
+            try
+            {
+                Task.Run(async () =>
+               { _knittingProgrammers = await GetEmployees(); });
 
-                _programmerProgresses = new ObservableCollection<ProgrammerProgress>();
-                var programmerProgresses = await _programmerJobService.GetAll();
-                var articles = await _articleService.GetAll();
-                foreach (var programmerProgress in programmerProgresses)
-                {
-                    programmerProgress.ArticleTitle = articles.FirstOrDefault(id => id.Id == programmerProgress.Progress.ArticleID)?.Articol;
-                    _programmerProgresses.Add(programmerProgress);
-                }
             }
+            catch(Exception ex)
+            {
+                log.Error(ex);
+            }
+           
+        }
+        private void GetData()
+        {
+            try
+            {
+                Task.Run(async () =>
+                {
+
+                    GetProgrammers();
+                    //  Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers(); });
+
+                    _programmerProgresses = new ObservableCollection<ProgrammerProgress>();
+                    var programmerProgresses = await _programmerJobService.GetAll();
+                    var articles = await _articleService.GetAll();
+                    foreach (var programmerProgress in programmerProgresses)
+                    {
+                        programmerProgress.ArticleTitle = articles.FirstOrDefault(id => id.Id == programmerProgress.Progress.ArticleID)?.Articol;
+                        _programmerProgresses.Add(programmerProgress);
+                    }
+                });
+                
+
+            }
+
             catch (Exception ex)
             {
                 log.Error(ex);
