@@ -9,7 +9,6 @@
     xmlns:dxschv="http://schemas.devexpress.com/winfx/2008/xaml/scheduling/visual"
     xmlns:local="clr-namespace:PP.WPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Loaded="TrackingView_OnLoaded"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:BooleanToIntegerConverter x:Key="BoolToIntConverter" />
@@ -18,7 +17,7 @@
             <Setter Property="VerticalAlignment" Value="Bottom" />
             <Setter Property="Width" Value="30" />
             <Setter Property="Height" Value="10" />
-            <Setter Property="Margin" Value="0,0,20,0" />
+            <Setter Property="Margin" Value="0,0,10,0" />
         </Style>
     </UserControl.Resources>
 
@@ -29,7 +28,24 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <WrapPanel Margin="10" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                Margin="5,0,0,0"
+                Background="{StaticResource BrushPrimary2}"
+                Command="{Binding RefreshCommand}"
+                FontFamily="{Binding Roboto}"
+                FontSize="18"
+                Foreground="White">
+                <Image Height="30" Source="\Resources\refresh.png" />
+            </Button>
+            <WrapPanel
+                Grid.Column="1"
+                Margin="10"
+                HorizontalAlignment="Center">
+
                 <TextBlock Text="Prototipo " />
                 <Label Background="#32CD32" Style="{StaticResource LegendLabels}" />
                 <TextBlock Text="Campionario " />
@@ -85,9 +101,17 @@
                 </dxsch:OptionsContextMenu>
             </dxsch:SchedulerControl.OptionsContextMenu>
 
-            <dxsch:TimelineView x:Name="TimelineView" MoreButtonsVisibility="Never">
+            <dxsch:TimelineView
+                x:Name="TimelineView"
+                IntervalCount="30"
+                MoreButtonsVisibility="Never">
                 <dxsch:TimelineView.TimeScales>
-                    <dxsch:TimeScaleWorkHour x:Name="ScaleWorkHour" IsEnabled="True" />
+                    <dxsch:TimeScaleWorkHour
+                        x:Name="ScaleWorkHour"
+                        DisplayFormat="{}{0:hh}:{1:00}"
+                        IsEnabled="True"
+                        OverridesDefaultStyle="True" />
+                    <dxsch:TimeScaleDay x:Name="ScaleWorkDay" IsEnabled="True" />
                 </dxsch:TimelineView.TimeScales>
                 <dxsch:TimelineView.ResourceHeaderStyle>
                     <Style TargetType="dxschv:ResourceHeaderControl">
@@ -120,6 +144,7 @@
                     </dxsch:DataSource.AppointmentStatusMappings>
                     <dxsch:DataSource.AppointmentMappings>
                         <dxsch:AppointmentMappings
+                            Description="Duration"
                             End="EndWork"
                             Id="ProgrammerProgressID"
                             LabelId="Progress.JobTypeID"

@@ -18,5 +18,7 @@ namespace PP.Domain.Models
         public int ProgrammerTaskID { get; set; }
 
         public ProgrammerTask Progress { get; set; }
+        [NotMapped]
+        public TimeSpan Duration { get => DateTime.Now - StartWork; }
     }
 }

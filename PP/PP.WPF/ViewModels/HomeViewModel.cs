@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using DevExpress.Mvvm;
+using NLog;
 using PP.Domain.Columns;
 using PP.Domain.Models;
 using PP.Domain.Services;
@@ -28,7 +29,8 @@ namespace PP.WPF.ViewModels
         private readonly IEmployeeService _employeeService;
         private readonly ITaskService _taskService;
         private readonly IArticleDetailsService _articleDetailsService;
-
+        public DelegateCommand<object> RefreshCommand { get; set; }
+        
         public ObservableCollection<JobType> Labels { get; set; }
         public ObservableCollection<TaskStatus> Statuses { get; set; }
 
@@ -81,6 +83,8 @@ namespace PP.WPF.ViewModels
             ToDoCommand = new ToDoCommand(this, _articleService, _articleDetailsService, _taskService);
             FinishedCommand = new FinishedCommand(this, _articleService, _articleDetailsService, _taskService);
             AllCommand = new AllCommand(this, _articleService, _articleDetailsService, _taskService);
+            RefreshCommand = new DelegateCommand<object>(OnRefreshCommand);
+            LegendaFilterCommand = new DelegateCommand<string>(OnLegendFileter);
 
             Labels = CreateLabels();
             Statuses = CreateStates();
@@ -90,6 +94,57 @@ namespace PP.WPF.ViewModels
             log.Info("TIMELINE STARTED");
         }
 
+        private void OnLegendFileter(string obj)
+        {
+            
+            switch (obj)
+                {
+                    case "Prototipo":
+
+                        PpArticles = new ObservableCollection<ArticleGridColumns>(_originalpp.Where(x => x.ProgrammerPR != null));
+                        OnPropertyChanged(nameof(PpArticles));
+                        break;
+                    case "Campionario":
+
+                        PpArticles = new ObservableCollection<ArticleGridColumns>(_originalpp.Where(x => x.ProgrammerCa != null));
+                        OnPropertyChanged(nameof(PpArticles));
+                        break;
+                    case "Preproduzione":
+
+                        PpArticles = new ObservableCollection<ArticleGridColumns>(_originalpp.Where(x => x.ProgrammerPP != null));
+                        OnPropertyChanged(nameof(PpArticles));
+                        break;
+                    case "Sviluppo":
+
+                        PpArticles = new ObservableCollection<ArticleGridColumns>(_originalpp.Where(x => x.ProgrammerSvTg != null));
+                        OnPropertyChanged(nameof(PpArticles));
+                        break;
+                    case "Controcampione":
+
+                        PpArticles = new ObservableCollection<ArticleGridColumns>(_originalpp.Where(x => x.ProgrammerCo != null));
+                        OnPropertyChanged(nameof(PpArticles));
+                        break;
+
+                }
+           
+        }
+
+        private void OnRefreshCommand(object obj)
+        {
+            GetEmployees();
+            GetTasks();
+            GetArticles();
+        }
+        private string _filtername;
+        public string FilterName
+        {
+            get => _filtername;
+            set
+            {
+                _filtername = value;
+                OnPropertyChanged(nameof(FilterName));
+            }
+        }
         private ArticleGridColumns _selectedArticleRow;
 
         public ArticleGridColumns SelectedArticleRow
@@ -301,6 +356,17 @@ namespace PP.WPF.ViewModels
                 _ppArticles = value;
                 OnPropertyChanged(nameof(PpArticles));
             }
+
+        }
+        private ObservableCollection<ArticleGridColumns> _originalpp;
+        public ObservableCollection<ArticleGridColumns> OriginalPP
+        {
+            get => _originalpp;
+            set
+            {
+                _originalpp = value;
+                OnPropertyChanged(nameof(OriginalPP));
+            }
         }
 
         public ICommand SaveTaskCommand { get; set; }
@@ -319,12 +385,12 @@ namespace PP.WPF.ViewModels
 
                 var tasks = articles.SelectMany(a => programerTasks, (a, p) => new { a, p })
                     .Where(t => t.p.ArticleID == t.a.Id)
-                    .Select(t => new ProgrammerTask
-                    {
+                    .Select(t => new ProgrammerTask 
+                    {   
                         ProgrammerTaskID = t.p.ProgrammerTaskID,
                         StartTask = t.p.StartTask,
                         EndTask = t.p.EndTask,
-                        Note = t.p.Note,
+                        Note = t.p.Note + "\n Time assigned: "+ (t.p.EndTask - t.p.StartTask).Days +" days, "+ (t.p.EndTask - t.p.StartTask).Hours+" hours and " + (t.p.EndTask - t.p.StartTask).Minutes+" minutes",
                         TaskCompleted = t.p.TaskCompleted,
                         ProgrammerID = t.p.ProgrammerID,
                         ArticleID = t.a.Id,
@@ -334,8 +400,11 @@ namespace PP.WPF.ViewModels
 
                 foreach (var item in tasks)
                 {
+                   
                     _programmerTasks.Add(item);
+
                 }
+                OnPropertyChanged(nameof(ProgrammerTasks));
                 return true;
             });
                 return false;
@@ -351,7 +420,7 @@ namespace PP.WPF.ViewModels
         public ICommand ToDoCommand { get; set; }
         public ICommand FinishedCommand { get; set; }
         public ICommand AllCommand { get; set; }
-
+        public ICommand LegendaFilterCommand { get; set; }
 
         public void GetArticles()
 
@@ -420,17 +489,24 @@ namespace PP.WPF.ViewModels
                         DataFineSvilTgBase = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.EndTask,
                         Finish = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Finish,
                     };
-
+                int i = 1;
+                mergedData = new ObservableCollection<ArticleGridColumns>(mergedData.OrderBy(n => n.DataInizioProd));
                 foreach (var article in mergedData)
                 {
+                    article.NrCrt = i;
                     _ppArticles.Add(article);
+                    i++;
                 }
 
                 foreach (var articole in articoles)
                 {
                     _articles.Add(articole);
                 }
+               
+                OnPropertyChanged(nameof(PpArticles));
+                OriginalPP = PpArticles;
             });
+               
             }
             catch (Exception ex)
             {
@@ -441,7 +517,9 @@ namespace PP.WPF.ViewModels
         private void GetEmployees()
         {
             try { 
-            Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers(); });
+            Task.Run(async () => { _knittingProgrammers = await _employeeService.GetProgrammers();
+                OnPropertyChanged(nameof(KnittingProgrammers));
+                });
             }
             catch (Exception ex)
             {

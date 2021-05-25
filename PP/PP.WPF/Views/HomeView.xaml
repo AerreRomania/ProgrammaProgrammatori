@@ -20,10 +20,10 @@
     <UserControl.Resources>
         <Style x:Key="LegendLabels" TargetType="Label">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Width" Value="30" />
             <Setter Property="Height" Value="10" />
-            <Setter Property="Margin" Value="0,0,20,0" />
+            <Setter Property="Margin" Value="0,0,10,0" />
         </Style>
 
         <Style x:Key="ColumnHeaderStyle" TargetType="ContentControl">
@@ -43,7 +43,7 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="5" />
             <RowDefinition Height="*" />
@@ -51,30 +51,78 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <WrapPanel Margin="4" HorizontalAlignment="Center">
-                <TextBlock Text="Prototipo " />
-                <Label Background="#32CD32" Style="{StaticResource LegendLabels}" />
-                <TextBlock Text="Campionario " />
-                <Label Background="#FFFF33" Style="{StaticResource LegendLabels}" />
-                <TextBlock Text="Preproduzione " />
-                <Label Background="#D3A0DD" Style="{StaticResource LegendLabels}" />
-                <TextBlock Text="Svillupo Taglie " />
-                <Label Background="#00BFFF" Style="{StaticResource LegendLabels}" />
-                <TextBlock Text="Controcampione " />
-                <Label Background="#ADD8E6" Style="{StaticResource LegendLabels}" />
-                <TextBlock Text="Riparazione/Ass.Rep. " />
-                <Label Background="#FF3333" Style="{StaticResource LegendLabels}" />
-                <TextBlock Text="Prove tecniche " />
-                <Label Background="#CD5C5C" Style="{StaticResource LegendLabels}" />
-
-                <TextBlock Text="Vacanza " />
-                <Label Background="#A9A9A9" Style="{StaticResource LegendLabels}" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                Margin="5,0,0,0"
+                HorizontalAlignment="Left"
+                Background="{StaticResource BrushPrimary2}"
+                Command="{Binding RefreshCommand}"
+                FontSize="18"
+                Foreground="White">
+                <Image Height="30" Source="\Resources\refresh.png" />
+            </Button>
+            <WrapPanel
+                Grid.Column="1"
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center">
+                <Button Command="{Binding LegendaFilterCommand}" CommandParameter="Prototipo">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Prototipo " />
+                        <Label Background="#32CD32" Style="{StaticResource LegendLabels}" />
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding LegendaFilterCommand}" CommandParameter="Campionario">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Campionario " />
+                        <Label Background="#FFFF33" Style="{StaticResource LegendLabels}" />
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding LegendaFilterCommand}" CommandParameter="Preproduzione">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Preproduzione " />
+                        <Label Background="#D3A0DD" Style="{StaticResource LegendLabels}" />
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding LegendaFilterCommand}" CommandParameter="Sviluppo">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Svillupo Taglie " />
+                        <Label Background="#00BFFF" Style="{StaticResource LegendLabels}" />
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding LegendaFilterCommand}" CommandParameter="Controcampione">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Controcampione " />
+                        <Label Background="#ADD8E6" Style="{StaticResource LegendLabels}" />
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding LegendaFilterCommand}" CommandParameter="Riparazione">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Riparazione/Ass.Rep. " />
+                        <Label Background="#FF3333" Style="{StaticResource LegendLabels}" />
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding LegendaFilterCommand}" CommandParameter="ProveT">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Prove tecniche " />
+                        <Label Background="#CD5C5C" Style="{StaticResource LegendLabels}" />
+                    </StackPanel>
+                </Button>
+                <Button Command="{Binding LegendaFilterCommand}" CommandParameter="Vacanza">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Vacanza " />
+                        <Label Background="#A9A9A9" Style="{StaticResource LegendLabels}" />
+                    </StackPanel>
+                </Button>
             </WrapPanel>
         </Grid>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="5" />
+                <RowDefinition Height="0" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="5" />
             </Grid.RowDefinitions>
@@ -154,12 +202,16 @@
 
                 <scheduling:TimelineView
                     x:Name="TimelineView"
-                    IntervalCount="40"
+                    IntervalCount="30"
                     MoreButtonsVisibility="Never">
 
                     <scheduling:TimelineView.TimeScales>
-                        <scheduling:TimeScaleWorkDay x:Name="scaleWorkDay" IsEnabled="True" />
-                        <scheduling:TimeScaleWorkHour x:Name="scaleWorkHour" IsEnabled="True" />
+                        <scheduling:TimeScaleWorkHour
+                            x:Name="ScaleWorkHour"
+                            DisplayFormat="{}{0:hh}:{1:00}"
+                            IsEnabled="True"
+                            OverridesDefaultStyle="True" />
+                        <scheduling:TimeScaleDay x:Name="ScaleWorkDay" IsEnabled="True" />
                     </scheduling:TimelineView.TimeScales>
 
                     <scheduling:TimelineView.ResourceHeaderStyle>
@@ -176,11 +228,13 @@
                 </scheduling:TimelineView>
 
                 <scheduling:SchedulerControl.DataSource>
+
                     <scheduling:DataSource
                         AppointmentLabelsSource="{Binding Labels}"
                         AppointmentStatusesSource="{Binding Statuses}"
                         AppointmentsSource="{Binding ProgrammerTasks, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                         ResourcesSource="{Binding KnittingProgrammers}">
+
                         <scheduling:DataSource.AppointmentLabelMappings>
                             <scheduling:AppointmentLabelMappings
                                 Caption="JobTypeName"
@@ -194,6 +248,7 @@
                                 Id="Id" />
                         </scheduling:DataSource.AppointmentStatusMappings>
                         <scheduling:DataSource.AppointmentMappings>
+
                             <scheduling:AppointmentMappings
                                 Description="Note"
                                 End="EndTask"
@@ -211,6 +266,7 @@
                         <scheduling:DataSource.ResourceMappings>
                             <scheduling:ResourceMappings Caption="Angajat" Id="Id" />
                         </scheduling:DataSource.ResourceMappings>
+
                     </scheduling:DataSource>
                 </scheduling:SchedulerControl.DataSource>
             </scheduling:SchedulerControl>
@@ -278,7 +334,7 @@
                         AllowGrouping="False"
                         AllowHorizontalScrollingVirtualization="True"
                         AllowPerPixelScrolling="True"
-                        AllowSorting="False"
+                        AllowSorting="True"
                         AlternateRowBackground="#e0e0e0 "
                         AlternationCount="2"
                         AutoWidth="False"
@@ -369,7 +425,7 @@
                         Width="50"
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         EditFormVisible="False"
-                        FieldName="Num"
+                        FieldName="NrCrt"
                         Fixed="Left"
                         Header="NUM"
                         HeaderStyle="{StaticResource BaseHeaderStyle}"
@@ -659,7 +715,7 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         FieldName="DiffGGProdData"
                         GroupInterval="DateRange"
-                        Header="DIFF GG INIZIO PRODUZ. E DATA ARR SCHEDA"
+                        Header="DIFF GG IP. E ArS"
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
                             <dxe:DateEditSettings DisplayFormat="d" />
@@ -672,7 +728,7 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         FieldName="DiffGGProgData"
                         GroupInterval="DateRange"
-                        Header="DIFF GG INIZIO PROGRAM E DATA ARR SCHEDA"
+                        Header="DIFF GG IPr E ArS"
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
                             <dxe:DateEditSettings DisplayFormat="d" />

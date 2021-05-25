@@ -1,0 +1,275 @@
+2021-05-21 10:05:01.7452|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:05:34.2086|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 10:12:17.2328|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:18:22.7877|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:36:52.4588|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:39:04.4199|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:48:47.0261|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:50:10.9037|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:52:02.0605|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:53:36.1318|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 10:58:01.8716|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:00:29.0704|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:03:12.9313|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:04:53.1974|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:05:42.3951|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:08:08.8908|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:12:42.4889|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:17:33.0659|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:21:05.0691|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:25:38.6039|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:28:29.7623|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:39:20.0828|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:43:47.9811|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:49:35.5776|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:53:30.4684|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 11:59:35.9962|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:01:12.3076|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:01:38.1219|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 12:02:25.2121|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:07:58.1433|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:11:54.0688|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:31:56.6817|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:33:49.4771|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:39:29.8472|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:40:56.7023|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:42:24.0320|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:44:55.9741|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:48:09.6010|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:52:39.0006|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:56:05.9276|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:57:43.1311|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 12:58:02.3455|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 13:00:37.3605|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:02:57.0918|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:08:24.8436|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:10:52.4111|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:12:12.6456|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 13:18:33.6478|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:18:53.6826|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 13:18:54.8200|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__37_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 193
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 181
+2021-05-21 13:31:04.1942|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:31:17.3309|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 13:31:20.4418|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 203
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 13:34:13.4268|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:34:25.8883|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 13:34:26.8288|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 13:42:16.3267|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:43:24.8470|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:43:38.3337|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 13:43:39.6629|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 13:54:23.9005|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 13:55:42.9020|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 13:55:44.4830|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 14:06:06.0703|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 14:14:38.2642|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 14:15:25.4745|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 14:15:26.3914|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 15:47:11.2198|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 15:47:27.4211|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 15:47:29.1702|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 19:36:40.1357|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 19:37:35.7049|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 19:37:36.8055|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 19:56:02.7756|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 19:56:15.9684|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 19:56:16.8983|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 19:58:53.4532|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 19:59:09.8332|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 19:59:10.7841|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 20:16:43.9923|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 20:17:00.2247|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 20:17:01.2166|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 20:21:19.4293|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 20:21:33.0470|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 20:21:34.0744|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 20:43:14.2803|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 20:43:26.7924|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 20:43:27.7791|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 20:45:22.1247|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 20:45:35.1312|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 20:45:36.1824|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 20:48:20.3080|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-21 20:48:35.6849|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-21 20:48:36.7010|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-21 20:54:33.1490|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED

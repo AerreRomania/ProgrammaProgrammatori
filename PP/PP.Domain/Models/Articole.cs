@@ -5,6 +5,7 @@ namespace PP.Domain.Models
 {
     public class Articole : DomainObject
     {
+        
         public int Id { get; set; }
         public string Articol { get; set; }
         public string Descriere { get; set; }
@@ -18,6 +19,7 @@ namespace PP.Domain.Models
         public string Note { get; set; }
         public byte[] PdfView { get; set; }
         public int? IdTaglie { get; set; }
+        public bool? IsDeleted { get; set; }
 
         public ICollection<ProgrammerTask> ProgrammerTask { get; set; } = new List<ProgrammerTask>();
         public ICollection<ArticleDetails> ArticleDetails { get; set; } = new List<ArticleDetails>();

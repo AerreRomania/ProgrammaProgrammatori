@@ -93,8 +93,10 @@ namespace PP.WPF.Commands
    
             foreach (var row in mergedData)
             {
-                _viewModel.PpArticles.Add(row);
-                
+                if (row.Finish == false)
+                {
+                    _viewModel.PpArticles.Add(row);
+                }
             }
         }
     }

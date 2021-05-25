@@ -21,6 +21,7 @@ namespace PP.WPF.Views
         public LoginView()
         {
             InitializeComponent();
+            pbUserName.Focus();
         }
 
         private void ButtonLogin_OnClick(object sender, RoutedEventArgs e)

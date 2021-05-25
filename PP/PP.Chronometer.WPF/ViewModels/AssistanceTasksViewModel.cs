@@ -56,14 +56,14 @@ namespace PP.Chronometer.WPF.ViewModels
             set;
         }
 
-        private void GetAssignedTasks()
+        private async void GetAssignedTasks()
         {
             try
             {
                 _programmerTasks = new ObservableCollection<ProgrammerGridColumns>();
                 _finishedProgrammerTasks = new ObservableCollection<ProgrammerGridColumns>();
 
-                Task.Run(async () =>
+               await Task.Run(async () =>
                 {
                     var tasks = await _taskService.GetAllAssigned(_authenticator.CurrentUser.Id);
                     foreach (var task in tasks)
@@ -71,7 +71,7 @@ namespace PP.Chronometer.WPF.ViewModels
                         _programmerTasks.Add(task);
                     }
                 });
-                Task.Run(async () =>
+               await Task.Run(async () =>
                 {
                     var finishedTasks = await _taskService.GetAllAssigned(_authenticator.CurrentUser.Id, true);
                     foreach (var finishedTask in finishedTasks)

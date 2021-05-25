@@ -66,6 +66,7 @@
                     <TextBlock Grid.Column="0" Text="Username" />
 
                     <dxe:ComboBoxEdit
+                        x:Name="pbUserName"
                         Grid.Column="1"
                         Margin="20,0,0,0"
                         AllowDefaultButton="False"

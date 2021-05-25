@@ -24,13 +24,14 @@ namespace PP.Chronometer.WPF.Behaviors
         //Initial Best Fit
         private void AssociatedObject_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            ((TableView)AssociatedObject.View).BestFitColumns();
+           ((TableView)AssociatedObject.View).BestFitColumns();
         }
 
         //When a new source is assigned
         private void Grid_ItemsSourceChanged(object sender, ItemsSourceChangedEventArgs e)
         {
             Dispatcher.BeginInvoke(new Action(() => ((TableView)AssociatedObject.View).BestFitColumns()), DispatcherPriority.Render);
+        
         }
     }
 }

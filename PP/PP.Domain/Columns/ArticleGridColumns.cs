@@ -5,6 +5,7 @@ namespace PP.Domain.Columns
 {
     public class ArticleGridColumns : DomainObject
     {
+        public int NrCrt { get; set; }
         public int? ArticleDeatilsID { get; set; }
         public int? Num { get; set; }
         public string Articolo { get; set; }

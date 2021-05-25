@@ -15,12 +15,6 @@ namespace PP.WPF.Views
             InitializeComponent();
         }
 
-        private void TrackingView_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            TimeScaleCollection scales = ProgrammersTimelineControl.Views.TimelineView.TimeScales;
-            scales.Clear();
-
-            scales.Add(new TimeScaleHour());
-        }
+       
     }
 }

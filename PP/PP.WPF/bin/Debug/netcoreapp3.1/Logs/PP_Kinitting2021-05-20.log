@@ -1,0 +1,58 @@
+2021-05-20 15:44:49.0046|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 15:46:00.9256|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-20 15:57:21.3036|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 15:57:37.5451|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-20 15:59:40.7650|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 15:59:57.7831|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-20 16:07:14.7336|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 16:07:38.7437|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-20 16:10:07.7450|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 16:10:21.8413|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-20 16:19:15.4744|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 16:20:08.0375|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 16:20:24.3095|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-20 16:49:24.9446|ERROR|PP.WPF.ViewModels.HomeViewModel|System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.OrderedEnumerable`2..ctor(IEnumerable`1 source, Func`2 keySelector, IComparer`1 comparer, Boolean descending, OrderedEnumerable`1 parent)
+   at System.Linq.Enumerable.OrderBy[TSource,TKey](IEnumerable`1 source, Func`2 keySelector)
+   at PP.WPF.ViewModels.HomeViewModel.GetArticles() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 436
+2021-05-20 16:49:25.0776|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 16:51:17.6781|ERROR|PP.WPF.ViewModels.HomeViewModel|System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.OrderedEnumerable`2..ctor(IEnumerable`1 source, Func`2 keySelector, IComparer`1 comparer, Boolean descending, OrderedEnumerable`1 parent)
+   at System.Linq.Enumerable.OrderByDescending[TSource,TKey](IEnumerable`1 source, Func`2 keySelector)
+   at PP.WPF.ViewModels.HomeViewModel.GetArticles() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 436
+2021-05-20 16:51:17.8267|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 17:01:43.1807|ERROR|PP.WPF.ViewModels.HomeViewModel|System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.OrderedEnumerable`2..ctor(IEnumerable`1 source, Func`2 keySelector, IComparer`1 comparer, Boolean descending, OrderedEnumerable`1 parent)
+   at System.Linq.Enumerable.OrderByDescending[TSource,TKey](IEnumerable`1 source, Func`2 keySelector)
+   at PP.WPF.ViewModels.HomeViewModel.GetArticles() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 436
+2021-05-20 17:01:43.3916|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 17:04:10.3078|ERROR|PP.WPF.ViewModels.HomeViewModel|System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.OrderedEnumerable`2..ctor(IEnumerable`1 source, Func`2 keySelector, IComparer`1 comparer, Boolean descending, OrderedEnumerable`1 parent)
+   at System.Linq.Enumerable.OrderByDescending[TSource,TKey](IEnumerable`1 source, Func`2 keySelector)
+   at PP.WPF.ViewModels.HomeViewModel.GetArticles() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 436
+2021-05-20 17:04:10.4539|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 17:07:28.8234|ERROR|PP.WPF.ViewModels.HomeViewModel|System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.OrderedEnumerable`2..ctor(IEnumerable`1 source, Func`2 keySelector, IComparer`1 comparer, Boolean descending, OrderedEnumerable`1 parent)
+   at System.Linq.Enumerable.OrderByDescending[TSource,TKey](IEnumerable`1 source, Func`2 keySelector)
+   at PP.WPF.ViewModels.HomeViewModel.GetArticles() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 436
+2021-05-20 17:07:28.9627|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 17:22:16.1399|ERROR|PP.WPF.ViewModels.HomeViewModel|System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.OrderedEnumerable`2..ctor(IEnumerable`1 source, Func`2 keySelector, IComparer`1 comparer, Boolean descending, OrderedEnumerable`1 parent)
+   at System.Linq.Enumerable.OrderByDescending[TSource,TKey](IEnumerable`1 source, Func`2 keySelector)
+   at PP.WPF.ViewModels.HomeViewModel.GetArticles() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 436
+2021-05-20 17:22:16.2853|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 17:26:06.7321|ERROR|PP.WPF.ViewModels.HomeViewModel|System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.OrderedEnumerable`2..ctor(IEnumerable`1 source, Func`2 keySelector, IComparer`1 comparer, Boolean descending, OrderedEnumerable`1 parent)
+   at System.Linq.Enumerable.OrderByDescending[TSource,TKey](IEnumerable`1 source, Func`2 keySelector)
+   at PP.WPF.ViewModels.HomeViewModel.GetArticles() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 436
+2021-05-20 17:26:06.8625|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 17:29:31.5728|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 17:33:24.4459|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-20 17:39:16.3660|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED

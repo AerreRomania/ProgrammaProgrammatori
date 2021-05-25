@@ -22,6 +22,7 @@
   <ItemGroup>
     <None Remove="Resources\Onlyou.png" />
     <None Remove="Resources\OY.png" />
+    <None Remove="Resources\refresh.png" />
     <None Remove="Views\down-arrow_icon-icons.com_73351.png" />
     <None Remove="Views\up-arrow_icon-icons.com_73351.png" />
   </ItemGroup>
@@ -47,6 +48,7 @@
     <Resource Include="Resources\OY.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\refresh.png" />
   </ItemGroup>
 
   <ItemGroup>

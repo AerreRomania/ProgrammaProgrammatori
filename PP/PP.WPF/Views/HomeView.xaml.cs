@@ -16,8 +16,10 @@ namespace PP.WPF.Views
         public HomeView()
         {
             InitializeComponent();
+            DevExpress.Xpf.Core.DXGridDataController.DisableThreadingProblemsDetection = true;
         }
 
+       
         private void ProgrammersTimelineControl_OnResizeAppointmentOver(object sender, ResizeAppointmentOverEventArgs e)
         {
             if (e.ResizeAppointment.Duration.TotalHours < 1)
@@ -372,5 +374,7 @@ namespace PP.WPF.Views
 
             GridArticles.RefreshData();
         }
+
+       
     }
 }
