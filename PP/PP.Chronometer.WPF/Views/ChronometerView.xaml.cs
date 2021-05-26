@@ -11,6 +11,7 @@ namespace PP.Chronometer.WPF.Views
         public ChronometerView()
         {
             InitializeComponent();
+            DevExpress.Xpf.Core.DXGridDataController.DisableThreadingProblemsDetection = true;
         }
 
         protected override void OnClosing(CancelEventArgs e)

@@ -287,3 +287,6 @@ PP/PP.WPF/obj/Debug/netcoreapp3.1/Styles/NavigationBar.baml
 PP/PP.WPF/bin/Debug/netcoreapp3.1/Logs/PP_Kinitting2021-05-19.log
 PP/PP.WPF/obj/Debug/netcoreapp3.1/PP.WPF.csprojAssemblyReference.cache
 PP/PP.WPF/obj/Debug/netcoreapp3.1/PP.WPF.csprojAssemblyReference.cache
+*.dll
+*.dll
+*.cache

@@ -43,5 +43,6 @@ namespace PP.Domain.Columns
         public DateTime EndDate { get; set; }
         public bool Repair { get; set; }
         public bool Assistance { get; set; }
+        public string Note { get; set; }
     }
 }

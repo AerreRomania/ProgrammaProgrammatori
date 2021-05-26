@@ -14,6 +14,7 @@ namespace PP.Chronometer.WPF.Views
         public AssignedTasksView()
         {
             InitializeComponent();
+            DevExpress.Xpf.Core.DXGridDataController.DisableThreadingProblemsDetection = true;
         }
 
         private void InProgressTaskTable_OnRowDoubleClick(object sender, RowDoubleClickEventArgs e)

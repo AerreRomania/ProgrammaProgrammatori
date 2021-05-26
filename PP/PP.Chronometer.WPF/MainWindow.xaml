@@ -5,7 +5,7 @@
     xmlns:controls="clr-namespace:PP.Chronometer.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="750"
+    Width="980"
     Height="700"
     Icon="Resources/OY.ico"
     ResizeMode="NoResize"
