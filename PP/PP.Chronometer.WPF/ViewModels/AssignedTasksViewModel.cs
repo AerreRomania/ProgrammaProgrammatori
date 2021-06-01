@@ -2,6 +2,7 @@
 using PP.Chronometer.WPF.Commands;
 using PP.Chronometer.WPF.State.Authenticators;
 using PP.Domain.Columns;
+using PP.Domain.Models;
 using PP.Domain.Services;
 using System;
 using System.Collections.ObjectModel;
@@ -15,12 +16,14 @@ namespace PP.Chronometer.WPF.ViewModels
         private readonly IAuthenticator _authenticator;
         private readonly ITaskService _taskService;
         Logger log = LogManager.GetCurrentClassLogger();
+        public ICommand SaveNoteCommand { get; set; }
         public AssignedTasksViewModel(IAuthenticator authenticator, ITaskService taskService, IProgrammerJobService programmerJobService)
         {
             _authenticator = authenticator;
             _taskService = taskService;
             GetAssignedTasks();
             OpenChronometerCommand = new OpenChronometerCommand(programmerJobService, this);
+            SaveNoteCommand = new SaveNoteCommand(this, taskService);
         }
 
         private ObservableCollection<ProgrammerGridColumns> _programmerTasks;
@@ -34,7 +37,7 @@ namespace PP.Chronometer.WPF.ViewModels
                 OnPropertyChanged(nameof(ProgrammerTasks));
             }
         }
-
+       
         private ObservableCollection<ProgrammerGridColumns> _finishedProgrammerTasks;
 
         public ObservableCollection<ProgrammerGridColumns> FinishedProgrammerTasks

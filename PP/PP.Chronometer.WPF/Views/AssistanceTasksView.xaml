@@ -54,6 +54,7 @@
                 <dxg:GridControl
                     x:Name="InProgressGrid"
                     ItemsSource="{Binding ProgrammerTasks, Mode=TwoWay}"
+                    SelectedItem="{Binding SelectedRow}"
                     SelectionMode="Row"
                     ShowBorder="True">
 
@@ -69,6 +70,7 @@
                             AlternateRowBackground="#e0e0e0 "
                             AlternationCount="2"
                             AutoWidth="False"
+                            CellValueChanged="InProgressTaskTable_CellValueChanged"
                             FadeSelectionOnLostFocus="False"
                             RowDoubleClick="InProgressTaskTable_OnRowDoubleClick"
                             ShowGroupPanel="False"
@@ -142,6 +144,7 @@
                             ReadOnly="True" />
                         <dxg:GridColumn
                             MinWidth="211"
+                            AllowEditing="True"
                             ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                             FieldName="Note"
                             Header="Note"
@@ -239,12 +242,12 @@
                             HeaderStyle="{StaticResource BaseHeaderStyle}"
                             ReadOnly="True" />
                         <dxg:GridColumn
-                            MinWidth="211"
+                            MinWidth="511"
                             ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                             FieldName="Note"
                             Header="Note"
                             HeaderStyle="{StaticResource BaseHeaderStyle}"
-                            ReadOnly="False" />
+                            ReadOnly="True" />
                     </dxg:GridControl.Columns>
                 </dxg:GridControl>
             </TabItem>

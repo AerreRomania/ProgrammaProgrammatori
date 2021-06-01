@@ -144,6 +144,7 @@ namespace PP.WPF.Views
         {
             if (e.RowHandle != DataControlBase.NewItemRowHandle)
                 e.Cancel = true;
+           
         }
 
         private void ButtonTutti_OnClick(object sender, RoutedEventArgs e)

@@ -45,5 +45,10 @@ namespace PP.Chronometer.WPF.Views
                 }
             }
         }
+
+        private void InProgressTaskTable_CellValueChanged(object sender, CellValueChangedEventArgs e)
+        {
+            ((AssistanceTasksViewModel)DataContext).SaveNoteCommand.Execute(null);
+        }
     }
 }

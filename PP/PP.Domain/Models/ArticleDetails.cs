@@ -20,8 +20,8 @@ namespace PP.Domain.Models
         public DateTime? DataArrSchedeCo { get; set; }
         public DateTime? DataConsegnaCo { get; set; }
         public DateTime? DataArrSchedaDisco { get; set; }
-        public DateTime? DiffGGProdData { get; set; }
-        public DateTime? DiffGGProgData { get; set; }
+        public double? DiffGGProdData { get; set; }
+        public double? DiffGGProgData { get; set; }
         public DateTime? DataConsegnaPP { get; set; }
         public DateTime? GG1 { get; set; }
         public DateTime? Ok { get; set; }

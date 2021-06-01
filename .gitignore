@@ -290,3 +290,6 @@ PP/PP.WPF/obj/Debug/netcoreapp3.1/PP.WPF.csprojAssemblyReference.cache
 *.dll
 *.dll
 *.cache
+PP/PP.Chronometer.WPF/bin/Debug/netcoreapp3.1/DevExpress.CodeParser.v20.2.dll
+PP/PP.Chronometer.WPF/bin/Debug/netcoreapp3.1/DevExpress.DataAccess.v20.2.dll
+PP/PP.Chronometer.WPF/bin/Debug/netcoreapp3.1/DevExpress.Images.v20.2.dll

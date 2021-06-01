@@ -41,7 +41,7 @@ namespace PP.EntityFramework.Services
         {
             return await _nonQueryDataService.Update(id, entity);
         }
-
+       
         public async Task<bool> Delete(int id)
         {
             return await _nonQueryDataService.Delete(id);

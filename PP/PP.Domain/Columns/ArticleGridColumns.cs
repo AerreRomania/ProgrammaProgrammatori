@@ -39,8 +39,8 @@ namespace PP.Domain.Columns
 
         public DateTime? DataArrivoSchedaDisco { get; set; }
         public string ProgrammerPP { get; set; }
-        public DateTime? DiffGGProdData { get; set; }
-        public DateTime? DiffGGProgData { get; set; }
+        public double? DiffGGProdData { get; set; }
+        public double? DiffGGProgData { get; set; }
 
         public DateTime? StartPP { get; set; }
         public DateTime? EndPP { get; set; }

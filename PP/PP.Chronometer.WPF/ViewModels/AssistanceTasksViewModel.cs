@@ -15,13 +15,14 @@ namespace PP.Chronometer.WPF.ViewModels
         Logger log = LogManager.GetCurrentClassLogger();
         private readonly IAuthenticator _authenticator;
         private readonly ITaskService _taskService;
-
+        public ICommand SaveNoteCommand { get; set; }
         public AssistanceTasksViewModel(IAuthenticator authenticator, ITaskService taskService, IProgrammerJobService programmerJobService)
         {
             _authenticator = authenticator;
             _taskService = taskService;
             GetAssignedTasks();
             OpenChronometerCommand = new OpenChronometerForAssignedCommand(programmerJobService, this);
+            SaveNoteCommand = new SaveNoteCommandAssistance(this, taskService);
         }
 
         private ObservableCollection<ProgrammerGridColumns> _programmerTasks;

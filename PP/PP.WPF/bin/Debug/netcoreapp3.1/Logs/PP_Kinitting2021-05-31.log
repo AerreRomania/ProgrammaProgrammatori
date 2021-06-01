@@ -1,0 +1,72 @@
+2021-05-31 10:20:13.9097|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 11:28:07.0363|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-31 11:28:08.3877|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-31 13:41:02.5102|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 13:42:12.6245|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-05-31 13:42:13.9498|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-05-31 14:16:40.2870|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 14:30:21.6831|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 14:36:52.6293|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 14:46:43.1639|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 14:54:00.9512|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 14:59:48.9986|ERROR|PP.WPF.ViewModels.HomeViewModel|System.InvalidCastException: Unable to cast object of type 'System.TimeSpan' to type 'System.IConvertible'.
+   at System.Convert.ToDateTime(Object value)
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 176
+2021-05-31 15:01:55.6096|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 15:03:52.0678|ERROR|PP.WPF.ViewModels.HomeViewModel|System.InvalidCastException: Unable to cast object of type 'System.TimeSpan' to type 'System.IConvertible'.
+   at System.Convert.ToDateTime(Object value)
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 176
+2021-05-31 15:05:11.2810|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 15:06:04.3164|ERROR|PP.WPF.ViewModels.HomeViewModel|System.InvalidCastException: Unable to cast object of type 'System.TimeSpan' to type 'System.IConvertible'.
+   at System.Convert.ToDateTime(Object value)
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 176
+2021-05-31 15:06:45.9874|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 15:10:08.6477|ERROR|PP.WPF.ViewModels.HomeViewModel|System.InvalidCastException: Unable to cast object of type 'System.TimeSpan' to type 'System.IConvertible'.
+   at System.Convert.ToDateTime(Object value)
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 176
+2021-05-31 15:19:28.5011|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 15:20:17.4531|ERROR|PP.WPF.ViewModels.HomeViewModel|System.InvalidCastException: Unable to cast object of type 'System.TimeSpan' to type 'System.IConvertible'.
+   at System.Convert.ToDateTime(Object value)
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 176
+2021-05-31 15:20:31.2017|ERROR|PP.WPF.ViewModels.HomeViewModel|System.NullReferenceException: Object reference not set to an instance of an object.
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 174
+2021-05-31 16:09:52.8045|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 16:10:39.2972|ERROR|PP.WPF.ViewModels.HomeViewModel|System.InvalidCastException: Unable to cast object of type 'System.TimeSpan' to type 'System.IConvertible'.
+   at System.Convert.ToDateTime(Object value)
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 176
+2021-05-31 16:10:49.2277|ERROR|PP.WPF.ViewModels.HomeViewModel|System.NullReferenceException: Object reference not set to an instance of an object.
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 174
+2021-05-31 16:15:58.4524|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 16:16:28.2689|ERROR|PP.WPF.ViewModels.HomeViewModel|System.InvalidCastException: Unable to cast object of type 'System.TimeSpan' to type 'System.IConvertible'.
+   at System.Convert.ToDateTime(Object value)
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 176
+2021-05-31 16:23:10.7406|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 16:47:08.6340|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-05-31 16:49:37.4939|ERROR|PP.WPF.ViewModels.HomeViewModel|System.InvalidCastException: Unable to cast object of type 'System.TimeSpan' to type 'System.IConvertible'.
+   at System.Convert.ToDateTime(Object value)
+   at PP.WPF.ViewModels.HomeViewModel.AddArticleDetails(ArticleGridColumns articleDetails) in C:\Users\Dematec\Documents\GitHub\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\HomeViewModel.cs:line 176
+2021-05-31 16:51:05.4826|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED

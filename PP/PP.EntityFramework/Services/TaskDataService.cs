@@ -53,20 +53,22 @@ namespace PP.EntityFramework.Services
             var orders = await context.Comenzi.Include(c => c.Clienti).ToListAsync();
 
             var data = (from t in tasks
-                select new ProgrammerGridColumns
-                {
-                    Client = orders.Where(o => o.IdArticol == t.ArticleID).Select(c => c.Clienti.Client).FirstOrDefault(),
-                    ArticleHeader = t.Article.Articol,
-                    ArticleID = t.ArticleID,
-                    EnterInProduction = articleDetails.FirstOrDefault(ad => ad.ArticleID == t.ArticleID)?.DataInizioProd,
-                    JobTypeID = t.JobTypeID,
-                    Finezza = t.Article.Finete,
-                    ProgrammerID = t.ProgrammerID,
-                    ProgrammerName = t.Programmer.Angajat,
-                    StartDate = t.StartTask,
-                    EndDate = t.EndTask,
-                    ProgrammerTaskID = t.ProgrammerTaskID
-                });
+                        select new ProgrammerGridColumns
+                        {
+                            Client = orders.Where(o => o.IdArticol == t.ArticleID).Select(c => c.Clienti.Client).FirstOrDefault(),
+                            ArticleHeader = t.Article.Articol,
+                            ArticleID = t.ArticleID,
+                            EnterInProduction = articleDetails.FirstOrDefault(ad => ad.ArticleID == t.ArticleID)?.DataInizioProd,
+                            JobTypeID = t.JobTypeID,
+                            Finezza = t.Article.Finete,
+                            ProgrammerID = t.ProgrammerID,
+                            ProgrammerName = t.Programmer.Angajat,
+                            StartDate = t.StartTask,
+                            EndDate = t.EndTask,
+                            ProgrammerTaskID = t.ProgrammerTaskID,
+                            Note = t.Note
+
+                        });
 
             return data;
         }
@@ -134,5 +136,6 @@ namespace PP.EntityFramework.Services
         {
             return await _nonQueryDataService.Update(id, entity);
         }
+        
     }
 }
