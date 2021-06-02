@@ -68,7 +68,7 @@ namespace PP.WPF.ViewModels
         public HomeViewModel(IArticleService articleService,
                              IEmployeeService employeeService,
                              ITaskService taskService,
-                              IArticleDetailsService articleDetailsService)
+                             IArticleDetailsService articleDetailsService)
         {
             _articleService = articleService;
             _employeeService = employeeService;

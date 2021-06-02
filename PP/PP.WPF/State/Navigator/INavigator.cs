@@ -7,7 +7,8 @@ namespace PP.WPF.State.Navigator
     {
         Login,
         Home,
-        Tracking
+        Tracking,
+        AnalysisArticle
     }
 
     public interface INavigator

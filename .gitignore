@@ -293,3 +293,13 @@ PP/PP.WPF/obj/Debug/netcoreapp3.1/PP.WPF.csprojAssemblyReference.cache
 PP/PP.Chronometer.WPF/bin/Debug/netcoreapp3.1/DevExpress.CodeParser.v20.2.dll
 PP/PP.Chronometer.WPF/bin/Debug/netcoreapp3.1/DevExpress.DataAccess.v20.2.dll
 PP/PP.Chronometer.WPF/bin/Debug/netcoreapp3.1/DevExpress.Images.v20.2.dll
+PP/PP.Chronometer.WPF/obj/Debug/netcoreapp3.1/GeneratedInternalTypeHelper.g.i.cs
+PP/PP.Chronometer.WPF/obj/Debug/netcoreapp3.1/MainWindow.g.i.cs
+PP/PP.Chronometer.WPF/obj/Debug/netcoreapp3.1/PP.Chronometer.WPF.csprojAssemblyReference.cache
+PP/PP.WPF/obj/Debug/netcoreapp3.1/App.g.i.cs
+PP/PP.WPF/obj/Debug/netcoreapp3.1/Controls/LoadingControl.g.i.cs
+PP/PP.WPF/obj/Debug/netcoreapp3.1/Controls/NavigationBar.g.i.cs
+PP/PP.WPF/obj/Debug/netcoreapp3.1/GeneratedInternalTypeHelper.g.i.cs
+PP/PP.WPF/obj/Debug/netcoreapp3.1/MainWindow.g.i.cs
+PP/PP.WPF/obj/Debug/netcoreapp3.1/PP.WPF.csprojAssemblyReference.cache
+*.dll

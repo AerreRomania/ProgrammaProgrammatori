@@ -55,6 +55,11 @@
                 Command="{Binding UpdateCurrentViewModelCommand}"
                 CommandParameter="{x:Static nav:ViewType.Tracking}"
                 Content="Tracking" />
+            <RadioButton
+                Grid.Column="2"
+                Command="{Binding UpdateCurrentViewModelCommand}"
+                CommandParameter="{x:Static nav:ViewType.AnalysisArticle}"
+                Content="Report Articles" />
         </Grid>
     </Grid>
 </UserControl>

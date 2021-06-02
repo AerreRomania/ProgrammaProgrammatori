@@ -39,6 +39,7 @@ namespace PP.WPF
             services.AddSingleton<ITaskService, TaskDataService>();
             services.AddSingleton<IJobTypeService, JobTypeDataService>();
             services.AddSingleton<IProgrammerJobService, ProgrammerJobDataService>();
+            services.AddSingleton<IReportsService, ReportsDataServices>();
 
             services.AddSingleton<IPPViewModelFactory, PPViewModelFactory>();
 
@@ -50,12 +51,12 @@ namespace PP.WPF
                serviceProvider.GetRequiredService<ITaskService>(),
                serviceProvider.GetRequiredService<IArticleDetailsService>()));
 
-            services.AddSingleton(serviceProvider => new TrackingViewModel(
-                serviceProvider.GetRequiredService<IArticleService>(), serviceProvider.GetRequiredService<IEmployeeService>(), serviceProvider.GetRequiredService<IProgrammerJobService>()));
-
+            services.AddSingleton(serviceProvider => new TrackingViewModel(serviceProvider.GetRequiredService<IArticleService>(), serviceProvider.GetRequiredService<IEmployeeService>(), serviceProvider.GetRequiredService<IProgrammerJobService>()));
+            services.AddSingleton(serviceProvider => new AnalysisArticleViewModel(serviceProvider.GetRequiredService<IReportsService>(), serviceProvider.GetRequiredService<IArticleService>()));
             services.AddSingleton<CreateViewModel<HomeViewModel>>(serviceProvider => serviceProvider.GetRequiredService<HomeViewModel>);
 
             services.AddSingleton<CreateViewModel<TrackingViewModel>>(serviceProvider => serviceProvider.GetRequiredService<TrackingViewModel>);
+            services.AddSingleton<CreateViewModel<AnalysisArticleViewModel>>(serviceprovider => serviceprovider.GetRequiredService<AnalysisArticleViewModel>);
             services.AddSingleton<CreateViewModel<LoginViewModel>>(serviceProvider => serviceProvider.GetRequiredService<LoginViewModel>);
             services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
             services.AddSingleton<CreateViewModel<LoginViewModel>>(serviceProvider =>
@@ -65,12 +66,13 @@ namespace PP.WPF
                     serviceProvider.GetRequiredService<IEmployeeService>(),
                     serviceProvider.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>());
             });
-
+            
             services.AddScoped<INavigator, Navigator>();
             services.AddScoped<IAuthenticator, Authenticator>();
 
             services.AddScoped<MainViewModel>();
             services.AddScoped<LoginViewModel>();
+            //services.AddScoped<AnalysisArticleViewModel>();
             services.AddScoped(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
             return services.BuildServiceProvider();

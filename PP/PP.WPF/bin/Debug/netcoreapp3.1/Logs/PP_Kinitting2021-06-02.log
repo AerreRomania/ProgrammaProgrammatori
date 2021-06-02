@@ -1,0 +1,89 @@
+2021-06-02 11:41:50.5881|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 11:43:15.8145|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 12:23:58.5062|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 12:25:37.2248|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 12:27:06.5485|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 12:27:16.0933|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-06-02 12:27:17.1999|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in E:\Git\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in E:\Git\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-06-02 13:06:02.1740|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 13:09:40.0682|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 13:13:57.4535|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 13:18:18.0038|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 13:25:13.0191|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 13:25:24.6013|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-06-02 13:25:26.6395|ERROR|PP.WPF.ViewModels.TrackingViewModel|System.InvalidOperationException: The calling thread cannot access this object because a different thread owns it.
+   at System.Windows.Threading.Dispatcher.VerifyAccess()
+   at System.Windows.DependencyObject.GetValue(DependencyProperty dp)
+   at DevExpress.Xpf.Scheduling.SchedulerControl.get_AllowReminders()
+   at DevExpress.Xpf.Scheduling.Internal.RemindersController.AddItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.ProcessNewItems(IEnumerable`1 items)
+   at DevExpress.Xpf.Scheduling.AppointmentItemCollection.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.ItemsInsert(Int32 index, T newItem)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceAdd(Int32 index, Object newSourceObject)
+   at DevExpress.Mvvm.Native.BoundCollectionBase`1.OnSourceCollectionChanged(Object sender, NotifyCollectionChangedEventArgs e)
+   at System.Collections.ObjectModel.ObservableCollection`1.OnCollectionChanged(NotifyCollectionChangedEventArgs e)
+   at PP.WPF.ViewModels.TrackingViewModel.<GetData>b__42_0() in E:\Git\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 204
+   at PP.WPF.ViewModels.TrackingViewModel.GetData() in E:\Git\ProgrammaProgrammatori\PP\PP.WPF\ViewModels\TrackingViewModel.cs:line 191
+2021-06-02 13:28:25.6684|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 13:32:30.7928|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 13:33:28.1937|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 13:35:45.7369|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-06-02 14:07:32.9743|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:09:07.3677|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:14:18.7349|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:16:43.6353|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:20:10.1742|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:27:25.1356|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:31:04.5536|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:32:16.8561|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:34:08.0641|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:37:19.7317|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:40:01.8819|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:42:01.7658|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 14:43:33.8742|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:20:39.7544|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:23:47.9823|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:25:21.6325|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:33:59.8166|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:35:44.3445|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:39:39.0997|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:41:22.6990|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:42:55.8810|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:45:58.6365|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:46:29.8228|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-06-02 15:49:31.6264|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:50:08.5554|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:51:46.2805|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:54:27.4554|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:55:09.8485|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-06-02 15:56:54.2537|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 15:59:25.7797|INFO|PP.WPF.ViewModels.TrackingViewModel|TRACKING STARTED
+2021-06-02 16:04:45.6672|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 16:39:22.7879|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 16:41:09.7841|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 16:44:29.2641|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 16:46:14.9782|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 16:47:49.0804|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 16:49:41.4573|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 17:21:46.2523|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 17:27:37.8451|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 17:32:42.0662|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 17:34:33.4937|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 18:04:13.0490|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 18:05:37.4804|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 18:07:20.5185|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 18:13:34.2199|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 18:18:24.1662|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
+2021-06-02 18:19:34.8016|INFO|PP.WPF.ViewModels.HomeViewModel|TIMELINE STARTED
