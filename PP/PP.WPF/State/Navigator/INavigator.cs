@@ -8,9 +8,11 @@ namespace PP.WPF.State.Navigator
         Login,
         Home,
         Tracking,
-        AnalysisArticle
+        ArticleReport,
+        OperatorReport,
+        GeneralReport
     }
-
+   
     public interface INavigator
     {
         ViewModelBase CurrentViewModel { get; set; }

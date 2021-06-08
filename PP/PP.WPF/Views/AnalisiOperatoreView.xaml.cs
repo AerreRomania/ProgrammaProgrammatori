@@ -1,6 +1,4 @@
-﻿using PP.Domain.Services;
-using PP.WPF.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -16,19 +14,13 @@ using System.Windows.Shapes;
 namespace PP.WPF.Views
 {
     /// <summary>
-    /// Interaction logic for AnalysisArticle.xaml
+    /// Interaction logic for AnalisiOperatoreView.xaml
     /// </summary>
-    public partial class AnalysisArticleView 
-    {
-       
-        public AnalysisArticleView()
+    public partial class AnalisiOperatoreView
+    { 
+        public AnalisiOperatoreView()
         {
             InitializeComponent();
-        }
-        public AnalysisArticleView(IReportsService report, IArticleService article)
-        {
-            InitializeComponent();
-            this.DataContext = new AnalysisArticleViewModel(report,article);
         }
     }
 }

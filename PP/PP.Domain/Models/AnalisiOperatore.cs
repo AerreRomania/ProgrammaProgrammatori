@@ -4,13 +4,10 @@ using System.Text;
 
 namespace PP.Domain.Models
 {
-    public class AnalysisArticle : DomainObject
+    public class AnalisiOperatore
     {
-        public int Id { get; set; }
-        public string Client { get; set; }
-        public string Finezza { get; set; }
-        public string Programmer { get; set; }
-        public string WorkLocationName { get; set; }
+       
+        public int Luna { get; set; }
         private int _jobTypeId;
         public int JobTypeID
         {
@@ -34,12 +31,25 @@ namespace PP.Domain.Models
                 };
             }
         }
-        
         public string JobTypeName { get; set; }
-        public double ComputerHours {get;set;}
-        public double ComputerMachineHours { get; set; }
-        public double MachineHours { get; set; }
-        public double dbHours { get; set; }
-        public double Total { get; set; }
+        public string Articol { get; set; }
+
+    }
+    public class AnalisiOperatoriColumns
+    {
+        public string JobTypeName { get; set; }
+        public int Gennaio { get; set; }
+        public int Febbraio { get; set; }
+        public int Marzo { get; set; }
+        public int Aprile { get; set; }
+        public int Maggio { get; set; }
+        public int Giugno { get; set; }
+        public int Luglio { get; set; }
+        public int Agosto { get; set; }
+        public int Settembre { get; set; }
+        public int Ottombre { get; set; }
+        public int Novembre { get; set; }
+        public int Dicembre { get; set; }
+        public int Total { get; set; }
     }
 }

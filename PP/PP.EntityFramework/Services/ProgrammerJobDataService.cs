@@ -3,6 +3,7 @@ using PP.Domain.Models;
 using PP.Domain.Services;
 using PP.EntityFramework.Services.Common;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PP.EntityFramework.Services
@@ -17,7 +18,13 @@ namespace PP.EntityFramework.Services
             _contextFactory = contextFactory;
             _nonQueryDataService = new NonQueryDataService<ProgrammerProgress>(contextFactory);
         }
+        public async Task<IEnumerable<ProgrammerProgress>> GetAllByArticle(int idArticle)
+        {
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            var result = await context.ProgrammerProgress.Include(p => p.Progress).Where(a=>a.Progress.ArticleID==idArticle).ToListAsync();
 
+            return result;
+        }
         public async Task<IEnumerable<ProgrammerProgress>> GetAll()
         {
             using PPDbContext context = _contextFactory.CreateDbContext();

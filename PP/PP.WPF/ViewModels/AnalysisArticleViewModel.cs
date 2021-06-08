@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PP.Domain.Models;
 using PP.Domain.Services;
+using PP.EntityFramework.Services;
 
 namespace PP.WPF.ViewModels
 {
@@ -12,6 +13,7 @@ namespace PP.WPF.ViewModels
     {
         private readonly IReportsService _reportsService;
         private readonly IArticleService _articleService;
+       
         public AnalysisArticleViewModel(IReportsService reportservice, IArticleService articleService)
         {
             _reportsService = reportservice;
@@ -19,7 +21,18 @@ namespace PP.WPF.ViewModels
            
 
             GetArticles();
+            GetClients();
             
+        }
+        private void GetClients()
+        {
+            ClientsList = new ObservableCollection<Clienti>();
+            Task.Run(async () => 
+            {
+                var clients = await _reportsService.GetClientisAsync();
+                foreach (var c in clients)
+                    ClientsList.Add(c);
+            });
         }
         private void GetArticles()
         {
@@ -31,26 +44,51 @@ namespace PP.WPF.ViewModels
                     ArticleList.Add(c);
             });
         }
-        private void GetReport() 
+        private async void GetReport() 
         {
             AnalysisList = new ObservableCollection<AnalysisArticle>();
-            Task.Run(async () =>
+            AnalysisArticle total = new AnalysisArticle();
+            var analiza = await _reportsService.GetAnalysisArticleAsync(SelectedArticle.Id, StartDate, EndDate, SelectedClient.Id);
+            
+            foreach(var a in analiza)
             {
-                var analiza = await _reportsService.GetAnalysisArticleAsync(SelectedArticle.Id, StartDate, EndDate, 6, "21A");
-                foreach (var a in analiza)
-                    AnalysisList.Add(a);
-            });
+                var curr = a;
+                total.JobTypeName = "Total:";
+                total.ComputerHours += curr.ComputerHours;
+                total.ComputerMachineHours += curr.ComputerMachineHours;
+                total.MachineHours += curr.MachineHours;
+                total.Total += curr.Total;
+                
+               
+            }
+            AnalysisList.Add(total);
+            foreach (var a in analiza)
+            { AnalysisList.Add(a); }
+           
+           // AnalysisList = tmp;
             OnPropertyChanged(nameof(AnalysisList));
         }
 
-        private string _filtername;
-        public string FilterName
+       
+
+        private Clienti _selectedClient;
+        public Clienti SelectedClient
         {
-            get => _filtername;
+            get => _selectedClient;
             set
             {
-                _filtername = value;
-                OnPropertyChanged(nameof(FilterName));
+                _selectedClient = value;
+                OnPropertyChanged(nameof(SelectedClient));
+            }
+        }
+        private ObservableCollection<Clienti> _clientsList;
+        public ObservableCollection<Clienti> ClientsList
+        {
+            get => _clientsList;
+            set
+            {
+                _clientsList = value;
+                OnPropertyChanged(nameof(ClientsList));
             }
         }
 
@@ -74,6 +112,7 @@ namespace PP.WPF.ViewModels
             {
                 _selectedArticle = value;
                 OnPropertyChanged(nameof(SelectedArticle));
+                Task.Delay(5000);
                 GetReport();
             }
         }

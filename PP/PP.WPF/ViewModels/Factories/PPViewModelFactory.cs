@@ -8,15 +8,17 @@ namespace PP.WPF.ViewModels.Factories
         private readonly CreateViewModel<HomeViewModel> _createHomeViewModel;
         private readonly CreateViewModel<TrackingViewModel> _createTrackingViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
-        private readonly CreateViewModel<AnalysisArticleViewModel> _createAnalysisArticleViewModel;
+        private readonly CreateViewModel<AnalysisArticleViewModel> _createArticleReportViewModel;
+        private readonly CreateViewModel<AnalisiOperatoreViewModel> _createAnaliziOperatoreViewModel;
 
         public PPViewModelFactory(CreateViewModel<HomeViewModel> createHomeViewModel,
-            CreateViewModel<LoginViewModel> createLoginViewModel, CreateViewModel<TrackingViewModel> createTrackingViewModel, CreateViewModel<AnalysisArticleViewModel> createAnalysisViewModel)
+            CreateViewModel<LoginViewModel> createLoginViewModel, CreateViewModel<TrackingViewModel> createTrackingViewModel, CreateViewModel<AnalysisArticleViewModel> createArticleReportViewModel, CreateViewModel<AnalisiOperatoreViewModel> createOperatorReportViewModel)
         {
             _createHomeViewModel = createHomeViewModel;
             _createLoginViewModel = createLoginViewModel;
             _createTrackingViewModel = createTrackingViewModel;
-            _createAnalysisArticleViewModel = createAnalysisViewModel;
+            _createArticleReportViewModel = createArticleReportViewModel;
+            _createAnaliziOperatoreViewModel = createOperatorReportViewModel;
         }
 
         public ViewModelBase CreateViewModel(ViewType viewType)
@@ -31,11 +33,14 @@ namespace PP.WPF.ViewModels.Factories
 
                 case ViewType.Tracking:
                     return _createTrackingViewModel();
-                case ViewType.AnalysisArticle:
-                    return _createAnalysisArticleViewModel();
+                case ViewType.ArticleReport:
+                    return _createArticleReportViewModel();
+                case ViewType.OperatorReport:
+                    return _createAnaliziOperatoreViewModel();
                 default:
                     throw new ArgumentException(@"The ViewType does not have ViewModel", "viewType");
             }
         }
+       
     }
 }

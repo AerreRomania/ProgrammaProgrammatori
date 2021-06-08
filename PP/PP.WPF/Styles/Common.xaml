@@ -3,7 +3,10 @@
     <!--  Colors  -->
     <Color x:Key="ColorPrimary1">#323232</Color>
     <Color x:Key="ColorPrimary2">#191919</Color>
+    <Color x:Key="ColorOrage">#ffc000</Color>
+    <Color x:Key="ColorEnter">#ffb250</Color>
 
     <SolidColorBrush x:Key="BrushPrimary1" Color="{StaticResource ColorPrimary1}" />
     <SolidColorBrush x:Key="BrushPrimary2" Color="{StaticResource ColorPrimary2}" />
+    <SolidColorBrush x:Key="BrushPrimary3" Color="{StaticResource ColorEnter}" />
 </ResourceDictionary>

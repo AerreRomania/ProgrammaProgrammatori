@@ -14,6 +14,7 @@
     xmlns:local="clr-namespace:PP.WPF.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
     <UserControl.Resources>
         <Style x:Key="BaseCB" TargetType="ComboBox">
             <Setter Property="HorizontalAlignment" Value="Left" />
@@ -45,7 +46,6 @@
         </Style>
         <Style x:Key="ColumnHeaderStyle" TargetType="ContentControl">
             <Setter Property="FontSize" Value="14" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="Foreground" Value="WhiteSmoke" />
         </Style>
 
@@ -61,142 +61,86 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Border BorderBrush="Black" BorderThickness="0,0,1,1">
-            <Grid Style="{StaticResource BaseGrid}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <WrapPanel Style="{StaticResource BaseWrap}">
-                    <Label Content="Stagione: " Style="{StaticResource RightLabel}" />
-                    <Label Content="{Binding SelectedArticle.Stagione}" Style="{StaticResource LeftLabel}" />
-                </WrapPanel>
-                <WrapPanel Grid.Row="1" Style="{StaticResource BaseWrap}">
-                    <Label Content="Data Inizio: " Style="{StaticResource RightLabel}" />
-                    <DatePicker
-                        SelectedDate="{Binding StartDate}"
-                        SelectedDateFormat="Short"
-                        Style="{StaticResource BaseDP}" />
-                </WrapPanel>
-                <WrapPanel Grid.Row="2" Style="{StaticResource BaseWrap}">
-                    <Label Content="Data Fine: " Style="{StaticResource RightLabel}" />
-                    <DatePicker
-                        Margin="10,0,0,0"
-                        SelectedDate="{Binding EndDate}"
-                        SelectedDateFormat="Short"
-                        Style="{StaticResource BaseDP}" />
-                </WrapPanel>
-            </Grid>
-        </Border>
-        <Border
-            Grid.Column="1"
-            BorderBrush="Black"
-            BorderThickness="0,0,1,1">
-            <Grid Style="{StaticResource BaseGrid}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <WrapPanel Style="{StaticResource BaseWrap}">
-                    <Label Content="Finezza: " Style="{StaticResource RightLabel}" />
-                    <Label Content="{Binding SelectedArticle.Finete}" Style="{StaticResource LeftLabel}" />
-                </WrapPanel>
-                <WrapPanel Grid.Row="1" Style="{StaticResource BaseWrap}">
-                    <Label Content="Cliente: " Style="{StaticResource RightLabel}" />
-                    <Label Content="{Binding SelectedArticle.Client}" Style="{StaticResource LeftLabel}" />
-                </WrapPanel>
-                <WrapPanel Grid.Row="2" Style="{StaticResource BaseWrap}">
-                    <Label Content="Articolo: " Style="{StaticResource RightLabel}" />
-                    <ComboBox
-                        DisplayMemberPath="Articol"
-                        IsEditable="True"
-                        ItemsSource="{Binding ArticleList}"
-                        SelectedValue="{Binding SelectedArticle, Mode=TwoWay}"
-                        Style="{StaticResource BaseCB}" />
-                </WrapPanel>
-            </Grid>
-        </Border>
-        <Border
-            Grid.Column="2"
-            Grid.ColumnSpan="4"
-            Background="#ffc000"
-            BorderBrush="Black"
-            BorderThickness="0,0,0,1" />
-        <Border
-            Grid.Row="1"
-            Grid.Column="4"
-            BorderBrush="Black"
-            BorderThickness="1,0,1,1">
-            <dxg:GridControl
-                x:Name="CostiReport"
-                Margin="0"
-                Padding="0"
-                Background="#ffc000"
-                ItemsSource="{Binding CostiList, Mode=TwoWay}"
-                SelectionMode="Row"
-                ShowBorder="False">
 
-                <dxmvvm:Interaction.Behaviors>
-                    <behaviours:BestFitBehavior />
-                </dxmvvm:Interaction.Behaviors>
-                <dxg:GridControl.View>
-                    <dxg:TableView
-                        AllowBestFit="True"
-                        AllowColumnFiltering="True"
-                        AllowColumnMoving="False"
-                        AllowGrouping="False"
-                        AllowResizing="False"
-                        AutoWidth="True"
-                        ShowAutoFilterRow="False"
-                        ShowBandsPanel="False"
-                        ShowGroupPanel="False"
-                        ShowIndicator="False"
-                        ShowSearchPanelMode="Never"
-                        VerticalScrollbarVisibility="Auto" />
+        <Grid Style="{StaticResource BaseGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                </dxg:GridControl.View>
-                <dxg:GridControl.Columns>
+            <WrapPanel Grid.Row="0" Style="{StaticResource BaseWrap}">
+                <Label Content="Data Inizio: " Style="{StaticResource RightLabel}" />
+                <DatePicker
+                    SelectedDate="{Binding StartDate}"
+                    SelectedDateFormat="Short"
+                    Style="{StaticResource BaseDP}" />
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Style="{StaticResource BaseWrap}">
+                <Label Content="Data Fine: " Style="{StaticResource RightLabel}" />
+                <DatePicker
+                    Margin="10,0,0,0"
+                    SelectedDate="{Binding EndDate}"
+                    SelectedDateFormat="Short"
+                    Style="{StaticResource BaseDP}" />
+            </WrapPanel>
+        </Grid>
 
-                    <dxg:GridColumn
-                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
-                        EditFormVisible="False"
-                        FieldName="NrCrt"
-                        Fixed="Left"
-                        Header="Faze"
-                        HeaderStyle="{StaticResource BaseHeaderStyle}"
-                        ReadOnly="True" />
+        <Grid Grid.Column="1" Style="{StaticResource BaseGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-                    <dxg:GridColumn
-                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
-                        EditFormVisible="False"
-                        FieldName="Articolo"
-                        Fixed="Left"
-                        Header="Computer"
-                        HeaderStyle="{StaticResource BaseHeaderStyle}"
-                        ReadOnly="True" />
+            <WrapPanel Grid.Row="0" Style="{StaticResource BaseWrap}">
+                <Label Content="Cliente: " Style="{StaticResource RightLabel}" />
+                <ComboBox
+                    Margin="17,0,0,0"
+                    DisplayMemberPath="Client"
+                    IsEditable="True"
+                    ItemsSource="{Binding ClientsList}"
+                    SelectedValue="{Binding SelectedClient, Mode=TwoWay}"
+                    Style="{StaticResource BaseCB}" />
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Style="{StaticResource BaseWrap}">
+                <Label Content="Articolo: " Style="{StaticResource RightLabel}" />
+                <ComboBox
+                    DisplayMemberPath="Articol"
+                    IsEditable="True"
+                    ItemsSource="{Binding ArticleList}"
+                    SelectedValue="{Binding SelectedArticle, Mode=TwoWay}"
+                    Style="{StaticResource BaseCB}" />
+            </WrapPanel>
+        </Grid>
 
-                    <dxg:GridColumn
-                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
-                        EditFormVisible="False"
-                        FieldName="Finezza"
-                        Fixed="Left"
-                        Header="Rettilinea"
-                        HeaderStyle="{StaticResource BaseHeaderStyle}" />
-                </dxg:GridControl.Columns>
-            </dxg:GridControl>
-        </Border>
+
+        <Grid Grid.Column="2" Style="{StaticResource BaseGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <WrapPanel Grid.Row="1" Style="{StaticResource BaseWrap}">
+                <Label Content="Finezza: " Style="{StaticResource RightLabel}" />
+                <Label Content="{Binding SelectedArticle.Finete}" Style="{StaticResource LeftLabel}" />
+            </WrapPanel>
+        </Grid>
+
+        <Grid Grid.Column="3" Style="{StaticResource BaseGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+
         <dxg:GridControl
             x:Name="AnalysisReport"
             Grid.Row="1"
@@ -217,7 +161,9 @@
                     AllowColumnMoving="False"
                     AllowGrouping="False"
                     AllowResizing="False"
+                    AlternateRowBackground="LightGray"
                     AutoWidth="True"
+                    FontSize="14"
                     ShowAutoFilterRow="False"
                     ShowBandsPanel="False"
                     ShowGroupPanel="False"
@@ -235,38 +181,77 @@
                     Fixed="Left"
                     Header="Operatore"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
-                    ReadOnly="True" />
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
                 <dxg:GridColumn
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     EditFormVisible="False"
-                    FieldName="Articolo"
+                    FieldName="JobTypeName"
                     Fixed="Left"
                     Header="Dettaglio Attivita"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
-                    ReadOnly="True" />
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
                 <dxg:GridColumn
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     EditFormVisible="False"
-                    FieldName="Finezza"
-                    Fixed="Left"
-                    Header="Computer"
-                    HeaderStyle="{StaticResource BaseHeaderStyle}" />
-
-                <dxg:GridColumn
-                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="ComputerHours"
                     Fixed="Left"
-                    Header="Rettilinea"
-                    HeaderStyle="{StaticResource BaseHeaderStyle}" />
+                    Header="Computer"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="ComputerMachineHours"
+                    Fixed="Left"
+                    Header="ComputerMacchina"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
 
                 <dxg:GridColumn
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
-                    FieldName="RetilineaHours"
+                    FieldName="MachineHours"
+                    Fixed="Left"
+                    Header="Macchina"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Total"
                     Fixed="Left"
                     Header="Totale"
-                    HeaderStyle="{StaticResource BaseHeaderStyle}" />
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
             </dxg:GridControl.Columns>
         </dxg:GridControl>
     </Grid>

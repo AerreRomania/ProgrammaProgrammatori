@@ -12,11 +12,11 @@ namespace PP.EntityFramework
         public DbSet<Users> Users { get; set; }
         public DbSet<JobType> JobType { get; set; }
         public DbSet<ProgrammerProgress> ProgrammerProgress { get; set; }
-        public DbSet<WorkLocation> WorkLocations { get; set; }
+        public DbSet<WorkLocation> WorkLocation { get; set; }
         public DbSet<Comenzi> Comenzi { get; set; }
         public DbSet<ArticleDetails> ArticleDetails { get; set; }
         public DbSet<Clienti> Clienti { get; set; }
-
+        public DbSet<Stagiuni> Stagiuni { get; set; }
 
         public PPDbContext(DbContextOptions options) : base(options)
         {

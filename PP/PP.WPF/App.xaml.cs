@@ -53,11 +53,14 @@ namespace PP.WPF
 
             services.AddSingleton(serviceProvider => new TrackingViewModel(serviceProvider.GetRequiredService<IArticleService>(), serviceProvider.GetRequiredService<IEmployeeService>(), serviceProvider.GetRequiredService<IProgrammerJobService>()));
             services.AddSingleton(serviceProvider => new AnalysisArticleViewModel(serviceProvider.GetRequiredService<IReportsService>(), serviceProvider.GetRequiredService<IArticleService>()));
+            services.AddSingleton(servicesProvider => new AnalisiOperatoreViewModel(servicesProvider.GetRequiredService<IReportsService>()));           
             services.AddSingleton<CreateViewModel<HomeViewModel>>(serviceProvider => serviceProvider.GetRequiredService<HomeViewModel>);
 
             services.AddSingleton<CreateViewModel<TrackingViewModel>>(serviceProvider => serviceProvider.GetRequiredService<TrackingViewModel>);
             services.AddSingleton<CreateViewModel<AnalysisArticleViewModel>>(serviceprovider => serviceprovider.GetRequiredService<AnalysisArticleViewModel>);
+            services.AddSingleton<CreateViewModel<AnalisiOperatoreViewModel>>(serviceProvider => serviceProvider.GetRequiredService<AnalisiOperatoreViewModel>);
             services.AddSingleton<CreateViewModel<LoginViewModel>>(serviceProvider => serviceProvider.GetRequiredService<LoginViewModel>);
+           
             services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
             services.AddSingleton<CreateViewModel<LoginViewModel>>(serviceProvider =>
             {
@@ -72,7 +75,6 @@ namespace PP.WPF
 
             services.AddScoped<MainViewModel>();
             services.AddScoped<LoginViewModel>();
-            //services.AddScoped<AnalysisArticleViewModel>();
             services.AddScoped(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
 
             return services.BuildServiceProvider();

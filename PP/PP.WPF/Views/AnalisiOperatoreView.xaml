@@ -1,0 +1,574 @@
+﻿<UserControl
+    x:Class="PP.WPF.Views.AnalisiOperatoreView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviours="clr-namespace:PP.WPF.Behaviors"
+    xmlns:converters="clr-namespace:PP.WPF.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+    xmlns:local="clr-namespace:PP.WPF.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style x:Key="BaseCB" TargetType="ComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="120" />
+            <Setter Property="Margin" Value="10,0,0,0" />
+        </Style>
+
+
+        <Style x:Key="RightLabel" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+        </Style>
+        <Style x:Key="LeftLabel" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+        </Style>
+        <Style x:Key="ColumnHeaderStyle" TargetType="ContentControl">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+        </Style>
+        <Style x:Key="FaseColumnHeaderStyle" TargetType="ContentControl">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style x:Key="BaseHeaderStyle" TargetType="dxg:BaseGridHeader">
+            <Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />
+            <Setter Property="Background" Value="#323232" />
+        </Style>
+        <Style x:Key="FaseHeaderStyle" TargetType="dxg:BaseGridHeader">
+            <Setter Property="dxg:BaseGridColumnHeader.ShowFilterButtonOnHover" Value="False" />
+            <Setter Property="Background" Value="LightBlue" />
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style x:Key="BaseGrid" TargetType="Grid">
+            <Setter Property="Background" Value="#FFC000" />
+        </Style>
+        <converters:BooleanToIntegerConverter x:Key="BoolToIntConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Style="{StaticResource BaseGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Row="0"
+                Content="Anno: "
+                Style="{StaticResource RightLabel}" />
+            <Label
+                Grid.Row="1"
+                Content="Cliente "
+                Style="{StaticResource RightLabel}" />
+            <ComboBox
+                Grid.Column="1"
+                IsEditable="True"
+                ItemsSource="{Binding AnnoList}"
+                SelectedValue="{Binding SelectedAnno, Mode=TwoWay}"
+                Style="{StaticResource BaseCB}" />
+            <ComboBox
+                Grid.Row="1"
+                Grid.Column="1"
+                DisplayMemberPath="Client"
+                IsEditable="True"
+                ItemsSource="{Binding ClientsList}"
+                SelectedValue="{Binding SelectedClient, Mode=TwoWay}"
+                Style="{StaticResource BaseCB}" />
+        </Grid>
+
+        <Grid Grid.Column="1" Style="{StaticResource BaseGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Content="Stagione: "
+                Style="{StaticResource RightLabel}" />
+            <Label
+                Grid.Row="1"
+                Content="Nome del Programmatore: "
+                Style="{StaticResource RightLabel}" />
+
+            <ComboBox
+                Grid.Row="0"
+                Grid.Column="1"
+                DisplayMemberPath="Stagiune"
+                IsEditable="True"
+                ItemsSource="{Binding StagioneList}"
+                SelectedValue="{Binding SelectedStagione, Mode=TwoWay}"
+                Style="{StaticResource BaseCB}" />
+            <ComboBox
+                Grid.Row="1"
+                Grid.Column="1"
+                DisplayMemberPath="Angajat"
+                IsEditable="True"
+                ItemsSource="{Binding AngajatiList}"
+                SelectedValue="{Binding SelectedAngajat, Mode=TwoWay}"
+                Style="{StaticResource BaseCB}" />
+
+        </Grid>
+
+
+        <Grid
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Style="{StaticResource BaseGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <dxg:GridControl
+            x:Name="AnalysisReport"
+            Grid.Row="1"
+            Grid.ColumnSpan="4"
+            Margin="0"
+            Padding="0"
+            ItemsSource="{Binding AnalisiList, Mode=TwoWay}"
+            SelectionMode="Row"
+            ShowBorder="False">
+
+            <dxmvvm:Interaction.Behaviors>
+                <behaviours:BestFitBehavior />
+            </dxmvvm:Interaction.Behaviors>
+            <dxg:GridControl.View>
+                <dxg:TableView
+                    AllowBestFit="True"
+                    AllowColumnFiltering="True"
+                    AllowColumnMoving="False"
+                    AllowGrouping="False"
+                    AllowResizing="False"
+                    AlternateRowBackground="LightGray"
+                    AutoWidth="True"
+                    FontSize="14"
+                    ShowAutoFilterRow="False"
+                    ShowBandsPanel="False"
+                    ShowGroupPanel="False"
+                    ShowIndicator="False"
+                    ShowSearchPanelMode="Never"
+                    VerticalScrollbarVisibility="Auto" />
+
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+
+                <dxg:GridColumn
+                    Width="200"
+                    ColumnHeaderContentStyle="{StaticResource FaseColumnHeaderStyle}"
+                    EditFormVisible="False"
+                    FieldName="JobTypeName"
+                    Fixed="Left"
+                    Header="Fase"
+                    HeaderStyle="{StaticResource FaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    EditFormVisible="False"
+                    FieldName="Gennaio"
+                    Fixed="Left"
+                    Header="Gennaio"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    EditFormVisible="False"
+                    FieldName="Febbraio"
+                    Fixed="Left"
+                    Header="Febbraio"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Marzo"
+                    Fixed="Left"
+                    Header="Marzo"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Aprile"
+                    Fixed="Left"
+                    Header="Aprile"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Maggio"
+                    Fixed="Left"
+                    Header="Maggio"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Giugno"
+                    Fixed="Left"
+                    Header="Giugno"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Luglio"
+                    Fixed="Left"
+                    Header="Luglio"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Agosto"
+                    Fixed="Left"
+                    Header="Agosto"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Settembre"
+                    Fixed="Left"
+                    Header="Settembre"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Ottombre"
+                    Fixed="Left"
+                    Header="Ottombre"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Novembre"
+                    Fixed="Left"
+                    Header="Novembre"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Dicembre"
+                    Fixed="Left"
+                    Header="Dicembre"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Total"
+                    Fixed="Left"
+                    Header="Totale"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+        <dxg:GridControl
+            x:Name="AnalysisReportPercent"
+            Grid.Row="2"
+            Grid.ColumnSpan="4"
+            Margin="0"
+            Padding="0"
+            ItemsSource="{Binding AnalisiList, Mode=TwoWay}"
+            SelectionMode="Row"
+            ShowBorder="False">
+
+            <dxmvvm:Interaction.Behaviors>
+                <behaviours:BestFitBehavior />
+            </dxmvvm:Interaction.Behaviors>
+            <dxg:GridControl.View>
+                <dxg:TableView
+                    AllowBestFit="True"
+                    AllowColumnFiltering="True"
+                    AllowColumnMoving="False"
+                    AllowGrouping="False"
+                    AllowResizing="False"
+                    AlternateRowBackground="LightGray"
+                    AutoWidth="True"
+                    FontSize="14"
+                    ShowAutoFilterRow="False"
+                    ShowBandsPanel="False"
+                    ShowGroupPanel="False"
+                    ShowIndicator="False"
+                    ShowSearchPanelMode="Never"
+                    VerticalScrollbarVisibility="Auto" />
+
+            </dxg:GridControl.View>
+            <dxg:GridControl.Columns>
+
+                <dxg:GridColumn
+                    Width="200"
+                    ColumnHeaderContentStyle="{StaticResource FaseColumnHeaderStyle}"
+                    EditFormVisible="False"
+                    FieldName="JobTypeName"
+                    Fixed="Left"
+                    Header="Fase"
+                    HeaderStyle="{StaticResource FaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    EditFormVisible="False"
+                    FieldName="Gennaio"
+                    Fixed="Left"
+                    Header="Gennaio"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    EditFormVisible="False"
+                    FieldName="Febbraio"
+                    Fixed="Left"
+                    Header="Febbraio"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Marzo"
+                    Fixed="Left"
+                    Header="Marzo"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Aprile"
+                    Fixed="Left"
+                    Header="Aprile"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Maggio"
+                    Fixed="Left"
+                    Header="Maggio"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Giugno"
+                    Fixed="Left"
+                    Header="Giugno"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Luglio"
+                    Fixed="Left"
+                    Header="Luglio"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Agosto"
+                    Fixed="Left"
+                    Header="Agosto"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Settembre"
+                    Fixed="Left"
+                    Header="Settembre"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Ottombre"
+                    Fixed="Left"
+                    Header="Ottombre"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Novembre"
+                    Fixed="Left"
+                    Header="Novembre"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Dicembre"
+                    Fixed="Left"
+                    Header="Dicembre"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn
+                    ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                    FieldName="Total"
+                    Fixed="Left"
+                    Header="Totale"
+                    HeaderStyle="{StaticResource BaseHeaderStyle}"
+                    HorizontalHeaderContentAlignment="Center"
+                    ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+    </Grid>
+</UserControl>

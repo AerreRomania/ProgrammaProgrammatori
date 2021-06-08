@@ -42,6 +42,8 @@
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <RadioButton
@@ -58,8 +60,18 @@
             <RadioButton
                 Grid.Column="2"
                 Command="{Binding UpdateCurrentViewModelCommand}"
-                CommandParameter="{x:Static nav:ViewType.AnalysisArticle}"
-                Content="Report Articles" />
+                CommandParameter="{x:Static nav:ViewType.ArticleReport}"
+                Content="Analisi articolo" />
+            <RadioButton
+                Grid.Column="3"
+                Command="{Binding UpdateCurrentViewModelCommand}"
+                CommandParameter="{x:Static nav:ViewType.OperatorReport}"
+                Content="Analisi operatore" />
+            <RadioButton
+                Grid.Column="4"
+                Command="{Binding UpdateCurrentViewModelCommand}"
+                CommandParameter="{x:Static nav:ViewType.ArticleReport}"
+                Content="Analisi generale" />
         </Grid>
     </Grid>
 </UserControl>

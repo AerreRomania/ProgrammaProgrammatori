@@ -11,7 +11,7 @@ using PP.EntityFramework.Services.Common;
 
 namespace PP.EntityFramework.Services
 {
-    public class ReportsDataServices:IReportsService
+    public class ReportsDataServices : IReportsService
     {
         private readonly PPDbContextFactory _contextFactory;
         private readonly NonQueryDataService<AnalysisArticle> nonQueryDataService;
@@ -22,59 +22,117 @@ namespace PP.EntityFramework.Services
             nonQueryDataService = new NonQueryDataService<AnalysisArticle>(contextFactory);
             _programmerJobService = programmerJobService;
         }
-        
-        public async Task<IEnumerable<AnalysisArticle>> GetAnalysisArticleAsync(int article, DateTime start, DateTime end, int client, string stag)
+        public async Task<IEnumerable<Stagiuni>> GetStagiuniAsync()
         {
             using PPDbContext context = _contextFactory.CreateDbContext();
-            var articles = await context.Articole.Where(sId => sId.IdSector == 7 && sId.Id==article).ToListAsync();
-            var tasks = await context.ProgrammerTask.Where(a=> a.ArticleID==article).ToListAsync();
-            var orders = await context.Comenzi.Include(c => c.Clienti).Where(a=>a.IdClient==client).ToListAsync();
-            var programmerProgresses = await _programmerJobService.GetAll();
-            List<ProgrammerProgress> progresses = new List<ProgrammerProgress>();
-            foreach (var programmerProgress in programmerProgresses)
-            {
-                programmerProgress.ArticleTitle = articles.FirstOrDefault(id => id.Id == programmerProgress.Progress.ArticleID)?.Articol;
-                progresses.Add(programmerProgress);
-            }
-            var progress = progresses.Where(a => a.ArticleTitle == articles[0].Articol && a.WorkLocationID==1 && a.WorkLocationID==2 && a.StartWork >= start && a.EndWork <= end).ToList();
-            var data = (from t in tasks
-                        from p in progress
-                        where t.ArticleTitle == p.ArticleTitle
-                        select new ProgrammerGridColumns
-                        {
-                            Client = orders.Where(o => o.IdArticol == article).Select(c => c.Clienti.Client).FirstOrDefault(),
-                            ArticleHeader = articles[0].Articol,
-                            ArticleID = t.ArticleID,
-                            JobTypeID = t.JobTypeID,
-                            Finezza = t.Article.Finete,
-                            ProgrammerID = p.WorkLocationID,
-                            ProgrammerName = t.Programmer.Angajat,
-                            StartDate = p.StartWork,
-                            EndDate = (DateTime)p.EndWork ,
-                            ProgrammerTaskID = t.ProgrammerTaskID,
-                            Note = t.Note
-
-                        }); 
-            List<AnalysisArticle> final = new List<AnalysisArticle>();
-           foreach(var d in data)
-            {
-                var f = new AnalysisArticle() 
-                { 
-                    Client=d.Client,
-                    Stagione=stag,
-                    Finezza=d.Finezza,
-                    Programmer=d.ProgrammerName,
-                    JobTypeID=d.JobTypeID,
-                    ComputerHours=(d.EndDate-d.StartDate).TotalHours,
-                    RetilineaHours= (d.EndDate - d.StartDate).TotalHours,
-                    
-
-
-                };
-                final.Add(f);
-            }
-            return final;
+            var stagiunis = await context.Stagiuni.ToListAsync();
+            return stagiunis;
         }
+        public async Task<IEnumerable<Clienti>> GetClientisAsync()
+        {
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            var clients = await context.Clienti.ToListAsync();
+            return clients;
+        }
+        public async Task<IEnumerable<Angajati>> GetAngajatiAsync()
+        {
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            var angajatis = await context.Angajati.Where(a => a.Mansione == "PROGRAMMER").ToListAsync();
+            return angajatis;
+        }
+
+        public async Task<IEnumerable<AnalisiOperatore>> GetAnalisiOperatore(int operatorId, int year, int Month, int client)
+        {
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            var result = (from a in context.ProgrammerTask
+                          from b in context.ProgrammerProgress
+                          where a.ProgrammerTaskID == b.ProgrammerTaskID
+                          from c in context.Articole
+                          where a.ArticleID == c.Id
+                          from d in context.Comenzi
+                          where a.ArticleID == d.IdArticol
+                          from e in context.Clienti
+                          where d.IdClient == e.Id
+                          from f in context.Angajati
+                          where a.ProgrammerID == f.Id
+                          from g in context.JobType
+                          where a.JobTypeID == g.JobTypeID 
+                          where a.ProgrammerID == operatorId && b.StartWork.Month == Month 
+                          && b.StartWork.Year == year && e.Id == client
+                          select new AnalisiOperatore 
+                          {
+                              JobTypeName = g.JobTypeName,
+                              Articol=c.Articol
+                          }
+                    ).Distinct().ToList();
+            return result;
+        }
+        public async Task<IEnumerable<AnalysisArticle>> GetAnalysisArticleAsync(int article, DateTime start, DateTime end, int client)
+        {
+            List<int> JobTypes = new List<int>();
+            List<string> locations = new List<string>();
+            List<AnalysisArticle> listreport = new List<AnalysisArticle>();
+            using PPDbContext context = _contextFactory.CreateDbContext();
+            var final = (from a in context.ProgrammerTask
+                         from b in context.ProgrammerProgress
+                         where a.ProgrammerTaskID == b.ProgrammerTaskID
+                         from c in context.Articole
+                         where a.ArticleID == c.Id
+                         from d in context.Comenzi
+                         where a.ArticleID == d.IdArticol
+                         from e in context.Clienti
+                         where d.IdClient == e.Id
+                         from f in context.Angajati
+                         where a.ProgrammerID == f.Id
+                         from g in context.WorkLocation
+                         where b.WorkLocationID == g.WorkLocationID
+                         where a.ArticleID == article && b.EndWork != null && b.StartWork >= start && b.EndWork <= end && e.Id == client
+                         select new AnalysisArticle
+                         {
+                             Programmer = f.Angajat,
+                             JobTypeID = a.JobTypeID,
+                             WorkLocationName = g.Location,
+                             dbHours = Math.Round((b.EndWork - b.StartWork).Value.TotalHours, 2),
+                         }
+                       ).Distinct().ToList();
+
+            foreach (var f in final)
+            {
+                if (JobTypes.Contains(f.JobTypeID)) continue;
+                else JobTypes.Add(f.JobTypeID);
+            }
+            foreach (var f in final)
+            {
+                if (locations.Contains(f.WorkLocationName)) continue;
+                else locations.Add(f.WorkLocationName);
+            }
+            foreach (var jobs in JobTypes)
+            {
+                var row = new AnalysisArticle();
+                for (int i = 0; i < final.Count; i++)
+                {
+                    var curr = final[i];
+                    row.Programmer = curr.Programmer;
+                    row.JobTypeID = jobs;
+                    if (curr.JobTypeID == jobs)
+                    {
+
+                        if (curr.WorkLocationName == "Computer") row.ComputerHours = curr.dbHours;
+                        else if (curr.WorkLocationName == "ComputerMacchina") row.ComputerMachineHours = curr.dbHours;
+                        else if (curr.WorkLocationName == "Macchina") row.MachineHours = curr.dbHours;
+
+                    }
+
+                }
+                row.Total = Math.Round(row.MachineHours + row.ComputerHours + row.ComputerMachineHours, 2);
+                listreport.Add(row);
+            }
+            return listreport;
+        }
+        public async  Task<IEnumerable<AnalisiOperatore>> GetAnalisiOperatore()
+            {
+                return null;
+            }
         public Task<IEnumerable<AnalysisArticle>> GetAll()
         {
             return null;
