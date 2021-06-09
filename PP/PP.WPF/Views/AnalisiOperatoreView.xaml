@@ -5,6 +5,7 @@
     xmlns:behaviours="clr-namespace:PP.WPF.Behaviors"
     xmlns:converters="clr-namespace:PP.WPF.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
@@ -55,6 +56,17 @@
             <Setter Property="Background" Value="#FFC000" />
         </Style>
         <converters:BooleanToIntegerConverter x:Key="BoolToIntConverter" />
+        <Style x:Key="ChartLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+
+        </Style>
+        <Style x:Key="BaseBorder" TargetType="Border">
+            <Setter Property="Padding" Value="6,2,6,2" />
+            <Setter Property="Background" Value="#ffc000" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,4,0,4" />
+        </Style>
     </UserControl.Resources>
 
     <Grid>
@@ -66,11 +78,10 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
+            <RowDefinition Height="270" />
+            <RowDefinition Height="270" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
         <Grid Style="{StaticResource BaseGrid}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -80,6 +91,16 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            <!--<Button
+                Grid.RowSpan="2"
+                Margin="5,0,0,0"
+                HorizontalAlignment="Left"
+                Background="{StaticResource BrushPrimary2}"
+                Command="{Binding RefreshCommand}"
+                FontSize="18"
+                Foreground="White">
+                <Image Height="30" Source="\Resources\refresh.png" />
+            </Button>-->
             <Label
                 Grid.Row="0"
                 Content="Anno: "
@@ -91,7 +112,7 @@
             <ComboBox
                 Grid.Column="1"
                 IsEditable="True"
-                ItemsSource="{Binding AnnoList}"
+                ItemsSource="{Binding AnnoList, Mode=TwoWay}"
                 SelectedValue="{Binding SelectedAnno, Mode=TwoWay}"
                 Style="{StaticResource BaseCB}" />
             <ComboBox
@@ -99,7 +120,7 @@
                 Grid.Column="1"
                 DisplayMemberPath="Client"
                 IsEditable="True"
-                ItemsSource="{Binding ClientsList}"
+                ItemsSource="{Binding ClientsList, Mode=TwoWay}"
                 SelectedValue="{Binding SelectedClient, Mode=TwoWay}"
                 Style="{StaticResource BaseCB}" />
         </Grid>
@@ -128,7 +149,7 @@
                 Grid.Column="1"
                 DisplayMemberPath="Stagiune"
                 IsEditable="True"
-                ItemsSource="{Binding StagioneList}"
+                ItemsSource="{Binding StagioneList, Mode=TwoWay}"
                 SelectedValue="{Binding SelectedStagione, Mode=TwoWay}"
                 Style="{StaticResource BaseCB}" />
             <ComboBox
@@ -136,7 +157,7 @@
                 Grid.Column="1"
                 DisplayMemberPath="Angajat"
                 IsEditable="True"
-                ItemsSource="{Binding AngajatiList}"
+                ItemsSource="{Binding AngajatiList, Mode=TwoWay}"
                 SelectedValue="{Binding SelectedAngajat, Mode=TwoWay}"
                 Style="{StaticResource BaseCB}" />
 
@@ -174,6 +195,7 @@
                     AllowResizing="False"
                     AlternateRowBackground="LightGray"
                     AutoWidth="True"
+                    CustomRowAppearance="TableView_CustomRowAppearance"
                     FontSize="14"
                     ShowAutoFilterRow="False"
                     ShowBandsPanel="False"
@@ -183,6 +205,7 @@
                     VerticalScrollbarVisibility="Auto" />
 
             </dxg:GridControl.View>
+
             <dxg:GridControl.Columns>
 
                 <dxg:GridColumn
@@ -367,7 +390,7 @@
             Grid.ColumnSpan="4"
             Margin="0"
             Padding="0"
-            ItemsSource="{Binding AnalisiList, Mode=TwoWay}"
+            ItemsSource="{Binding AnalisiPercent, Mode=TwoWay}"
             SelectionMode="Row"
             ShowBorder="False">
 
@@ -406,6 +429,7 @@
                     ReadOnly="True">
                     <dxg:GridColumn.EditSettings>
                         <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
                 <dxg:GridColumn
@@ -413,7 +437,7 @@
                     EditFormVisible="False"
                     FieldName="Gennaio"
                     Fixed="Left"
-                    Header="Gennaio"
+                    Header="Gennaio  %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -427,7 +451,7 @@
                     EditFormVisible="False"
                     FieldName="Febbraio"
                     Fixed="Left"
-                    Header="Febbraio"
+                    Header="Febbraio   %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -439,7 +463,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Marzo"
                     Fixed="Left"
-                    Header="Marzo"
+                    Header="Marzo   %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -452,7 +476,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Aprile"
                     Fixed="Left"
-                    Header="Aprile"
+                    Header="Aprile   %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -464,7 +488,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Maggio"
                     Fixed="Left"
-                    Header="Maggio"
+                    Header="Maggio   %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -476,7 +500,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Giugno"
                     Fixed="Left"
-                    Header="Giugno"
+                    Header="Giugno   %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -488,7 +512,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Luglio"
                     Fixed="Left"
-                    Header="Luglio"
+                    Header="Luglio   %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -512,7 +536,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Settembre"
                     Fixed="Left"
-                    Header="Settembre"
+                    Header="Settembre  %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -524,7 +548,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Ottombre"
                     Fixed="Left"
-                    Header="Ottombre"
+                    Header="Ottombre  %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -536,7 +560,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Novembre"
                     Fixed="Left"
-                    Header="Novembre"
+                    Header="Novembre  %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -548,7 +572,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Dicembre"
                     Fixed="Left"
-                    Header="Dicembre"
+                    Header="Dicembre  %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -560,7 +584,7 @@
                     ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                     FieldName="Total"
                     Fixed="Left"
-                    Header="Totale"
+                    Header="Totale  %"
                     HeaderStyle="{StaticResource BaseHeaderStyle}"
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
@@ -570,5 +594,32 @@
                 </dxg:GridColumn>
             </dxg:GridControl.Columns>
         </dxg:GridControl>
+        <!--<Grid
+            Grid.Row="3"
+            Grid.ColumnSpan="4"
+            Background="LightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <dxc:ChartControl Background="LightBlue" DataSource="{Binding Totals, Mode=TwoWay}">
+
+                <dxc:ChartControl.Titles>
+                    <dxc:Title HorizontalAlignment="Center" Content="Article by Fase" />
+                </dxc:ChartControl.Titles>
+                <dxc:ChartControl.Legends>
+                    <dxc:Legend />
+                </dxc:ChartControl.Legends>
+                <dxc:XYDiagram2D>
+                    <dxc:BarSideBySideSeries2D
+                        ArgumentDataMember="JobTypeName"
+                        ArgumentScaleType="Numerical"
+                        DisplayName="Total"
+                        ValueDataMember="Total"
+                        ValueScaleType="Numerical" />
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl>
+        </Grid>-->
     </Grid>
 </UserControl>

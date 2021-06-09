@@ -38,18 +38,18 @@ namespace PP.Domain.Models
     public class AnalisiOperatoriColumns
     {
         public string JobTypeName { get; set; }
-        public int Gennaio { get; set; }
-        public int Febbraio { get; set; }
-        public int Marzo { get; set; }
-        public int Aprile { get; set; }
-        public int Maggio { get; set; }
-        public int Giugno { get; set; }
-        public int Luglio { get; set; }
-        public int Agosto { get; set; }
-        public int Settembre { get; set; }
-        public int Ottombre { get; set; }
-        public int Novembre { get; set; }
-        public int Dicembre { get; set; }
-        public int Total { get; set; }
+        public double Gennaio { get; set; }
+        public double Febbraio { get; set; }
+        public double Marzo { get; set; }
+        public double Aprile { get; set; }
+        public double Maggio { get; set; }
+        public double Giugno { get; set; }
+        public double Luglio { get; set; }
+        public double Agosto { get; set; }
+        public double Settembre { get; set; }
+        public double Ottombre { get; set; }
+        public double Novembre { get; set; }
+        public double Dicembre { get; set; }
+        public double Total { get; set; }
     }
 }

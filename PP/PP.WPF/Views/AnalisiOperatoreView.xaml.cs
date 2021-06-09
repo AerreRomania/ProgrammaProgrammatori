@@ -22,5 +22,10 @@ namespace PP.WPF.Views
         {
             InitializeComponent();
         }
+
+        private void TableView_CustomRowAppearance(object sender, DevExpress.Xpf.Grid.CustomRowAppearanceEventArgs e)
+        {
+           
+        }
     }
 }

@@ -57,7 +57,7 @@ namespace PP.EntityFramework.Services
                           where a.ProgrammerID == f.Id
                           from g in context.JobType
                           where a.JobTypeID == g.JobTypeID 
-                          where a.ProgrammerID == operatorId && b.StartWork.Month == Month 
+                          where a.ProgrammerID == operatorId && b.StartWork.Month == Month
                           && b.StartWork.Year == year && e.Id == client
                           select new AnalisiOperatore 
                           {

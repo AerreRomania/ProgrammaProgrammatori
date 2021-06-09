@@ -320,3 +320,16 @@ PP/PP.WPF/obj/Debug/netcoreapp3.1/GeneratedInternalTypeHelper.g.i.cs
 PP/PP.WPF/obj/Debug/netcoreapp3.1/MainWindow.g.i.cs
 PP/PP.WPF/obj/Debug/netcoreapp3.1/PP.WPF.csprojAssemblyReference.cache
 PP/PP.WPF/obj/Debug/netcoreapp3.1/Views/AnalysisArticleView.g.i.cs
+*.xml
+*._
+*.p7s
+*.nupkg
+*.txt
+*.log
+PP/PP.WPF/obj/Debug/netcoreapp3.1/App.g.i.cs
+PP/PP.WPF/obj/Debug/netcoreapp3.1/App.g.cs
+*.targets
+*.json
+*.cache
+*.baml
+*.baml

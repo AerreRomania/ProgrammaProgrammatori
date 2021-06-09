@@ -71,7 +71,8 @@
                 Grid.Column="4"
                 Command="{Binding UpdateCurrentViewModelCommand}"
                 CommandParameter="{x:Static nav:ViewType.ArticleReport}"
-                Content="Analisi generale" />
+                Content="Analisi generale"
+                Visibility="Hidden" />
         </Grid>
     </Grid>
 </UserControl>

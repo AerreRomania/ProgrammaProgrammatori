@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Charts" Version="20.2.6" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Charts.Core" Version="20.2.6" />
     <PackageReference Include="DevExpress.WindowsDesktop.Mvvm" Version="20.2.4" />
     <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid" Version="20.2.4" />
     <PackageReference Include="DevExpress.WindowsDesktop.Wpf.Grid.Core" Version="20.2.4" />

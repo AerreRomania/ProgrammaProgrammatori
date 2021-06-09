@@ -49,17 +49,15 @@ namespace PP.WPF.ViewModels
             AnalysisList = new ObservableCollection<AnalysisArticle>();
             AnalysisArticle total = new AnalysisArticle();
             var analiza = await _reportsService.GetAnalysisArticleAsync(SelectedArticle.Id, StartDate, EndDate, SelectedClient.Id);
-            
-            foreach(var a in analiza)
+
+            total.JobTypeName = "Total";
+            foreach (var a in analiza)
             {
                 var curr = a;
-                total.JobTypeName = "Total:";
                 total.ComputerHours += curr.ComputerHours;
                 total.ComputerMachineHours += curr.ComputerMachineHours;
                 total.MachineHours += curr.MachineHours;
                 total.Total += curr.Total;
-                
-               
             }
             AnalysisList.Add(total);
             foreach (var a in analiza)

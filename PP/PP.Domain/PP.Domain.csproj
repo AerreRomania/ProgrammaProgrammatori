@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.WindowsDesktop.Charts" Version="20.2.6" />
+    <PackageReference Include="DevExpress.WindowsDesktop.Charts.Core" Version="20.2.6" />
     <PackageReference Include="NLog" Version="4.7.10" />
   </ItemGroup>
 
