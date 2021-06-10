@@ -190,7 +190,7 @@ namespace PP.WPF.ViewModels
                     DataArrSchedeCo = articleDetails.DataArrivoSchedaCo,
                     DataConsegnaCo = articleDetails.DataConsegnaCo,
                     DataArrSchedaDisco = articleDetails.DataArrivoSchedaDisco,
-                    DiffGGProdData = (articleDetails.DataInizioProd-articleDetails.DataArrivoSchedaDisco).Value.TotalDays,
+                    DiffGGProdData = (articleDetails.DataInizioProd.Value-articleDetails.DataArrivoSchedaDisco.Value).TotalDays,
                     DiffGGProgData = (articleDetails.StartPP - articleDetails.DataArrivoSchedaDisco).Value.TotalDays,
                     DataConsegnaPP = articleDetails.DataConsegnaPP,
                     GG1 = articleDetails.GG1,

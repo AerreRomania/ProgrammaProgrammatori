@@ -4,6 +4,7 @@ using PP.Domain.Columns;
 using PP.Domain.Models;
 using PP.Domain.Services;
 using PP.EntityFramework.Services.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace PP.EntityFramework.Services
     {
         private readonly PPDbContextFactory _contextFactory;
         private readonly NonQueryDataService<Articole> nonQueryDataService;
+        Logger log = LogManager.GetCurrentClassLogger();
         public ArticleDataService(PPDbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
@@ -39,13 +41,21 @@ namespace PP.EntityFramework.Services
 
         public async Task<IEnumerable<Articole>> GetAll()
         {
-            using PPDbContext context = _contextFactory.CreateDbContext();
-            IEnumerable<Articole> article = await context.Articole
-                .Include(p => p.ProgrammerTask)
-                .Include(pa => pa.ArticleDetails)
-                .Where(i => i.IdSector == 7 && i.IsDeleted==false).ToListAsync();
+            try
+            {
+                using PPDbContext context = _contextFactory.CreateDbContext();
+                IEnumerable<Articole> article = await context.Articole
+                    .Include(p => p.ProgrammerTask)
+                    .Include(pa => pa.ArticleDetails)
+                    .Where(i => i.IdSector == 7 && i.IsDeleted == false).ToListAsync();
 
-            return article;
+                return article;
+            }
+            catch(Exception EX)
+            {
+                log.Error("error: "+EX);
+                return null;
+            }
         }
 
         public async Task<Articole> GetByName(string articleName)
