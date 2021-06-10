@@ -427,6 +427,17 @@
                         Width="50"
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         EditFormVisible="False"
+                        FieldName="Num"
+                        Fixed="Left"
+                        Header="NUM"
+                        HeaderStyle="{StaticResource BaseHeaderStyle}"
+                        ReadOnly="True"
+                        Visible="False" />
+
+                    <dxg:GridColumn
+                        Width="50"
+                        ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
+                        EditFormVisible="False"
                         FieldName="NrCrt"
                         Fixed="Left"
                         Header="NUM"

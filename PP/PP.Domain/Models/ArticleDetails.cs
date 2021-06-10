@@ -9,7 +9,7 @@ namespace PP.Domain.Models
         public int? MachineNumber { get; set; }
         public int? CapiPrevisti { get; set; }
         public DateTime? DataInizioProd { get; set; }
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
         public DateTime? DataArrSchedePr { get; set; }
         public DateTime? DataConsegnaPr { get; set; }
         public DateTime? DataArrSchedeCa { get; set; }
@@ -20,9 +20,7 @@ namespace PP.Domain.Models
         public DateTime? DataArrSchedeCo { get; set; }
         public DateTime? DataConsegnaCo { get; set; }
         public DateTime? DataArrSchedaDisco { get; set; }
-        [NotMapped]
         public double? DiffGGProdData { get; set; }
-        [NotMapped]
         public double? DiffGGProgData { get; set; }
         public DateTime? DataConsegnaPP { get; set; }
         public DateTime? GG1 { get; set; }
@@ -34,7 +32,7 @@ namespace PP.Domain.Models
 
         [ForeignKey("Articole")]
         public int? ArticleID { get; set; }
-
+        
         public Articole Articole { get; set; }
     }
 }

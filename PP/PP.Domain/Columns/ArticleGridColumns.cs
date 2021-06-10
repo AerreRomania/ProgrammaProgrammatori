@@ -1,10 +1,12 @@
 ﻿using PP.Domain.Models;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PP.Domain.Columns
 {
     public class ArticleGridColumns : DomainObject
     {
+        [NotMapped]
         public int NrCrt { get; set; }
         public int? ArticleDeatilsID { get; set; }
         public int? Num { get; set; }
@@ -13,7 +15,7 @@ namespace PP.Domain.Columns
         public int? MachineNumber { get; set; }
         public int? CapiPrevisti { get; set; }
         public DateTime? DataInizioProd { get; set; }
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
 
         public DateTime? DataArrivoSchedePr { get; set; }
         public string ProgrammerPR { get; set; }

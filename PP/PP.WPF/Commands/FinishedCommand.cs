@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using PP.Domain.Columns;
@@ -86,16 +87,22 @@ namespace PP.WPF.Commands
                     DataFineSvilTgBase = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.EndTask,
                     Finish = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Finish,
                 };
-
+            int i = 1;
             _viewModel.PpArticles.Clear();
-
-            foreach (var row in mergedData)
+            mergedData = new ObservableCollection<ArticleGridColumns>(mergedData.OrderBy(n => n.DataInizioProd));
+            foreach (var article in mergedData)
             {
-                if (row.Finish == true)
-                {
-                    _viewModel.PpArticles.Add(row);
-                }
+                article.NrCrt = i;
+                _viewModel.PpArticles.Add(article);
+                i++;
             }
+            //foreach (var row in mergedData)
+            //{
+            //    if (row.Finish == true)
+            //    {
+            //        _viewModel.PpArticles.Add(row);
+            //    }
+            //}
         }
     }
 }

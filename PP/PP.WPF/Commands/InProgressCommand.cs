@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using PP.Domain.Columns;
@@ -90,12 +91,14 @@ namespace PP.WPF.Commands
                 };
 
             _viewModel.PpArticles.Clear();
-            foreach (var row in mergedData)
+            int i = 1;
+            _viewModel.PpArticles.Clear();
+            mergedData = new ObservableCollection<ArticleGridColumns>(mergedData.OrderBy(n => n.DataInizioProd));
+            foreach (var article in mergedData)
             {
-                if (row.Finish == false)
-                {
-                    _viewModel.PpArticles.Add(row);
-                }
+                article.NrCrt = i;
+                _viewModel.PpArticles.Add(article);
+                i++;
             }
         }
     }

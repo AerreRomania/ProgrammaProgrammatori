@@ -158,6 +158,7 @@ namespace PP.WPF.ViewModels
                 var row = _ppArticles.FirstOrDefault(i => i.Num == _selectedArticleRow.Num);
                 _ppArticles.Remove(row);
                 _ppArticles.Add(addedRow);
+
                 _ppArticles = new ObservableCollection<ArticleGridColumns>(_ppArticles.OrderBy(n => n.Num));
 
                 OnPropertyChanged(nameof(SelectedArticleRow));
@@ -169,11 +170,30 @@ namespace PP.WPF.ViewModels
         {
             try
             {
+                double diffprod ;
+                double diffprog ;
                 ArticleDetails article;
+                
+                if(articleDetails.DataInizioProd==null || articleDetails.DataArrivoSchedaDisco==null)
+                {
+                    diffprod = 0;
+                }
+                else
+                {
+                    diffprod = (articleDetails.DataInizioProd.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays;
+                }
+                if (articleDetails.StartPP == null || articleDetails.DataArrivoSchedaDisco == null)
+                {
+                    diffprog = 0;
+                }
+                else
+                {
+                    diffprog = (articleDetails.StartPP.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays;
+                }
 
                 var articleDetailId = articleDetails.ArticleDeatilsID ?? 0;
-
-                article = new ArticleDetails
+               
+                article = new ArticleDetails()
                 {
                     Id = articleDetailId,
                     MachineNumber = articleDetails.MachineNumber,
@@ -190,8 +210,8 @@ namespace PP.WPF.ViewModels
                     DataArrSchedeCo = articleDetails.DataArrivoSchedaCo,
                     DataConsegnaCo = articleDetails.DataConsegnaCo,
                     DataArrSchedaDisco = articleDetails.DataArrivoSchedaDisco,
-                    DiffGGProdData = (articleDetails.DataInizioProd.Value-articleDetails.DataArrivoSchedaDisco.Value).TotalDays,
-                    DiffGGProgData = (articleDetails.StartPP - articleDetails.DataArrivoSchedaDisco).Value.TotalDays,
+                    DiffGGProdData = diffprod,// : (articleDetails.DataInizioProd.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays,
+                    DiffGGProgData = diffprog,//(articleDetails.StartPP.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays,//: 0, //0 : (articleDetails.StartPP.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays,
                     DataConsegnaPP = articleDetails.DataConsegnaPP,
                     GG1 = articleDetails.GG1,
                     Ok = articleDetails.Ok,
@@ -200,11 +220,12 @@ namespace PP.WPF.ViewModels
                     GG2 = articleDetails.GG2,
                     Finish = articleDetails.Finish,
                     ArticleID = articleDetails.Num
+                   
                 };
 
-                Task.Run(async () =>
+                 Task.Run(async () =>
                     {
-                        if (article.Id == 0)
+                    if (article.Id == 0)
                         {
                             article = await _articleDetailsService.Create(article);
                             articleDetails.ArticleDeatilsID = article.Id;
@@ -476,11 +497,10 @@ namespace PP.WPF.ViewModels
 
                         DataArrivoSchedaDisco = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataArrSchedaDisco,
                         ProgrammerPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.Programmer.Angajat,
-                        DiffGGProdData = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DiffGGProdData,
-                        DiffGGProgData = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DiffGGProgData,
+                       
                         StartPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.StartTask,
                         EndPP = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 3)?.EndTask,
-
+                       
                         DataConsegnaPP = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DataConsegnaPP,
                         GG1 = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.GG1,
                         Ok = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Ok,
@@ -493,6 +513,7 @@ namespace PP.WPF.ViewModels
                 mergedData = new ObservableCollection<ArticleGridColumns>(mergedData.OrderBy(n => n.DataInizioProd));
                 foreach (var article in mergedData)
                 {
+                    
                     article.NrCrt = i;
                     _ppArticles.Add(article);
                     i++;

@@ -151,7 +151,7 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num"  || column.FieldName=="NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
 
                 switch (column.Name)
@@ -201,7 +201,7 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
 
                 column.Visible = false;
@@ -209,7 +209,7 @@ namespace PP.WPF.Views
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
                 switch (column.Name)
                 {
@@ -248,12 +248,12 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue; column.Visible = false; }
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Cliente") continue;
                 switch (column.Name)
                 {
                     case "ColumnDataArrivoSchedePr":
@@ -279,7 +279,7 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
 
                 column.Visible = false;
@@ -287,7 +287,7 @@ namespace PP.WPF.Views
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
                 switch (column.Name)
                 {
@@ -313,7 +313,7 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
 
                 column.Visible = false;
@@ -321,7 +321,7 @@ namespace PP.WPF.Views
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
                 switch (column.Name)
                 {
@@ -349,7 +349,7 @@ namespace PP.WPF.Views
         {
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
 
                 column.Visible = false;
@@ -357,7 +357,7 @@ namespace PP.WPF.Views
 
             foreach (GridColumn column in TableArticles.Grid.Columns)
             {
-                if (column.FieldName == "Num" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
+                if (column.FieldName == "Num" || column.FieldName == "NrCrt" || column.FieldName == "Articolo" || column.FieldName == "Finezza" || column.FieldName == "MachineNumber" || column.FieldName == "CapiPrevisti" || column.FieldName == "DataInizioProd" || column.FieldName == "Notes")
                     continue;
                 switch (column.Name)
                 {
