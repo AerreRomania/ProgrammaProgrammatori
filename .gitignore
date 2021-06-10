@@ -366,3 +366,6 @@ PP/PP.Chronometer.WPF/obj/Debug/netcoreapp3.1/Views/ChronometerView.g.i.cs
 PP/PP.Domain/obj/Debug/netcoreapp3.1/PP.Domain.csprojAssemblyReference.cache
 PP/PP.EntityFramework/obj/Debug/netcoreapp3.1/PP.EntityFramework.csprojAssemblyReference.cache
 PP/PP.WPF/obj/Debug/netcoreapp3.1/PP.WPF.csprojAssemblyReference.cache
+PP/PP.WPF/obj/Debug/netcoreapp3.1/Controls/LoadingControl.g.i.cs
+PP/PP.Chronometer.WPF/obj/Debug/netcoreapp3.1/PP.Chronometer.WPF.csprojAssemblyReference.cache
+PP/PP.WPF/obj/Debug/netcoreapp3.1/PP.WPF.csprojAssemblyReference.cache

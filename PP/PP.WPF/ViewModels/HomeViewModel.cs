@@ -155,11 +155,11 @@ namespace PP.WPF.ViewModels
                 _selectedArticleRow = value;
 
                 var addedRow = AddArticleDetails(_selectedArticleRow);
-                var row = _ppArticles.FirstOrDefault(i => i.Num == _selectedArticleRow.Num);
+                var row = _ppArticles.FirstOrDefault(i => i.NrCrt == _selectedArticleRow.NrCrt);
                 _ppArticles.Remove(row);
                 _ppArticles.Add(addedRow);
 
-                _ppArticles = new ObservableCollection<ArticleGridColumns>(_ppArticles.OrderBy(n => n.Num));
+                _ppArticles = new ObservableCollection<ArticleGridColumns>(_ppArticles.OrderBy(n => n.NrCrt));
 
                 OnPropertyChanged(nameof(SelectedArticleRow));
                 OnPropertyChanged(nameof(PpArticles));
@@ -195,6 +195,7 @@ namespace PP.WPF.ViewModels
                
                 article = new ArticleDetails()
                 {
+                   
                     Id = articleDetailId,
                     MachineNumber = articleDetails.MachineNumber,
                     CapiPrevisti = articleDetails.CapiPrevisti,
