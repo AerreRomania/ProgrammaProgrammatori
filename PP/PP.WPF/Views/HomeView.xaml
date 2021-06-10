@@ -454,21 +454,21 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         FieldName="MachineNumber"
                         Fixed="Left"
-                        Header="NUM. MACCHINE"
+                        Header="NUM. &#x0a;MACCHINE"
                         HeaderStyle="{StaticResource BaseHeaderStyle}" />
 
                     <dxg:GridColumn
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         FieldName="CapiPrevisti"
                         Fixed="Left"
-                        Header="CAPI PREVISTI"
+                        Header="CAPI &#x0a;PREVISTI"
                         HeaderStyle="{StaticResource BaseHeaderStyle}" />
 
                     <dxg:GridColumn
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         FieldName="DataInizioProd"
                         Fixed="Left"
-                        Header="DATA PRODUZIONE"
+                        Header="DATA &#x0a;PRODUZIONE"
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
                             <dxe:DateEditSettings DisplayFormat="d" />

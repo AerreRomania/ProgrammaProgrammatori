@@ -6,10 +6,10 @@
       "version": "3.1.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\Tihu\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Tihu\\.nuget\\packages",
+      "C:\\Users\\Dematec\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Dematec\\.nuget\\packages",
       "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
-      "C:\\Microsoft\\Xamarin\\NuGet",
+      "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ],
     "configProperties": {

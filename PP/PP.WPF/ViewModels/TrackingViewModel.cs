@@ -201,6 +201,7 @@ namespace PP.WPF.ViewModels
                     foreach (var programmerProgress in programmerProgresses)
                     {
                         programmerProgress.ArticleTitle = articles.FirstOrDefault(id => id.Id == programmerProgress.Progress.ArticleID)?.Articol;
+                        if (programmerProgress.EndWork == null) programmerProgress.EndWork = programmerProgress.StartWork.AddHours(1);
                         _programmerProgresses.Add(programmerProgress);
                     }
                     OnPropertyChanged("ProgrammerProgresses");

@@ -19,6 +19,6 @@ namespace PP.Domain.Models
 
         public ProgrammerTask Progress { get; set; }
         [NotMapped]
-        public TimeSpan Duration { get => DateTime.Now - StartWork; }
+        public string Duration { get => "Time worked: "+ (EndWork.Value - StartWork).Days +" days, "+ (EndWork.Value - StartWork).Hours+" hours and " + (EndWork.Value - StartWork).Minutes+" minutes"; }
     }
 }
