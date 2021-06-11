@@ -150,14 +150,17 @@
                 DisplayMemberPath="Stagiune"
                 IsEditable="True"
                 ItemsSource="{Binding StagioneList, Mode=TwoWay}"
-                SelectedValue="{Binding SelectedStagione, Mode=TwoWay}"
+                SelectedValue="{Binding SelectedStagiune, Mode=TwoWay}"
                 Style="{StaticResource BaseCB}" />
             <ComboBox
+                x:Name="AngajatiCB"
                 Grid.Row="1"
                 Grid.Column="1"
                 DisplayMemberPath="Angajat"
+                DropDownOpened="ComboBox_DropDownOpened"
                 IsEditable="True"
-                ItemsSource="{Binding AngajatiList, Mode=TwoWay}"
+                ItemsSource="{Binding AngajatiList}"
+                SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
                 SelectedValue="{Binding SelectedAngajat, Mode=TwoWay}"
                 Style="{StaticResource BaseCB}" />
 
@@ -195,7 +198,6 @@
                     AllowResizing="False"
                     AlternateRowBackground="LightGray"
                     AutoWidth="True"
-                    CustomRowAppearance="TableView_CustomRowAppearance"
                     FontSize="14"
                     ShowAutoFilterRow="False"
                     ShowBandsPanel="False"

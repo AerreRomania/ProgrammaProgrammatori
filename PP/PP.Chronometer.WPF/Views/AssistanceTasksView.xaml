@@ -143,7 +143,7 @@
                             HeaderStyle="{StaticResource BaseHeaderStyle}"
                             ReadOnly="True" />
                         <dxg:GridColumn
-                            MinWidth="211"
+                            MinWidth="511"
                             AllowEditing="True"
                             ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                             FieldName="Note"

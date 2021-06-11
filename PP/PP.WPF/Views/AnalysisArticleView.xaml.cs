@@ -30,5 +30,10 @@ namespace PP.WPF.Views
             InitializeComponent();
             this.DataContext = new AnalysisArticleViewModel(report,article);
         }
+
+        private void ArticleCB_DropDownOpened(object sender, EventArgs e)
+        {
+            ArticleCB.SelectedIndex = -1;
+        }
     }
 }

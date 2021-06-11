@@ -23,9 +23,11 @@ namespace PP.WPF.Views
             InitializeComponent();
         }
 
-        private void TableView_CustomRowAppearance(object sender, DevExpress.Xpf.Grid.CustomRowAppearanceEventArgs e)
+      
+
+        private void ComboBox_DropDownOpened(object sender, EventArgs e)
         {
-           
+            AngajatiCB.SelectedIndex = -1;
         }
     }
 }

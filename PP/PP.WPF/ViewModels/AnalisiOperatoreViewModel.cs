@@ -50,6 +50,7 @@ namespace PP.WPF.ViewModels
             GetAngajati();
             GetClients();
             GetStagiuni();
+            
         }
         private void GetPercent()
         {
@@ -106,35 +107,30 @@ namespace PP.WPF.ViewModels
         
         private void GetStagiuni()
         {
-            StagioneList = new ObservableCollection<Stagiuni>();
+           
             Task.Run(async () =>
             {
-                var stg = await _reportsService.GetStagiuniAsync();
-                foreach (var s in stg)
-                    StagioneList.Add(s);
-                OnPropertyChanged(nameof(StagioneList));
+                StagioneList = await _reportsService.GetStagiuniAsync();
+               
+                
             });
         }
         private void GetClients()
         {
-            ClientsList = new ObservableCollection<Clienti>();
+           
             Task.Run(async () =>
             {
-                var clients = await _reportsService.GetClientisAsync();
-                foreach (var c in clients)
-                    ClientsList.Add(c);
-                OnPropertyChanged(nameof(ClientsList));
+                ClientsList = await _reportsService.GetClientisAsync();
+                
             });
         }
         private void GetAngajati()
         {
-            AngajatiList = new ObservableCollection<Angajati>();
+            
             Task.Run(async () =>
             {
-                var clients = await _reportsService.GetAngajatiAsync();
-                foreach (var c in clients)
-                    AngajatiList.Add(c);
-                OnPropertyChanged(nameof(AngajatiList));
+                AngajatiList = await _reportsService.GetAngajatiAsync();
+                
             });
         }
 
@@ -153,43 +149,45 @@ namespace PP.WPF.ViewModels
             TemporaryList = new ObservableCollection<AnalisiOperatore>();
             AnalisiList = new ObservableCollection<AnalisiOperatoriColumns>();
             AnalisiPercent = new ObservableCollection<AnalisiOperatoriColumns>();
-            //if (SelectedAnno == null || SelectedClient == null || SelectedStagiune == null)
-            //{
-            //    MessageBox.Show("Please select all the fields!", "Error !");
-            //    return;
-            //}
-            Task.Factory.StartNew(async () =>
-                {
-                    for (int i = 1; i <= 12; i++)
+            if (SelectedIndex == -1) return;
+            if (SelectedAnno == null || SelectedClient == null || SelectedStagiune == null)
+            {
+                MessageBox.Show("Please select all the fields!", "Error !");
+            }
+            else
+            {
+                Task.Factory.StartNew(async () =>
                     {
-
-                        var analisi = await _reportsService.GetAnalisiOperatore(SelectedAngajat.Id, SelectedAnno, i, SelectedClient.Id);
-                        foreach (var a in analisi)
+                        for (int i = 1; i <= 12; i++)
                         {
-                            a.Luna = i;
-                            TemporaryList.Add(a);
-                        }
 
-                    }
-                    for (int i = 0; i < JobNames.Count; i++)
-                    {
-                        AnalisiOperatoriColumns item = new AnalisiOperatoriColumns();
-                        item.JobTypeName = JobNames[i];
-                        AnalisiList.Add(item);
-                        var curr = JobNames[i];
-                        foreach (var filter in TemporaryList.Where(a => a.JobTypeName == curr))
-                        {
-                            for (int x = 0; x < AnalisiList.Count; x++)
+                            var analisi = await _reportsService.GetAnalisiOperatore(SelectedAngajat.Id, SelectedAnno, i, SelectedClient.Id);
+                            foreach (var a in analisi)
                             {
+                                a.Luna = i;
+                                TemporaryList.Add(a);
+                            }
 
-                                if (AnalisiList[x].JobTypeName == filter.JobTypeName)
+                        }
+                        for (int i = 0; i < JobNames.Count; i++)
+                        {
+                            AnalisiOperatoriColumns item = new AnalisiOperatoriColumns();
+                            item.JobTypeName = JobNames[i];
+                            AnalisiList.Add(item);
+                            var curr = JobNames[i];
+                            foreach (var filter in TemporaryList.Where(a => a.JobTypeName == curr))
+                            {
+                                for (int x = 0; x < AnalisiList.Count; x++)
                                 {
-                                    if (filter.Luna == 1) AnalisiList[x].Gennaio += 1;
-                                    else if (filter.Luna == 2) AnalisiList[x].Febbraio += 1;
-                                    else if (filter.Luna == 3) AnalisiList[x].Marzo += 1;
-                                    else if (filter.Luna == 4) AnalisiList[x].Aprile += 1;
-                                    else if (filter.Luna == 5) AnalisiList[x].Maggio += 1;
-                                    else if (filter.Luna == 6) AnalisiList[x].Giugno += 1; //= filter.Count;
+
+                                    if (AnalisiList[x].JobTypeName == filter.JobTypeName)
+                                    {
+                                        if (filter.Luna == 1) AnalisiList[x].Gennaio += 1;
+                                        else if (filter.Luna == 2) AnalisiList[x].Febbraio += 1;
+                                        else if (filter.Luna == 3) AnalisiList[x].Marzo += 1;
+                                        else if (filter.Luna == 4) AnalisiList[x].Aprile += 1;
+                                        else if (filter.Luna == 5) AnalisiList[x].Maggio += 1;
+                                        else if (filter.Luna == 6) AnalisiList[x].Giugno += 1; //= filter.Count;
                                     else if (filter.Luna == 7) AnalisiList[x].Luglio += 1;//= filter.Count;
                                     else if (filter.Luna == 8) AnalisiList[x].Agosto += 1;//= filter.Count;
                                     else if (filter.Luna == 9) AnalisiList[x].Settembre += 1;//= filter.Count;
@@ -197,42 +195,42 @@ namespace PP.WPF.ViewModels
                                     else if (filter.Luna == 11) AnalisiList[x].Novembre += 1;//= filter.Count;
                                     else if (filter.Luna == 12) AnalisiList[x].Dicembre += 1;// = filter.Count;
                                     AnalisiList[x].Total = AnalisiList[x].Gennaio + AnalisiList[x].Febbraio + AnalisiList[x].Marzo + AnalisiList[x].Maggio + AnalisiList[x].Aprile + AnalisiList[x].Giugno + AnalisiList[x].Luglio + AnalisiList[x].Agosto + AnalisiList[x].Settembre + AnalisiList[x].Ottombre + AnalisiList[x].Novembre + AnalisiList[x].Dicembre;
+                                    }
+                                    else continue;
                                 }
-                                else continue;
                             }
                         }
-                    }
-                    AnalisiOperatoriColumns total = new AnalisiOperatoriColumns();
-                    total.JobTypeName = "Total";
-                    foreach (var a in AnalisiList)
+                        AnalisiOperatoriColumns total = new AnalisiOperatoriColumns();
+                        total.JobTypeName = "Total";
+                        foreach (var a in AnalisiList)
+                        {
+                            total.Gennaio += a.Gennaio;
+                            total.Febbraio += a.Febbraio;
+                            total.Marzo += a.Marzo;
+                            total.Aprile += a.Aprile;
+                            total.Maggio += a.Maggio;
+                            total.Giugno += a.Giugno;
+                            total.Luglio += a.Luglio;
+                            total.Agosto += a.Agosto;
+                            total.Settembre += a.Settembre;
+                            total.Ottombre += a.Ottombre;
+                            total.Novembre += a.Novembre;
+                            total.Dicembre += a.Dicembre;
+                            total.Total += a.Total;
+                        }
+
+                        AnalisiList.Add(total);
+                        Totals = total;
+
+                        OnPropertyChanged(nameof(Totals));
+                        OnPropertyChanged(nameof(AnalisiList));
+                    }).ContinueWith(Task =>
                     {
-                        total.Gennaio += a.Gennaio;
-                        total.Febbraio += a.Febbraio;
-                        total.Marzo += a.Marzo;
-                        total.Aprile += a.Aprile;
-                        total.Maggio += a.Maggio;
-                        total.Giugno += a.Giugno;
-                        total.Luglio += a.Luglio;
-                        total.Agosto += a.Agosto;
-                        total.Settembre += a.Settembre;
-                        total.Ottombre += a.Ottombre;
-                        total.Novembre += a.Novembre;
-                        total.Dicembre += a.Dicembre;
-                        total.Total += a.Total;
-                    }
+                        GetPercent();
+                    }, System.Threading.CancellationToken.None, TaskContinuationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
 
-                    AnalisiList.Add(total);
-                    Totals = total;
-
-                    OnPropertyChanged(nameof(Totals));
-                    OnPropertyChanged(nameof(AnalisiList));
-                }).ContinueWith(Task =>
-                {
-                    GetPercent();
-                }, System.Threading.CancellationToken.None, TaskContinuationOptions.None, TaskScheduler.FromCurrentSynchronizationContext());
-
-
-
+               
+            }
         }
         public List<string> JobNames = new List<string>()
         {
@@ -246,6 +244,16 @@ namespace PP.WPF.ViewModels
             "Contracampione",
             "Vacanza",
         };
+        private int _selectedIndex;
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                _selectedIndex = value;
+                OnPropertyChanged(nameof(SelectedIndex));
+            }
+        }
         private ObservableCollection<AnalisiOperatore> _temoporarylist;
         public ObservableCollection<AnalisiOperatore> TemporaryList
         {
@@ -279,7 +287,7 @@ namespace PP.WPF.ViewModels
             }
         }
         private Stagiuni _selectedStg;
-        private Stagiuni SelectedStagiune
+        public Stagiuni SelectedStagiune
         {
             get => _selectedStg;
             set
@@ -288,8 +296,8 @@ namespace PP.WPF.ViewModels
                 OnPropertyChanged(nameof(SelectedStagiune));
             }
         }
-        private ObservableCollection<Stagiuni> _stagiuni;
-        public ObservableCollection<Stagiuni> StagioneList
+        private IEnumerable<Stagiuni> _stagiuni;
+        public IEnumerable<Stagiuni> StagioneList
         {
             get => _stagiuni;
             set
@@ -308,8 +316,8 @@ namespace PP.WPF.ViewModels
                 OnPropertyChanged(nameof(SelectedClient));
             }
         }
-        private ObservableCollection<Clienti> _clientsList;
-        public ObservableCollection<Clienti> ClientsList
+        private IEnumerable<Clienti> _clientsList;
+        public IEnumerable<Clienti> ClientsList
         {
             get => _clientsList;
             set
@@ -340,9 +348,9 @@ namespace PP.WPF.ViewModels
             }
         }
 
-        private ObservableCollection<Angajati> _analysisList;
+        private IEnumerable<Angajati> _analysisList;
 
-        public ObservableCollection<Angajati> AngajatiList
+        public IEnumerable<Angajati> AngajatiList
         {
             get => _analysisList;
             set
@@ -352,15 +360,15 @@ namespace PP.WPF.ViewModels
             }
 
         }
-        private Angajati _selectedArticle;
+        private Angajati _selectedAngajat;
         public Angajati SelectedAngajat
         {
-            get => _selectedArticle;
+            get => _selectedAngajat;
             set
             {
-                _selectedArticle = value;
+                _selectedAngajat = value;
                 OnPropertyChanged(nameof(SelectedAngajat));
-                if(SelectedAngajat!=null) GetReport();
+                GetReport();
 
             }
         }

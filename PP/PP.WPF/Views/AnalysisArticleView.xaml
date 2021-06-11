@@ -56,6 +56,7 @@
         <Style x:Key="BaseGrid" TargetType="Grid">
             <Setter Property="Background" Value="#FFC000" />
         </Style>
+
         <converters:BooleanToIntegerConverter x:Key="BoolToIntConverter" />
     </UserControl.Resources>
 
@@ -80,7 +81,7 @@
             <WrapPanel Grid.Row="0" Style="{StaticResource BaseWrap}">
                 <Label Content="Data Inizio: " Style="{StaticResource RightLabel}" />
                 <DatePicker
-                    SelectedDate="{Binding StartDate}"
+                    SelectedDate="{Binding StartDate, Mode=TwoWay}"
                     SelectedDateFormat="Short"
                     Style="{StaticResource BaseDP}" />
             </WrapPanel>
@@ -88,7 +89,7 @@
                 <Label Content="Data Fine: " Style="{StaticResource RightLabel}" />
                 <DatePicker
                     Margin="10,0,0,0"
-                    SelectedDate="{Binding EndDate}"
+                    SelectedDate="{Binding EndDate, Mode=TwoWay}"
                     SelectedDateFormat="Short"
                     Style="{StaticResource BaseDP}" />
             </WrapPanel>
@@ -113,9 +114,12 @@
             <WrapPanel Grid.Row="1" Style="{StaticResource BaseWrap}">
                 <Label Content="Articolo: " Style="{StaticResource RightLabel}" />
                 <ComboBox
+                    x:Name="ArticleCB"
                     DisplayMemberPath="Articol"
+                    DropDownOpened="ArticleCB_DropDownOpened"
                     IsEditable="True"
                     ItemsSource="{Binding ArticleList}"
+                    SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
                     SelectedValue="{Binding SelectedArticle, Mode=TwoWay}"
                     Style="{StaticResource BaseCB}" />
             </WrapPanel>
@@ -127,7 +131,13 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
+            <WrapPanel Style="{StaticResource BaseWrap}">
+                <Label Content="Current year: " Style="{StaticResource LeftLabel}" />
+                <CheckBox
+                    Margin="10,4,0,0"
+                    VerticalAlignment="Center"
+                    IsChecked="{Binding IsChecked, Mode=TwoWay}" />
+            </WrapPanel>
             <WrapPanel Grid.Row="1" Style="{StaticResource BaseWrap}">
                 <Label Content="Finezza: " Style="{StaticResource RightLabel}" />
                 <Label Content="{Binding SelectedArticle.Finete}" Style="{StaticResource LeftLabel}" />
