@@ -22,7 +22,7 @@ namespace PP.WPF.ViewModels
             _reportsService = reportservice;
             RefreshCommand = new DelegateCommand<object>(OnRefreshCommand);
             AnnoList = new List<int>() { 2020, 2021 };
-           
+          
             GetAngajati();
             GetClients();
             GetStagiuni();
@@ -150,7 +150,7 @@ namespace PP.WPF.ViewModels
             AnalisiList = new ObservableCollection<AnalisiOperatoriColumns>();
             AnalisiPercent = new ObservableCollection<AnalisiOperatoriColumns>();
             if (SelectedIndex == -1) return;
-            if (SelectedAnno == null || SelectedClient == null || SelectedStagiune == null)
+            if (SelectedAnno == null || SelectedClient == null )
             {
                 MessageBox.Show("Please select all the fields!", "Error !");
             }
@@ -368,7 +368,7 @@ namespace PP.WPF.ViewModels
             {
                 _selectedAngajat = value;
                 OnPropertyChanged(nameof(SelectedAngajat));
-                GetReport();
+               if(SelectedAngajat!=null) GetReport();
 
             }
         }

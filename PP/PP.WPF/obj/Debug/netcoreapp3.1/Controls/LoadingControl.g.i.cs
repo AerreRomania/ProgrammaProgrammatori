@@ -53,7 +53,7 @@ namespace PP.WPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PP.WPF;component/controls/loadingcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PP.WPF;V1.0.0.0;component/controls/loadingcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\LoadingControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

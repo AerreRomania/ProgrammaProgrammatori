@@ -110,12 +110,14 @@
                 Content="Cliente "
                 Style="{StaticResource RightLabel}" />
             <ComboBox
+                x:Name="CbAnno"
                 Grid.Column="1"
                 IsEditable="True"
                 ItemsSource="{Binding AnnoList, Mode=TwoWay}"
                 SelectedValue="{Binding SelectedAnno, Mode=TwoWay}"
                 Style="{StaticResource BaseCB}" />
             <ComboBox
+                x:Name="CbClient"
                 Grid.Row="1"
                 Grid.Column="1"
                 DisplayMemberPath="Client"
@@ -135,23 +137,23 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Label
+            <!--<Label
                 Grid.Row="0"
                 Content="Stagione: "
-                Style="{StaticResource RightLabel}" />
+                Style="{StaticResource RightLabel}" />-->
             <Label
                 Grid.Row="1"
                 Content="Nome del Programmatore: "
                 Style="{StaticResource RightLabel}" />
 
-            <ComboBox
+            <!--<ComboBox
                 Grid.Row="0"
                 Grid.Column="1"
                 DisplayMemberPath="Stagiune"
                 IsEditable="True"
                 ItemsSource="{Binding StagioneList, Mode=TwoWay}"
                 SelectedValue="{Binding SelectedStagiune, Mode=TwoWay}"
-                Style="{StaticResource BaseCB}" />
+                Style="{StaticResource BaseCB}" />-->
             <ComboBox
                 x:Name="AngajatiCB"
                 Grid.Row="1"

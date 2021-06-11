@@ -20,11 +20,12 @@ namespace PP.WPF.ViewModels
         {
             _reportsService = reportservice;
             _articleService = articleService;
-           
 
+            
             GetArticles();
             GetClients();
             StartDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).Date; 
+
             EndDate = DateTime.Now;
         }
         private void GetClients()

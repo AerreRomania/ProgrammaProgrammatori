@@ -88,7 +88,6 @@ namespace PP.WPF.Commands
 
             _viewModel.PpArticles.Clear();
             int i = 1;
-            _viewModel.PpArticles.Clear();
             mergedData = new ObservableCollection<ArticleGridColumns>(mergedData.OrderBy(n => n.DataInizioProd));
             foreach (var article in mergedData)
             {

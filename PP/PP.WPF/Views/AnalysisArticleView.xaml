@@ -104,6 +104,7 @@
             <WrapPanel Grid.Row="0" Style="{StaticResource BaseWrap}">
                 <Label Content="Cliente: " Style="{StaticResource RightLabel}" />
                 <ComboBox
+                    x:Name="cbClient"
                     Margin="17,0,0,0"
                     DisplayMemberPath="Client"
                     IsEditable="True"
