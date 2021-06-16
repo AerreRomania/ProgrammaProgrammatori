@@ -136,14 +136,13 @@
                             HeaderStyle="{StaticResource BaseHeaderStyle}"
                             ReadOnly="True" />
                         <dxg:GridColumn
-                            MinWidth="200"
                             ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                             FieldName="EndDate"
                             Header="END"
                             HeaderStyle="{StaticResource BaseHeaderStyle}"
                             ReadOnly="True" />
                         <dxg:GridColumn
-                            MinWidth="511"
+                            MinWidth="650"
                             AllowEditing="True"
                             ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                             FieldName="Note"
@@ -235,14 +234,13 @@
                             HeaderStyle="{StaticResource BaseHeaderStyle}"
                             ReadOnly="True" />
                         <dxg:GridColumn
-                            MinWidth="200"
                             ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                             FieldName="EndDate"
                             Header="END"
                             HeaderStyle="{StaticResource BaseHeaderStyle}"
                             ReadOnly="True" />
                         <dxg:GridColumn
-                            MinWidth="511"
+                            MinWidth="650"
                             ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                             FieldName="Note"
                             Header="Note"

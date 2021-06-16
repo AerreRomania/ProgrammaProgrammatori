@@ -9,6 +9,8 @@
       "PP.Chronometer.WPF/1.0.0": {
         "dependencies": {
           "Core.Common.UI.WPF": "1.0.0",
+          "DevExpress.WindowsDesktop.Charts": "20.2.7",
+          "DevExpress.WindowsDesktop.Charts.Core": "20.2.7",
           "DevExpress.WindowsDesktop.Mvvm": "20.2.7",
           "DevExpress.WindowsDesktop.Wpf.Grid": "20.2.7",
           "DevExpress.WindowsDesktop.Wpf.Grid.Core": "20.2.7",
@@ -18,6 +20,34 @@
         },
         "runtime": {
           "PP.Chronometer.WPF.dll": {}
+        }
+      },
+      "DevExpress.WindowsDesktop.Charts/20.2.7": {
+        "dependencies": {
+          "DevExpress.WindowsDesktop.Charts.Core": "20.2.7",
+          "DevExpress.WindowsDesktop.Data": "20.2.7",
+          "DevExpress.WindowsDesktop.DataVisualization.Core": "20.2.7",
+          "DevExpress.WindowsDesktop.Printing.Core": "20.2.7",
+          "NETStandard.Library": "2.0.3",
+          "System.Drawing.Common": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DevExpress.XtraCharts.v20.2.dll": {
+            "assemblyVersion": "20.2.7.0",
+            "fileVersion": "20.2.7.0"
+          }
+        }
+      },
+      "DevExpress.WindowsDesktop.Charts.Core/20.2.7": {
+        "dependencies": {
+          "DevExpress.WindowsDesktop.Data": "20.2.7",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DevExpress.Charts.v20.2.Core.dll": {
+            "assemblyVersion": "20.2.7.0",
+            "fileVersion": "20.2.7.0"
+          }
         }
       },
       "DevExpress.WindowsDesktop.CodeParser/20.2.7": {
@@ -83,6 +113,18 @@
         },
         "runtime": {
           "lib/netcoreapp3.0/DevExpress.Data.Desktop.v20.2.dll": {
+            "assemblyVersion": "20.2.7.0",
+            "fileVersion": "20.2.7.0"
+          }
+        }
+      },
+      "DevExpress.WindowsDesktop.DataVisualization.Core/20.2.7": {
+        "dependencies": {
+          "DevExpress.WindowsDesktop.Data": "20.2.7",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DevExpress.DataVisualization.v20.2.Core.dll": {
             "assemblyVersion": "20.2.7.0",
             "fileVersion": "20.2.7.0"
           }
@@ -1613,6 +1655,8 @@
       },
       "PP.Domain/1.0.0": {
         "dependencies": {
+          "DevExpress.WindowsDesktop.Charts": "20.2.7",
+          "DevExpress.WindowsDesktop.Charts.Core": "20.2.7",
           "NLog": "4.7.10"
         },
         "runtime": {
@@ -1621,6 +1665,8 @@
       },
       "PP.EntityFramework/1.0.0": {
         "dependencies": {
+          "DevExpress.WindowsDesktop.Charts": "20.2.7",
+          "DevExpress.WindowsDesktop.Charts.Core": "20.2.7",
           "Microsoft.EntityFrameworkCore": "5.0.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.6",
           "NLog": "4.7.10",
@@ -1637,6 +1683,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "DevExpress.WindowsDesktop.Charts/20.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DFmsvDrtACpWKc1xIIPDH3xaqxOAky+IbvnKAm+Pl3mCW7wfOaW4uSTnH1fDU4DY8mBvpYMxgSZmhPnzEidqNA==",
+      "path": "devexpress.windowsdesktop.charts/20.2.7",
+      "hashPath": "devexpress.windowsdesktop.charts.20.2.7.nupkg.sha512"
+    },
+    "DevExpress.WindowsDesktop.Charts.Core/20.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZMvdJaziAGGhM+BK0qXHcLYq+C3q2wdQha0Oes7Z6ohlooICRd8ic85l9Rgz/UnU1SJoaqsHtMcN90pxWuCbdg==",
+      "path": "devexpress.windowsdesktop.charts.core/20.2.7",
+      "hashPath": "devexpress.windowsdesktop.charts.core.20.2.7.nupkg.sha512"
     },
     "DevExpress.WindowsDesktop.CodeParser/20.2.7": {
       "type": "package",
@@ -1665,6 +1725,13 @@
       "sha512": "sha512-0rfkTsp66abHJkSZ9cDE647bMWlG3psFUO4d5HBvNfc+PNEsV0sKYPb6+enMD0w9/BPSXlr4+SE98nTw/aiNrA==",
       "path": "devexpress.windowsdesktop.datadesktop/20.2.7",
       "hashPath": "devexpress.windowsdesktop.datadesktop.20.2.7.nupkg.sha512"
+    },
+    "DevExpress.WindowsDesktop.DataVisualization.Core/20.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wBN946R/HU9scICb6QfcqC2i0jDdTnKJ/Mk7SyUHsMCZyDqhop0q0KcG+KU9HWWyj/w0XuOKCP5F5pHss3X+tw==",
+      "path": "devexpress.windowsdesktop.datavisualization.core/20.2.7",
+      "hashPath": "devexpress.windowsdesktop.datavisualization.core.20.2.7.nupkg.sha512"
     },
     "DevExpress.WindowsDesktop.Images/20.2.7": {
       "type": "package",

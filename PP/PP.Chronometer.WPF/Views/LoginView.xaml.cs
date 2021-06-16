@@ -21,6 +21,7 @@ namespace PP.Chronometer.WPF.Views
         public LoginView()
         {
             InitializeComponent();
+            User.Focus();
         }
 
         private void ButtonLogin_OnClick(object sender, RoutedEventArgs e)

@@ -56,7 +56,7 @@ namespace PP.Chronometer.WPF.Controls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PP.Chronometer.WPF;V1.0.0.0;component/controls/navigationbar.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PP.Chronometer.WPF;component/controls/navigationbar.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Controls\NavigationBar.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
