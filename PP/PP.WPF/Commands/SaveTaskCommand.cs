@@ -1,4 +1,5 @@
-﻿using PP.Domain.Services;
+﻿using PP.Domain.Models;
+using PP.Domain.Services;
 using PP.WPF.ViewModels;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace PP.WPF.Commands
         public override async Task ExecuteAsync(object parameter)
         {
             var task = _viewModel.ProgrammerTask;
+            //if (task==null)
+            //{
+            //    task = new ProgrammerTask() { Article = null, ArticleID = 0, ArticleTitle = "Vacanza", ProgrammerTaskID = 0, ProgrammerID = task.ProgrammerID, };
+
+            //}
 
             if (task.ProgrammerTaskID == 0)
             {

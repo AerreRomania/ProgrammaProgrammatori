@@ -10,11 +10,11 @@ namespace PP.Domain.Models
         public string Articol { get; set; }
         public string Descriere { get; set; }
         public double? CostProductie { get; set; }
-        public int IdStagiune { get; set; }
+        public int? IdStagiune { get; set; }
         public string Finete { get; set; }
         public double? Prezzo { get; set; }
         public double? Centes { get; set; }
-        public string Stagione { get; set; }
+        public string? Stagione { get; set; }
         public bool Active { get; set; }
         public string Note { get; set; }
         public byte[] PdfView { get; set; }
