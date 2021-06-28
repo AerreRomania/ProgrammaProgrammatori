@@ -223,7 +223,7 @@
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" DisplayFormat="N2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
                 <dxg:GridColumn
@@ -235,7 +235,7 @@
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" DisplayFormat="N2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
 
@@ -248,7 +248,7 @@
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" DisplayFormat="N2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
                 <dxg:GridColumn
@@ -260,7 +260,7 @@
                     HorizontalHeaderContentAlignment="Center"
                     ReadOnly="True">
                     <dxg:GridColumn.EditSettings>
-                        <dxe:TextEditSettings HorizontalContentAlignment="Center" />
+                        <dxe:TextEditSettings HorizontalContentAlignment="Center" DisplayFormat="N2" />
                     </dxg:GridColumn.EditSettings>
                 </dxg:GridColumn>
             </dxg:GridControl.Columns>

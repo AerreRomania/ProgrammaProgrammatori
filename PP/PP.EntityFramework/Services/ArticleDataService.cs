@@ -47,7 +47,7 @@ namespace PP.EntityFramework.Services
                 IEnumerable<Articole> article = await context.Articole
                     .Include(p => p.ProgrammerTask)
                     .Include(pa => pa.ArticleDetails)
-                    .Where(i => i.IdSector == 7 && i.IsDeleted == false).ToListAsync();
+                    .Where(i => i.IdSector == 7 && i.IsDeleted == false || i.Id==5083).ToListAsync();
 
                 return article;
             }

@@ -47,7 +47,7 @@ namespace PP.Domain.Columns
         public DateTime? StartPP { get; set; }
         public DateTime? EndPP { get; set; }
         public DateTime? DataConsegnaPP { get; set; }
-        public DateTime? GG1 { get; set; }
+        public double? GG1 { get; set; }
 
         public DateTime? Ok { get; set; }
 
@@ -55,7 +55,7 @@ namespace PP.Domain.Columns
         public DateTime? DataInizioSvilTgBase { get; set; }
         public DateTime? DataFineSvilTgBase { get; set; }
 
-        public DateTime? GG2 { get; set; }
+        public double? GG2 { get; set; }
         public bool? Finish { get; set; }
 
         //#region removed

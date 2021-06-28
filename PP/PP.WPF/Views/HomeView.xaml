@@ -297,7 +297,7 @@
                 <Button
                     Name="ButtonPrCa"
                     Click="ButtonPrCa_OnClick"
-                    Content="PR/CA" />
+                    Content="Prototipo/Campionario" />
                 <Button
                     Name="ButtonScTec"
                     Click="ButtonScTec_OnClick"
@@ -497,7 +497,7 @@
                         Name="ColumnDataArrivoSchedePr"
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         FieldName="DataArrivoSchedePr"
-                        Header="DATA ARRIVO&#x0a;SCHEDE PR."
+                        Header="DATA ARRIVO&#x0a;SCHEDA PROTOT."
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
                             <dxe:DateEditSettings DisplayFormat="d" />
@@ -510,7 +510,7 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         EditFormVisible="False"
                         FieldName="ProgrammerPR"
-                        Header="NOME&#x0a;PROGRAMMER PR."
+                        Header="NOME PROGRAMM.&#x0a;PROTOT."
                         HeaderStyle="{StaticResource BaseHeaderStyle}" />
 
 
@@ -568,7 +568,7 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         EditFormVisible="False"
                         FieldName="ProgrammerCa"
-                        Header="NOME&#x0a;PROGRAMMER CA. "
+                        Header="NOME PROGRAMM.&#x0a;CAMPIONARIO"
                         HeaderStyle="{StaticResource BaseHeaderStyle}" />
 
                     <dxg:GridColumn
@@ -661,7 +661,7 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         EditFormVisible="False"
                         FieldName="ProgrammerCo"
-                        Header="NOME&#x0a;PROGRAMMER CO. "
+                        Header="NOME PROGRAMM.&#x0a;CONTRACAMPIONE"
                         HeaderStyle="{StaticResource BaseHeaderStyle}" />
 
                     <dxg:GridColumn
@@ -720,7 +720,7 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         EditFormVisible="False"
                         FieldName="ProgrammerPP"
-                        Header="NOME&#x0a;PROGR. PP."
+                        Header="NOME PROGRRAMM.&#x0a;PREPRODUZ."
                         HeaderStyle="{StaticResource BaseHeaderStyle}" />
 
                     <dxg:GridColumn
@@ -728,10 +728,10 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         FieldName="DiffGGProdData"
                         GroupInterval="DateRange"
-                        Header="DIFF GG I Prod.&#x0a;E ArS"
+                        Header="DIFF. GG DATA PRODUZ.&#x0a;E DATA ARR SCHEDA."
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
-                            <dxe:DateEditSettings DisplayFormat="d" />
+                            <dxe:TextEditSettings DisplayFormat="N0" />
                         </dxg:GridColumn.EditSettings>
                     </dxg:GridColumn>
 
@@ -741,10 +741,10 @@
                         ColumnHeaderContentStyle="{StaticResource ColumnHeaderStyle}"
                         FieldName="DiffGGProgData"
                         GroupInterval="DateRange"
-                        Header="DIFF GG I Prog.&#x0a;E ArS"
+                        Header="DIFF. GG ARR. SCHEDA&#x0a;E INIZIO PREPRODUZ."
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
-                            <dxe:DateEditSettings DisplayFormat="d" />
+                            <dxe:TextEditSettings DisplayFormat="N0" />
                         </dxg:GridColumn.EditSettings>
                     </dxg:GridColumn>
 
@@ -754,7 +754,7 @@
                         EditFormVisible="False"
                         FieldName="StartPP"
                         GroupInterval="DateRange"
-                        Header="DATA INIZIO&#x0a;PP. PROGR."
+                        Header="DATA INIZIO&#x0a;PREPRODUZ."
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
                             <dxe:DateEditSettings DisplayFormat="d" />
@@ -767,7 +767,7 @@
                         EditFormVisible="False"
                         FieldName="EndPP"
                         GroupInterval="DateRange"
-                        Header="DATA FINE SVIL.&#x0a;TG. PROGR."
+                        Header="DATA FINE&#x0a;PRERODUZ."
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
                             <dxe:DateEditSettings DisplayFormat="d" />
@@ -794,7 +794,7 @@
                         Header="GG"
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
-                            <dxe:DateEditSettings DisplayFormat="d" />
+                            <dxe:TextEditSettings DisplayFormat="N0" />
                         </dxg:GridColumn.EditSettings>
                     </dxg:GridColumn>
 
@@ -852,7 +852,7 @@
                         Header="GG"
                         HeaderStyle="{StaticResource BaseHeaderStyle}">
                         <dxg:GridColumn.EditSettings>
-                            <dxe:DateEditSettings DisplayFormat="d" />
+                            <dxe:TextEditSettings DisplayFormat="NO" />
                         </dxg:GridColumn.EditSettings>
                     </dxg:GridColumn>
 

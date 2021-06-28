@@ -172,8 +172,11 @@ namespace PP.WPF.ViewModels
             {
                 double diffprod ;
                 double diffprog ;
+                double diffGG1;
+                double diffGG2;
                 ArticleDetails article;
                 
+                //ggprod
                 if(articleDetails.DataInizioProd==null || articleDetails.DataArrivoSchedaDisco==null)
                 {
                     diffprod = 0;
@@ -182,6 +185,7 @@ namespace PP.WPF.ViewModels
                 {
                     diffprod = (articleDetails.DataInizioProd.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays;
                 }
+                //ggPROG
                 if (articleDetails.StartPP == null || articleDetails.DataArrivoSchedaDisco == null)
                 {
                     diffprog = 0;
@@ -190,7 +194,24 @@ namespace PP.WPF.ViewModels
                 {
                     diffprog = (articleDetails.StartPP.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays;
                 }
-
+                //gg2
+                if (articleDetails.StartPP == null || articleDetails.DataConsegnaPP == null)
+                {
+                    diffGG1 = 0;
+                }
+                else
+                {
+                    diffGG1 = (articleDetails.DataConsegnaPP.Value- articleDetails.StartPP.Value).TotalDays;
+                }
+                //gg1
+                if (articleDetails.DataInizioSvilTgBase == null || articleDetails.DataFineSvilTgBase == null)
+                {
+                    diffGG2 = 0;
+                }
+                else
+                {
+                    diffGG2 = (articleDetails.DataFineSvilTgBase.Value - articleDetails.DataInizioSvilTgBase.Value).TotalDays;
+                }
                 var articleDetailId = articleDetails.ArticleDeatilsID ?? 0;
                
                 article = new ArticleDetails()
@@ -214,11 +235,11 @@ namespace PP.WPF.ViewModels
                     DiffGGProdData = Math.Round(diffprod,0),// : (articleDetails.DataInizioProd.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays,
                     DiffGGProgData = Math.Round(diffprog,0),//(articleDetails.StartPP.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays,//: 0, //0 : (articleDetails.StartPP.Value - articleDetails.DataArrivoSchedaDisco.Value).TotalDays,
                     DataConsegnaPP = articleDetails.DataConsegnaPP,
-                    GG1 = articleDetails.GG1,
+                    GG1 = Math.Round(diffGG1, 0),
                     Ok = articleDetails.Ok,
                     DataFineSvilTgBase = articleDetails.DataFineSvilTgBase,
                     DataInizioSvilTgBase = articleDetails.DataInizioSvilTgBase,
-                    GG2 = articleDetails.GG2,
+                    GG2 = Math.Round(diffGG2,0),
                     Finish = articleDetails.Finish,
                     ArticleID = articleDetails.Num
                    
@@ -509,6 +530,9 @@ namespace PP.WPF.ViewModels
                         DataInizioSvilTgBase = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.StartTask,
                         DataFineSvilTgBase = tasks.FirstOrDefault(i => i.ArticleID == a.Id && i.JobTypeID == 4)?.EndTask,
                         Finish = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.Finish,
+                        DiffGGProdData= articleDetails.FirstOrDefault(i=>i.ArticleID== a.Id)?.DiffGGProdData,
+                        DiffGGProgData = articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.DiffGGProgData,
+                        GG2= articleDetails.FirstOrDefault(i => i.ArticleID == a.Id)?.GG2,
                     };
                 int i = 1;
                 mergedData = new ObservableCollection<ArticleGridColumns>(mergedData.OrderBy(n => n.DataInizioProd));

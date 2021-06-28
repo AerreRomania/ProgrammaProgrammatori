@@ -23,11 +23,11 @@ namespace PP.Domain.Models
         public double? DiffGGProdData { get; set; }
         public double? DiffGGProgData { get; set; }
         public DateTime? DataConsegnaPP { get; set; }
-        public DateTime? GG1 { get; set; }
+        public double? GG1 { get; set; }
         public DateTime? Ok { get; set; }
         public DateTime? DataInizioSvilTgBase { get; set; }
         public DateTime? DataFineSvilTgBase { get; set; }
-        public DateTime? GG2 { get; set; }
+        public double? GG2 { get; set; }
         public bool? Finish { get; set; }
 
         [ForeignKey("Articole")]

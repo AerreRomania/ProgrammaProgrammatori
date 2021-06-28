@@ -96,7 +96,7 @@ namespace PP.WPF.Commands
             mergedData = new ObservableCollection<ArticleGridColumns>(mergedData.OrderBy(n => n.DataInizioProd));
             foreach (var article in mergedData)
             {
-                if (article.Finish == false)
+                if (article.ProgrammerCa==null && article.ProgrammerCo==null && article.ProgrammerPP==null && article.ProgrammerPR==null && article.ProgrammerSvTg==null)
                 {
                     article.NrCrt = i;
                     _viewModel.PpArticles.Add(article);
